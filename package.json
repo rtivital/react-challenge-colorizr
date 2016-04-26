@@ -1,0 +1,26 @@
+{
+  "name": "react-challenge-colorizr",
+  "version": "1.0.0",
+  "description": "Boilerplate for second React Challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rtivital/react-challenge-colorizr.git"
+  },
+  "keywords": [
+    "react",
+    "react-challenge",
+    "react-router",
+    "redux",
+    "react-redux"
+  ],
+  "author": "rtivital",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rtivital/react-challenge-colorizr/issues"
+  },
+  "homepage": "https://github.com/rtivital/react-challenge-colorizr#readme"
+}
