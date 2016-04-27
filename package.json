@@ -4,6 +4,7 @@
   "description": "Boilerplate for second React Challenge",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "lint": "eslint src"
   },
   "repository": {
