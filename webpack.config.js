@@ -5,19 +5,23 @@ var webpack = require('webpack');
 
 module.exports = {
   devtool: 'eval',
+
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
     './src/index'
   ],
+
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js',
     publicPath: '/public/'
   },
+
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ],
+
   module: {
     loaders: [
       {
@@ -29,6 +33,6 @@ module.exports = {
         test: /\.scss$/,
         loaders: ['style', 'css', 'sass']
       }
-  ]
+    ]
   }
 };
