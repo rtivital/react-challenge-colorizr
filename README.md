@@ -43,3 +43,12 @@ npm start
 * [Style Loader](https://github.com/webpack/style-loader)
 * [CSS Loader](https://github.com/webpack/css-loader)
 * [Sass Loader](https://github.com/jtangelder/sass-loader)
+
+## Публикация проекта
+Проект возможно опубликовать совершенно бесплатно, без регистрации и смс. Созданное вами приложение будет размещено на [Github Pages](https://pages.github.com/) и будет доступно по адресу `http://<account>.github.io/react-challenge-colorizr/`, где `<account>` соответствеует вашему никнейму на гитхабе, например, `http://rtivital.github.io/react-challenge-colorizr/`. Для автоматизации процесса публикации используется модуль [gh-pages](https://www.npmjs.com/package/gh-pages). Все настройки публикации вы сможете найти в файле `desploy.js`.
+
+Опубликовать проект можно с помощью npm скрипта:
+```sh
+npm run deploy
+```
+Скрипт запустит последовательно две задачи: сборку проекта командой `webpack --config webpack.config.prod.js` и публикацию командой `node deploy.js`.
