@@ -1,5 +1,7 @@
 # Второй выпуск React Challenge
 
+![React Challenge Colorizr](img/rc-colorizr-intro.png)
+
 ## Установка стартового шаблона
 1. Форкните данный репозиторий
 2. Клонируйте свой форк с помощью команды `git clone https://github.com/<account>/react-challenge-colorizr`, вместо `<account>` подставьте имя своего профиля на Github, например, `https://github.com/rtivital/react-challenge-colorizr`
