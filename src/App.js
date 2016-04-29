@@ -12,7 +12,7 @@ export default class App extends Component {
     return (
       <div className="container">
         <h1 className="title"> Basic Counter Example</h1>
-        <Counter count={100} step={20} />
+        <Counter />
       </div>
     );
   }

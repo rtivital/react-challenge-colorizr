@@ -1,8 +1,25 @@
 import React from 'react';
 import './button.scss';
 
-const Button = (props) => {
-  return <button className={`btn btn__${props.btnType}`} onClick={props.onClick}>{props.children}</button>;
+const Button = ({ type, onClick, children }) => {
+  return (
+    <button
+      className={`btn btn__${type}`}
+      onClick={typeof onClick === 'function' ? onClick : false }>
+      {children}
+    </button>
+  );
+};
+
+// Make eslint happy again: add validation to props
+Button.propTypes = {
+  type: React.PropTypes.string,
+  onClick: React.PropTypes.func,
+  children: React.PropTypes.string
+};
+
+Button.defaultProps = {
+  type: 'default'
 };
 
 export default Button;
