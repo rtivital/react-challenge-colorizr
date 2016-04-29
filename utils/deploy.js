@@ -10,7 +10,7 @@ var config = {
   message: 'Publish Colorizr App'
 };
 
-ghPages.publish(path.join(__dirname, 'public'), config, function(err) {
+ghPages.publish(path.join(__dirname, '../', 'public'), config, function(err) {
   if (err) { console.log(err); }
   console.log('Successfully Deployed to Github Pages'.green.bold);
 });
