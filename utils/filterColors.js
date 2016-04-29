@@ -2,6 +2,9 @@
 
 // Module to make messages red
 var colors = require('colors');
+
+// Module to validate color values, written by myself
+// such success so proud (https://goo.gl/lyj20R)
 var isValidColor = require('./validateColor').isValidColor;
 
 
