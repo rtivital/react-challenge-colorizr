@@ -44,6 +44,8 @@ npm start
 * [CSS Loader](https://github.com/webpack/css-loader)
 * [Sass Loader](https://github.com/jtangelder/sass-loader)
 
+Стандартная конфигурация Webpack предполагает, что все стили, написанные вами, будут включены в виртуальный файл `public/bundle.js`. При сборке проекта "в продакшен" стили будут выделены из JavaScript файла, скомпилированы, пропущены через [Autoprefixer](https://github.com/postcss/autoprefixer), минифицированы и соеденены в один файл `public/main.css`.
+
 ## Публикация проекта
 Проект возможно опубликовать совершенно бесплатно, без регистрации и смс. Созданное вами приложение будет размещено на [Github Pages](https://pages.github.com/) и будет доступно по адресу `http://<account>.github.io/react-challenge-colorizr/`, где `<account>` соответствеует вашему никнейму на гитхабе, например, `http://rtivital.github.io/react-challenge-colorizr/`. Для автоматизации процесса публикации используется модуль [gh-pages](https://www.npmjs.com/package/gh-pages). Все настройки публикации вы сможете найти в файле `desploy.js`.
 
