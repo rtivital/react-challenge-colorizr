@@ -25,7 +25,7 @@ var filterColors = function(arr) {
     return null;
   }
 
-  return arr.filter(function(color) {
+  var result = arr.filter(function(color) {
     if (!isValidColor(color)) {
       console.log(getMessage('notColor', arr).red);
       return false;
@@ -33,6 +33,8 @@ var filterColors = function(arr) {
 
     return true;
   });
+
+  return result.length > 0 ? result : null; 
 };
 
 module.exports = filterColors;
