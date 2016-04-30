@@ -48,6 +48,6 @@ glob('utils/color-**/*.json', function(err, files) {
     // object to write to file
     generatedColors,
     // here goes an error! (https://goo.gl/8GByf6)
-    function(err) { if (err) { thow new Error(err); } }
+    function(err) { if (err) { throw new Error(err); } }
   );
 });
