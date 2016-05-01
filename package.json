@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "build": "webpack --config webpack.config.prod.js",
+    "build": "npm run generatePresets && webpack --config webpack.config.prod.js",
     "deploy": "npm run build && node utils/deploy.js",
     "clean": "node utils/clean.js",
     "lint": "eslint src",
