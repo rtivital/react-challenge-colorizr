@@ -10,7 +10,7 @@ const Button = ({ type, onClick, children }) => (
   </button>
 );
 
-// Make eslint happy again: add validation to props
+// Make ESLint happy again: add validation to props
 Button.propTypes = {
   type: React.PropTypes.string,
   onClick: React.PropTypes.func,

@@ -242,6 +242,8 @@ export default class App extends Component {
 #### Линтинг
 Для проверки кода в проекте используется [ESLint](http://eslint.org/). Из коробки ESLint не поддерживает проверку кода, написанного с использованием React, поэтому необходимо использовать специальный [плагин](https://github.com/yannickcr/eslint-plugin-react). Все настройки, по которым будет производиться проверка кода можно найти (и при желании доработать) в файле `.eslintrc`.
 
+В качестве основы для конфига используется [готовый набор правил от Airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb). 
+
 Для запуска линтинга воспользуйтесь командой
 
 ```sh
