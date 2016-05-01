@@ -164,7 +164,58 @@ export default Button;
 }
 ```
 
-Обычно бывает необходимость задать общие стили для приложения, конкретно не связанные с отдкльными компонентами. Чтобы долго не искать стили удобно все их хранить в отдельной папке (`sass`) и также импортировать в главный компонент `App`. Подобным образом к проекту подключём файл `sass/main.scss`, который в свою очередь импортирует [Normalize.css](https://necolas.github.io/normalize.css/):
+Компонент `Button` используется в компоненте `Counter`, который тоже требует стилизации. Стилизация компонента происходит аналогичным описанному выше способу. С одной небольшой деталью. Все стили для компонента `Button` уже написаны и перезаписывать их не стоит.
+
+```js
+// Метод render компонента Counter
+render() {
+  return (
+    <div className="counter">
+      <div className="counter__body">
+        <div className="counter__display">
+          <div className="counter__count">{this.state.count}</div>
+          <div className="counter__step">Counter step: <b>{this.state.step}</b></div>
+        </div>
+
+        <div className="counter__controls">
+          <h3 className="counter__heading">Counter Controls</h3>
+          <Button type="success" onClick={this.increment.bind(this)}>Increment</Button>
+          <Button type="danger" onClick={this.decrement.bind(this)}>Decrement</Button>
+        </div>
+
+        <div className="counter__controls">
+          <h3 className="counter__heading">Step Controls</h3>
+          <Button onClick={this.increaseStep.bind(this)}>Increase Step</Button>
+          <Button onClick={this.decreaseStep.bind(this)}>Decrease Step</Button>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+При стилизации компонента `Counter` будет уместно писать стили, например, для классов `.counter__controls` и `.counter__heading`, но неуместно изменять исходные стили для компонентов `Button` без указания контекста.
+```scss
+// Хорошо
+.counter__heading {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+// С указанием контекста (по умолчанию у кнопок нет отступа)
+.counter__controls {
+  .btn {
+    margin-right: 1rem;
+  }
+}
+
+// Плохо
+.btn {
+  color: red;
+}
+```
+
+Обычно бывает необходимость задать общие стили для приложения, конкретно не связанные с отдкльными компонентами. Чтобы долго не искать стили удобно все их хранить в отдельной папке (`src/sass`) и также импортировать в главный компонент `App`. Подобным образом к проекту подключём файл `src/sass/main.scss`, который в свою очередь импортирует [Normalize.css](https://necolas.github.io/normalize.css/):
 ```js
 import React , { Component } from 'react';
 import Counter from './components/Counter/Counter';
