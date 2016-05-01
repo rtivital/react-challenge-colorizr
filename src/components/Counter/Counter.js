@@ -1,14 +1,20 @@
-import React , { Component } from 'react';
+import React, { Component } from 'react';
 import Button from '../Button/Button';
 import './counter.scss';
 
 export default class Counter extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       count: this.props.count,
-      step: this.props.step
+      step: this.props.step,
     };
+
+    this.increment = this.increment.bind(this);
+    this.decrement = this.decrement.bind(this);
+    this.increaseStep = this.increaseStep.bind(this);
+    this.decreaseStep = this.decreaseStep.bind(this);
   }
 
   increment() {
@@ -40,14 +46,14 @@ export default class Counter extends Component {
 
           <div className="counter__controls">
             <h3 className="counter__heading">Counter Controls</h3>
-            <Button type="success" onClick={this.increment.bind(this)}>Increment</Button>
-            <Button type="danger" onClick={this.decrement.bind(this)}>Decrement</Button>
+            <Button type="success" onClick={this.increment}>Increment</Button>
+            <Button type="danger" onClick={this.decrement}>Decrement</Button>
           </div>
 
           <div className="counter__controls">
             <h3 className="counter__heading">Step Controls</h3>
-            <Button onClick={this.increaseStep.bind(this)}>Increase Step</Button>
-            <Button onClick={this.decreaseStep.bind(this)}>Decrease Step</Button>
+            <Button onClick={this.increaseStep}>Increase Step</Button>
+            <Button onClick={this.decreaseStep}>Decrease Step</Button>
           </div>
         </div>
       </div>
@@ -58,10 +64,10 @@ export default class Counter extends Component {
 // Make eslint happy: add validation to props
 Counter.propTypes = {
   count: React.PropTypes.number,
-  step: React.PropTypes.number
+  step: React.PropTypes.number,
 };
 
 Counter.defaultProps = {
   count: 10,
-  step: 5
+  step: 5,
 };

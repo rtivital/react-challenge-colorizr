@@ -15,5 +15,5 @@
     "strict": [2, "never"]
   },
   "plugins": ["react"],
-  "extends": ["eslint:recommended", "plugin:react/recommended"]
+  "extends": ["airbnb"]
 }
