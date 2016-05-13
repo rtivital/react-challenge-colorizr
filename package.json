@@ -4,7 +4,7 @@
   "description": "Boilerplate for second React Challenge",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "npm run clean && node server.js",
     "build": "npm run generatePresets && webpack --config webpack.config.prod.js",
     "deploy": "npm run build && node utils/deploy.js",
     "clean": "node utils/clean.js",
