@@ -2,7 +2,7 @@
 
 ![React Challenge Colorizr](img/rc-colorizr-intro.png)
 
-| [Демо приложения](http://rtivital.github.io/react-challenge-colorizr/) | [Бойлерплэйт](https://github.com/rtivital/react-challenge-colorizr) | [Задание челенджа](https://github.com/rtivital/react-challenge-colorizr/blob/master/HOWTO.md) | [Материалы для подготовки](https://github.com/rtivital/react-challenge-colorizr/blob/master/TOLEARN.md)
+[Демо приложения](http://rtivital.github.io/react-challenge-colorizr/) || [Бойлерплэйт](https://github.com/rtivital/react-challenge-colorizr) || [Задание челенджа](https://github.com/rtivital/react-challenge-colorizr/blob/master/HOWTO.md) || [Материалы для подготовки](https://vk.com/jsraccoon/reactday) 
 
 
 ## Содержание
