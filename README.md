@@ -125,7 +125,7 @@ npm start
 
 Установите соответствующие лоадеры:
 * [Stylus loader](https://github.com/shama/stylus-loader) — `npm install stylus-loader stylus --save-dev` (необходимо также установить сам Stylus)
-* [Less loader](https://github.com/webpack/less-loader) — `npm install less-loader --save-dev`
+* [Less loader](https://github.com/webpack/less-loader) — `npm install less less-loader --save-dev`
 
 После установки нужного лоадера необходимо указать Webpack'у, что нужно использовать именно их. Для этого потребуется исправить файлы `webpack.config.js` и `Webpack.config.prod.js`.
 
