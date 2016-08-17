@@ -10,6 +10,8 @@ var glob = require('glob');
 // https://www.npmjs.com/package/jsonfile
 var jsonfile = require('jsonfile');
 
+var mkdirp = require('mkdirp');
+
 // Make sure to run filterColors to escape all invalid color values
 var filterColors = require('./filterColors');
 
@@ -42,12 +44,15 @@ glob('utils/color-**/*.json', function(err, files) {
 
   });
 
-  jsonfile.writeFile(
-    // path to file
-    path.join(__dirname, '../', 'public', 'colors.json'),
-    // object to write to file
-    generatedColors,
-    // here goes an error! (https://goo.gl/8GByf6)
-    function(err) { if (err) { throw new Error(err); } }
-  );
+  mkdirp(path.join(__dirname, '../', 'public'), function(error) {
+    if (error) { console.log(error); }
+    jsonfile.writeFile(
+      // path to file
+      path.join(__dirname, '../', 'public', 'colors.json'),
+      // object to write to file
+      generatedColors,
+      // here goes an error! (https://goo.gl/8GByf6)
+      function(err) { if (err) { throw new Error(err); } }
+    );
+  });
 });
