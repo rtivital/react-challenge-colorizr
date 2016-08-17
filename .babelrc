@@ -1,3 +1,21 @@
 {
-  "presets": ["es2015", "react"]
+  "presets": ["react", "es2015", "stage-0"],
+  "plugins": [
+    "transform-decorators-legacy",
+
+    ["module-alias", [
+      { "src": "./src/components/ui", "expose": "app-ui" },
+      { "src": "./src/", "expose": "app" }
+    ]]
+  ],
+
+  "env": {
+    "production": {
+      "plugins": [
+        "transform-runtime",
+        "transform-react-inline-elements",
+        "transform-react-remove-prop-types",
+      ]
+    }
+  }
 }
