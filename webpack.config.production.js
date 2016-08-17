@@ -2,19 +2,14 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const glob = require('glob');
 
 module.exports = {
-  devtool: 'eval',
-
-  entry: [
-    'webpack-dev-server/client?http://localhost:3002',
-    'webpack/hot/only-dev-server',
-    'babel-polyfill',
-    './src/index'
-  ],
+  entry: [ './src/index', 'babel-polyfill' ],
 
   output: {
     path: path.join(__dirname, 'public'),
@@ -28,31 +23,24 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'process.env':{ 'NODE_ENV': JSON.stringify('production') },
+    }),
+
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: { warnings: false },
+    }),
+
     new HtmlWebpackPlugin({
-      title: 'Colorizr',
+      title: 'Colorizer',
       template: 'template.ejs',
     }),
-
+    new ExtractTextPlugin('style.css'),
     new FaviconsWebpackPlugin({
       logo: './logo.png',
-      icons: {
-        android: false,
-        appleIcon: false,
-        appleStartup: false,
-        coast: false,
-        favicons: true,
-        firefox: false,
-        opengraph: false,
-        twitter: false,
-        yandex: false,
-        windows: false
-      },
+      background: '#e91e63',
     }),
-
-    new webpack.DefinePlugin({
-      'process.env': { 'NODE_ENV': JSON.stringify('development') },
-    }),
+    new webpack.optimize.DedupePlugin(),
   ],
 
   module: {
@@ -65,7 +53,7 @@ module.exports = {
 
       {
         test: /\.scss$/,
-        loaders: ['style', 'css', 'sass', 'sass-resources'],
+        loader: ExtractTextPlugin.extract('css!sass!sass-resources!postcss'),
         include: path.join(__dirname, 'src'),
       },
 
@@ -76,7 +64,7 @@ module.exports = {
 
       {
         test: /\.png$/,
-        loader: 'file',
+        loaders: ['file']
       },
 
       {
@@ -95,4 +83,5 @@ module.exports = {
   },
 
   sassResources: glob.sync('./src/styles/resources/**/*.scss'),
+  postcss: [ autoprefixer({ browsers: ['last 4 versions'] }) ] ,
 };
