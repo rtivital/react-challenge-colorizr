@@ -4,12 +4,13 @@
   "description": "Boilerplate for second React Challenge",
   "main": "index.js",
   "scripts": {
-    "start": "npm run clean && node server.js",
-    "build": "npm run generatePresets && webpack --config webpack.config.prod.js",
-    "deploy": "npm run build && node utils/deploy.js",
+    "start": "cross-env NODE_ENV=development node server.js",
+    "build": "npm run generatePresets && cross-env NODE_ENV=production webpack --config webpack.config.production.js --progress",
     "clean": "node utils/clean.js",
-    "lint": "eslint src",
-    "generatePresets": "node utils/generatePresets.js"
+    "lint": "eslint src --ext .js --ext .jsx",
+    "generatePresets": "node utils/generatePresets.js",
+    "gh:deploy": "npm run clean && npm run gh:build && node utils/deploy",
+    "gh:build": "cross-env NODE_ENV=production webpack --config webpack.config.pages.js --progress"
   },
   "repository": {
     "type": "git",
