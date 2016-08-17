@@ -1,9 +1,19 @@
 {
   "parser": "babel-eslint",
-  "extends": ["airbnb"],
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "linebreak-style": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/no-unresolved": 0,
+  },
+
   "settings": {
     "import/resolver": {
-      "babel-module-alias": {}
+      "babel-module": {}
     }
   }
 }

@@ -3,10 +3,12 @@
   "plugins": [
     "transform-decorators-legacy",
 
-    ["module-alias", [
-      { "src": "./src/components/ui", "expose": "app-ui" },
-      { "src": "./src/", "expose": "app" }
-    ]]
+    ["module-resolver", {
+      "root": ["./src"],
+      "alias": {
+        "app": "./src"
+      }
+    }]
   ],
 
   "env": {
