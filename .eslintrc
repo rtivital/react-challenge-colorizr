@@ -1,19 +1,9 @@
 {
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
+  "parser": "babel-eslint",
+  "extends": ["airbnb"],
+  "settings": {
+    "import/resolver": {
+      "babel-module-alias": {}
     }
-  },
-  "env": {
-    "browser": true,
-    "node": true
-  },
-  "rules": {
-    "quotes": [2, "single"],
-    "strict": [2, "never"]
-  },
-  "plugins": ["react"],
-  "extends": ["airbnb"]
+  }
 }
