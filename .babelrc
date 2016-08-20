@@ -6,7 +6,8 @@
     ["module-resolver", {
       "root": ["./src"],
       "alias": {
-        "app": "./src"
+        "app": "./src",
+        "app-ui": "./src/ui"
       }
     }]
   ],
