@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button } from 'app-ui';
+import { ColorPicker } from 'app/components/ColorPicker';
 
 const IndexPage = () => (
   <div className="page">
-    <Button>IndexPage</Button>
+    <ColorPicker defaultColor="red" />
   </div>
 );
 

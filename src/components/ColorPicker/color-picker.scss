@@ -1,0 +1,16 @@
+$color-picker-width: 35rem;
+$color-picker-height: 30rem;
+$color-picker-wrapper-padding: 1.5rem;
+
+.react-color-picker {
+  display: flex;
+  width: $color-picker-width;
+}
+
+.color-picker {
+  width: $color-picker-width + $color-picker-wrapper-padding * 2;
+  padding: $color-picker-wrapper-padding;
+
+  background-color: $color-white;
+  box-shadow: $box-shadow;
+}
