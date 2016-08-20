@@ -2,11 +2,7 @@ $color-picker-width: 35rem;
 $color-picker-height: 30rem;
 $color-picker-wrapper-padding: 1.5rem;
 
-.react-color-picker {
-  display: flex;
-  width: $color-picker-width;
-}
-
+// Component styling
 .color-picker {
   width: $color-picker-width + $color-picker-wrapper-padding * 2;
   padding: $color-picker-wrapper-padding;
@@ -15,20 +11,29 @@ $color-picker-wrapper-padding: 1.5rem;
   box-shadow: $box-shadow;
 }
 
+// Overrides of default rules
+.react-color-picker {
+  display: flex;
+  width: $color-picker-width;
+}
+
 .react-color-picker__hue-inner {
-  border-color: $color-white !important;
+  border-color: $color-white !important; // <-- that's why inline styles suck
 }
 
 .react-color-picker__hue-drag {
   height: 5px !important;
-  border-color: $color-black !important;
+  background-color: $color-white;
+  box-shadow: 0 0 1rem -.05rem rgba(0,0,0, 0.8);
+  border: none !important;
 }
 
 .react-color-picker__saturation-drag {
   background-color: $color-white !important;
   width: 10px !important;
   height: 10px !important;
-  border: 1px solid $color-black !important;
+  border: 1px solid transparent !important;
+  box-shadow: 0 0 .3rem .1rem rgba(0,0,0, 0.3);
 }
 
 .react-color-picker__saturation-inner {
