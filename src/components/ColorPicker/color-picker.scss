@@ -14,3 +14,23 @@ $color-picker-wrapper-padding: 1.5rem;
   background-color: $color-white;
   box-shadow: $box-shadow;
 }
+
+.react-color-picker__hue-inner {
+  border-color: $color-white !important;
+}
+
+.react-color-picker__hue-drag {
+  height: 5px !important;
+  border-color: $color-black !important;
+}
+
+.react-color-picker__saturation-drag {
+  background-color: $color-white !important;
+  width: 10px !important;
+  height: 10px !important;
+  border: 1px solid $color-black !important;
+}
+
+.react-color-picker__saturation-inner {
+  border: none !important;
+}
