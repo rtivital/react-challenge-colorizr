@@ -9,12 +9,15 @@ const middlewares = [
 ];
 
 const configureStore = initialState => {
-  const store = createStore(rootReducer, initialState, compose(
-    applyMiddleware(...middlewares),
-    window.devToolsExtension ? window.devToolsExtension() : f => f
-  ));
+  // Prevent redux devTools initialization in production
+  if (process.env.NODE_ENV === 'development') {
+    return createStore(rootReducer, initialState, compose(
+      applyMiddleware(...middlewares),
+      window.devToolsExtension ? window.devToolsExtension() : f => f
+    ));
+  }
 
-  return store;
+  return createStore(rootReducer, initialState, applyMiddleware(...middlewares));
 };
 
 export default configureStore;
