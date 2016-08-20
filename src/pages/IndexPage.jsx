@@ -1,8 +1,9 @@
 import React from 'react';
+import { Button } from 'app-ui';
 
 const IndexPage = () => (
   <div className="page">
-    IndexPage
+    <Button>IndexPage</Button>
   </div>
 );
 
