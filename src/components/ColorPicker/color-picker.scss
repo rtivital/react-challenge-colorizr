@@ -6,6 +6,7 @@ $color-picker-wrapper-padding: 1.5rem;
 .color-picker {
   width: $color-picker-width + $color-picker-wrapper-padding * 2;
   padding: $color-picker-wrapper-padding;
+  border: $light-border;
 
   background-color: $color-white;
   box-shadow: $box-shadow;
@@ -18,21 +19,23 @@ $color-picker-wrapper-padding: 1.5rem;
 }
 
 .react-color-picker__hue-inner {
-  border-color: $color-white !important; // <-- that's why inline styles suck
+  border-color: $color-white !important;
 }
 
 .react-color-picker__hue-drag {
-  height: 5px !important;
+  height: .5rem !important;
+  border: none !important;
+
   background-color: $color-white;
   box-shadow: 0 0 1rem -.05rem rgba(0,0,0, 0.8);
-  border: none !important;
 }
 
 .react-color-picker__saturation-drag {
+  width: 1rem !important;
+  height: 1rem !important;
+  border: .1rem solid transparent !important;
+
   background-color: $color-white !important;
-  width: 10px !important;
-  height: 10px !important;
-  border: 1px solid transparent !important;
   box-shadow: 0 0 .3rem .1rem rgba(0,0,0, 0.3);
 }
 

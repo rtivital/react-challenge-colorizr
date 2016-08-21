@@ -1,0 +1,39 @@
+$display-height: 4rem;
+
+.color-display {
+  padding: 2rem;
+  border: $light-border;
+  box-shadow: $box-shadow;
+}
+
+.color-display__display {
+  height: $display-height;
+}
+
+.color-display__chanels {
+  display: flex;
+}
+
+.chanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: $light-border;
+
+  &:not(:last-of-type) {
+    border-right: 0;
+  }
+}
+
+.chanel__name {
+  padding: .3rem 1.3rem;
+  border-bottom: $light-border;
+
+  font-weight: bold;
+  font-size: .8em;
+}
+
+.chanel__value {
+  padding: .3rem .5rem;
+  font-size: .9em;
+}
