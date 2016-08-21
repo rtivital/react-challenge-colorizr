@@ -14,6 +14,19 @@ $display-height: 4rem;
   display: flex;
 }
 
+.color-display__hex {
+  display: flex;
+  justify-content: space-between;
+  padding: .3rem .5rem;
+  border: $light-border;
+  border-top: 0;
+  font-size: .8em;
+}
+
+.color-display__hex-name {
+  font-weight: bold;
+}
+
 .chanel {
   display: flex;
   flex-direction: column;

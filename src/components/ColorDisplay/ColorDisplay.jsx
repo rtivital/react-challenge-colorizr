@@ -27,6 +27,10 @@ const ColorDisplay = ({ colorValue }) => {
     <div className="color-display">
       <div className="color-display__display" style={{ backgroundColor: hex }} />
       <div className="color-display__chanels">{chanels}</div>
+      <div className="color-display__hex">
+        <span className="color-display__hex-name">HEX:</span>
+        <span className="color-display__hex-value">{hex}</span>
+      </div>
     </div>
   );
 };
