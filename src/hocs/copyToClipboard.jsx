@@ -33,7 +33,7 @@ const copyToClipboard = (settings) => ComposedComponent => {
         throw new Error(`copyToClipboard hasn't recieved prop ${value}`);
       }
 
-      const buttonTheme = this.state.copied ? 'white' : 'green';
+      const buttonTheme = !this.state.copied ? 'white' : 'green';
       const buttonClassName = cx('clipboard__button', componentSettings.buttonClassName);
       const wrapperClassName = cx('clipboard', componentSettings.className);
       const buttonText = !this.state.copied ? componentSettings.text : componentSettings.success;

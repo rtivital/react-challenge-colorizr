@@ -1,0 +1,29 @@
+.button {
+  padding: .75rem 1rem;
+  border: 1px solid;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 200ms;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &--white {
+    background-color: $color-white;
+    border-color: $color-light-gray;
+    &:hover {
+      background-color: $color-white-gray;
+    }
+  }
+
+  &--green {
+    color: $color-white;
+    background-color: $color-green;
+    border-color: $color-dark-green;
+
+    &:hover {
+      background-color: $color-dark-green;
+    }
+  }
+}
