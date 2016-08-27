@@ -1,10 +1,4 @@
-$display-height: 4rem;
-
-.color-display {
-  padding: 2rem;
-  border: $light-border;
-  box-shadow: $box-shadow;
-}
+$display-height: 8rem;
 
 .color-display__display {
   height: $display-height;

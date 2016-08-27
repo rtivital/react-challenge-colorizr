@@ -4,12 +4,17 @@ $color-picker-wrapper-padding: 1.5rem;
 
 // Component styling
 .color-picker {
-  width: $color-picker-width + $color-picker-wrapper-padding * 2;
   padding: $color-picker-wrapper-padding;
   border: $light-border;
 
   background-color: $color-white;
   box-shadow: $box-shadow;
+  display: flex;
+  align-items: center;
+}
+
+.color-picker__display {
+  margin-left: 2rem;
 }
 
 // Overrides of default rules

@@ -30,8 +30,9 @@ export default class ColorPicker extends Component {
           saturationWidth={300}
           hueWidth={40}
         />
-
-        <ColorDisplay colorValue={this.state.currentColor} />
+        <div className="color-picker__display">
+          <ColorDisplay colorValue={this.state.currentColor} />
+        </div>
       </div>
     );
   }

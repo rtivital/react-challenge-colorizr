@@ -2,5 +2,6 @@ $color-white: #fff;
 $color-light-gray: #e5e5e5;
 $color-black: #222;
 
-$box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+$box-shadow: 1px 2px 5px rgba(0, 0, 0, .1),
+  -1px -2px 5px rgba(0, 0, 0, .1);
 $light-border: .1rem solid $color-light-gray;
