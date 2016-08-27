@@ -2,6 +2,43 @@ $display-height: 8rem;
 
 .color-display__display {
   height: $display-height;
+  border-radius: 4px 4px 0 0;
+  border: $light-border;
+  border-bottom: 0;
+  cursor: pointer;
+  transition: transform 250ms ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  // transition:
+
+  &::before, &::after {
+    opacity: 0;
+    transition: opacity 300ms ease;
+    display: block;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &::before {
+    content: 'White';
+    color: $color-white;
+  }
+
+  &::after {
+    content: 'Black';
+  }
+
+  &:active {
+    transform: scale(3.5);
+    border-radius: 0;
+    border: 0;
+    box-shadow: $box-shadow;
+
+    &::before, &::after {
+      opacity: 1;
+    }
+  }
 }
 
 .color-display__chanels {
@@ -43,4 +80,10 @@ $display-height: 8rem;
 .chanel__value {
   padding: .3rem .5rem;
   font-size: .9em;
+}
+
+.clipboard__button {
+  display: block;
+  width: 100%;
+  border-top: 0 !important;
 }
