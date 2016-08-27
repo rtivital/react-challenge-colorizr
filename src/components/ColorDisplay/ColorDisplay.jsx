@@ -1,6 +1,7 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import color from 'color';
 import { v4 } from 'node-uuid';
+import copyToClipboard from 'app/hocs/copyToClipboard';
 
 const Chanel = ({ value, name }) => (
   <div className="chanel">
@@ -14,29 +15,34 @@ Chanel.propTypes = {
   name: PropTypes.string.isRequired,
 };
 
-const ColorDisplay = ({ colorValue }) => {
-  const transformedColor = color(colorValue);
-  const hex = transformedColor.hexString();
-  const rgb = transformedColor.rgb();
+@copyToClipboard({ className: 'color-display__clipboard', value: 'colorValue' })
+export default class ColorDisplay extends Component {
+  static propTypes = {
+    colorValue: PropTypes.string.isRequired,
+  }
 
-  const chanels = Object.keys(rgb).map(
-    chanel => <Chanel value={rgb[chanel]} name={chanel} key={v4()} />
-  );
+  shouldComponentUpdate(nextProps) {
+    return this.props.colorValue !== nextProps.colorValue;
+  }
 
-  return (
-    <div className="color-display">
-      <div className="color-display__display" style={{ backgroundColor: hex }} />
-      <div className="color-display__chanels">{chanels}</div>
-      <div className="color-display__hex">
-        <span className="color-display__hex-name">HEX:</span>
-        <span className="color-display__hex-value">{hex}</span>
+  render() {
+    const transformedColor = color(this.props.colorValue);
+    const hex = transformedColor.hexString();
+    const rgb = transformedColor.rgb();
+
+    const chanels = Object.keys(rgb).map(
+      chanel => <Chanel value={rgb[chanel]} name={chanel} key={v4()} />
+    );
+
+    return (
+      <div className="color-display">
+        <div className="color-display__display" style={{ backgroundColor: hex }} />
+        <div className="color-display__chanels">{chanels}</div>
+        <div className="color-display__hex">
+          <span className="color-display__hex-name">HEX:</span>
+          <span className="color-display__hex-value">{hex}</span>
+        </div>
       </div>
-    </div>
-  );
-};
-
-ColorDisplay.propTypes = {
-  colorValue: PropTypes.string.isRequired,
-};
-
-export default ColorDisplay;
+    );
+  }
+}

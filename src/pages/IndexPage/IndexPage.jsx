@@ -13,7 +13,6 @@ const IndexPage = ({ setLeadColor }) => (
 );
 
 IndexPage.propTypes = {
-  color: PropTypes.string.isRequired,
   setLeadColor: PropTypes.func.isRequired,
 };
 
