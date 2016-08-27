@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import color from 'color';
 import { v4 } from 'node-uuid';
-import copyToClipboard from 'app/hocs/copyToClipboard';
+import { copyToClipboard } from 'app/hocs';
 
 const Chanel = ({ value, name }) => (
   <div className="chanel">

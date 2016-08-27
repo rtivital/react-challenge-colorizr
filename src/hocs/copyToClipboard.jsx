@@ -1,12 +1,12 @@
-import React, { Component, PropTypes } from 'react';
-import cx from 'classNames';
+import React, { Component } from 'react';
+import cx from 'classnames';
 import extend from 'extend';
 import Clipboard from 'react-copy-to-clipboard';
 import { Button } from 'app/ui';
 
 const defaultSettings = {
-  className: 'clipboard',
-  buttonClassName: 'clipboard__button',
+  text: 'Copy',
+  success: 'Copied',
   value: null,
 };
 
@@ -16,21 +16,37 @@ const copyToClipboard = (settings) => ComposedComponent => {
     throw new Error('value to copy was not provided to copyToClipboard hoc');
   }
 
-  return function(props) {
-    const { value, className, buttonClassName } = componentSettings;
+  return class extends Component {
+    state = { copied: false }
+    timeout = null
 
-    if (!props.hasOwnProperty(value)) {
-      throw new Error(`copyToClipboard hasn't recieved prop ${value}`);
+    handleCopy = () => {
+      if (this.timeout) { clearTimeout(this.timeout); }
+      this.timeout = setTimeout(() => this.setState({ copied: false }), 2000);
+      this.setState({ copied: true });
     }
 
-    return (
-      <div className={className}>
-        <ComposedComponent {...props} />
-        <Clipboard text={props[value]}>
-          <Button className={buttonClassName}>Copy HEX</Button>
-        </Clipboard>
-      </div>
-    )
+    render() {
+      const { value } = componentSettings;
+
+      if (!Object.prototype.hasOwnProperty.call(this.props, value)) {
+        throw new Error(`copyToClipboard hasn't recieved prop ${value}`);
+      }
+
+      const buttonTheme = this.state.copied ? 'white' : 'green';
+      const buttonClassName = cx('clipboard__button', componentSettings.buttonClassName);
+      const wrapperClassName = cx('clipboard', componentSettings.className);
+      const buttonText = !this.state.copied ? componentSettings.text : componentSettings.success;
+
+      return (
+        <div className={wrapperClassName}>
+          <ComposedComponent {...this.props} />
+          <Clipboard text={this.props[value]} onCopy={this.handleCopy}>
+            <Button theme={buttonTheme} className={buttonClassName}>{buttonText}</Button>
+          </Clipboard>
+        </div>
+      );
+    }
   };
 };
 
