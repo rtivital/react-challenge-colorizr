@@ -70,14 +70,14 @@ module.exports = {
       {
         test: /\.svg$/,
         loader: 'svg-sprite?' + JSON.stringify({ name: '[hash]', prefixize: true }),
-        include: path.join(__dirname, 'src/components/ui/Glyph'),
+        include: path.join(__dirname, 'src/ui/Icon'),
       },
 
       {
         test: /\.svg$/,
         loader: 'file',
         include: path.join(__dirname, 'src/'),
-        exclude: path.join(__dirname, 'src/components/ui/Glyph'),
+        exclude: path.join(__dirname, 'src/ui/Icon'),
       },
     ],
   },

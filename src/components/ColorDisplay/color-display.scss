@@ -10,7 +10,7 @@ $display-height: 8rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  // transition:
+  position: relative;
 
   &::before, &::after {
     opacity: 0;
@@ -22,11 +22,18 @@ $display-height: 8rem;
 
   &::before {
     content: 'White';
-    color: $color-white;
+    color: #fff;
   }
 
   &::after {
     content: 'Black';
+    color: #000;
+  }
+
+  &:hover {
+    .color-display__icon {
+      opacity: 1;
+    }
   }
 
   &:active {
@@ -34,6 +41,10 @@ $display-height: 8rem;
     border-radius: 0;
     border-color: transparent;
     box-shadow: $box-shadow;
+
+    .color-display__icon {
+      opacity: 0;
+    }
 
     &::before, &::after {
       opacity: 1;
@@ -86,4 +97,29 @@ $display-height: 8rem;
   display: block;
   width: 100%;
   border-top: 0 !important;
+}
+
+.color-display__icon {
+  opacity: 0;
+  .icon {
+    width: 4rem;
+    height: 4rem;
+    transition: fill 200ms;
+  }
+
+  &--dark {
+    .icon {
+      fill: $color-black;
+    }
+  }
+
+  &--light {
+    .icon {
+      fill: $color-white;
+    }
+  }
+  position: absolute;
+  top: 25%;
+  align-self: center;
+  transition: opacity 200ms ease;
 }

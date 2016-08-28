@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import color from 'color';
 import { v4 } from 'node-uuid';
+import cx from 'classnames';
 import { copyToClipboard } from 'app/hocs';
+import { Icon, glyphs } from 'app/ui';
 
 const Chanel = ({ value, name }) => (
   <div className="chanel">
@@ -34,9 +36,19 @@ export default class ColorDisplay extends Component {
       chanel => <Chanel value={rgb[chanel]} name={chanel} key={v4()} />
     );
 
+    const iconLuminosity = transformedColor.luminosity();
+    const iconClassName = cx('color-display__icon', {
+      'color-display__icon--dark': iconLuminosity >= 0.5,
+      'color-display__icon--light': iconLuminosity < 0.5,
+    });
+
     return (
       <div className="color-display">
-        <div className="color-display__display" style={{ backgroundColor: hex }} />
+        <div className="color-display__display" style={{ backgroundColor: hex }}>
+          <span className={iconClassName}>
+            <Icon glyph={glyphs.view} />
+          </span>
+        </div>
         <div className="color-display__chanels">{chanels}</div>
         <div className="color-display__hex">
           <span className="color-display__hex-name">HEX:</span>
