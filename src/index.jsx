@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
+import { syncHistoryWithStore } from 'react-router-redux';
 
 import 'react-fastclick';
 
@@ -18,7 +19,7 @@ if (process.env.BUILD === 'pages') {
 
   render(
     <Provider store={store}>
-      <AppRouter history={hashHistory} />
+      <AppRouter history={syncHistoryWithStore(hashHistory, store)} />
     </Provider>,
     document.getElementById('app')
   );
@@ -28,7 +29,7 @@ if (process.env.BUILD === 'pages') {
 
   render(
     <Provider store={store}>
-      <AppRouter history={browserHistory} />
+      <AppRouter history={syncHistoryWithStore(browserHistory, store)} />
     </Provider>,
     document.getElementById('app')
   );
