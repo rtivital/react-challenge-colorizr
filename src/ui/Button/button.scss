@@ -15,6 +15,10 @@
     &:hover {
       background-color: $color-white-gray;
     }
+
+    .button__glyph {
+      border-right: $light-border;
+    }
   }
 
   &--green {
@@ -25,5 +29,32 @@
     &:hover {
       background-color: $color-dark-green;
     }
+
+    .button__glyph {
+      border-right: 1px solid $color-dark-green;
+      .icon {
+        fill: $color-white;
+      }
+    }
   }
+}
+
+.button--with-glyph {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.button__glyph {
+  padding: .5rem 1rem;
+  .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+.button__text {
+  text-align: center;
+  flex: 1;
+  padding: .6rem;
 }

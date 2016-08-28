@@ -37,12 +37,13 @@ const copyToClipboard = (settings) => ComposedComponent => {
       const buttonClassName = cx('clipboard__button', componentSettings.buttonClassName);
       const wrapperClassName = cx('clipboard', componentSettings.className);
       const buttonText = !this.state.copied ? componentSettings.text : componentSettings.success;
+      const buttonGlyph = !this.state.copied ? 'copy' : 'tick';
 
       return (
         <div className={wrapperClassName}>
           <ComposedComponent {...this.props} />
           <Clipboard text={this.props[value]} onCopy={this.handleCopy}>
-            <ButtonWithIcon theme={buttonTheme} className={buttonClassName} glyph="copy">
+            <ButtonWithIcon theme={buttonTheme} className={buttonClassName} glyph={buttonGlyph}>
               {buttonText}
             </ButtonWithIcon>
           </Clipboard>
