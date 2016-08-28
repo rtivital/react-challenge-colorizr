@@ -1,19 +1,11 @@
 import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
-
-import { colorActions } from 'app/actions';
-import { ColorPicker } from 'app/components/ColorPicker';
-
+import { ColorPicker } from 'app/containers';
 import './index-page.scss';
 
-const IndexPage = ({ setLeadColor }) => (
+const IndexPage = () => (
   <div className="page">
-    <ColorPicker defaultColor="red" onChange={setLeadColor} />
+    <ColorPicker />
   </div>
 );
 
-IndexPage.propTypes = {
-  setLeadColor: PropTypes.func.isRequired,
-};
-
-export default connect(null, colorActions)(IndexPage);
+export default IndexPage;

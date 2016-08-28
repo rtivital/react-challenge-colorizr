@@ -7,6 +7,7 @@ const initialState = {
 
 export default handleActions({
   SET_LEAD_COLOR(state, { payload }) {
+    if (!payload) { return state; }
     return { ...state, lead: payload };
   },
 }, initialState);
