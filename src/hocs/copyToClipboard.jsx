@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import cx from 'classnames';
 import extend from 'extend';
 import Clipboard from 'react-copy-to-clipboard';
-import { Button } from 'app/ui';
+import { ButtonWithIcon } from 'app/ui';
 
 const defaultSettings = {
   text: 'Copy',
@@ -42,7 +42,9 @@ const copyToClipboard = (settings) => ComposedComponent => {
         <div className={wrapperClassName}>
           <ComposedComponent {...this.props} />
           <Clipboard text={this.props[value]} onCopy={this.handleCopy}>
-            <Button theme={buttonTheme} className={buttonClassName}>{buttonText}</Button>
+            <ButtonWithIcon theme={buttonTheme} className={buttonClassName} glyph="copy">
+              {buttonText}
+            </ButtonWithIcon>
           </Clipboard>
         </div>
       );

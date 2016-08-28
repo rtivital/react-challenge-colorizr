@@ -12,9 +12,11 @@ const Button = ({ children, className, theme, ...others }) => {
 };
 
 Button.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.any.isRequired,
   className: PropTypes.string,
   theme: PropTypes.oneOf(BUTTON_TYPES),
 };
+
+Button.defaultProps = { theme: 'white' };
 
 export default Button;
