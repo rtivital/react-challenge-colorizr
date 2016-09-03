@@ -8,7 +8,8 @@
     "start": "cross-env NODE_ENV=development node server.js",
     "build": "npm run generatePresets && cross-env NODE_ENV=production webpack --config webpack.config.production.js --progress",
     "clean": "node utils/clean.js",
-    "lint": "eslint src --ext .js --ext .jsx",
+    "lint": "eslint src --ext .js --ext .jsx --fix",
+    "lint:tests": "eslint tests --ext .js --ext .jsx --fix",
     "generatePresets": "node utils/generatePresets.js",
     "gh:deploy": "npm run clean && npm run gh:build && node utils/deploy",
     "gh:build": "cross-env NODE_ENV=production webpack --config webpack.config.pages.js --progress"
