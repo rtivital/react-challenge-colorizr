@@ -2,13 +2,20 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import multiMiddleware from 'redux-multi';
 import { routerMiddleware } from 'react-router-redux';
-import browserHistory from 'react-router/lib/browserHistory';
 import rootReducer from 'app/reducers';
 
-const middlewares = [
+// create routing actions for hashHistory while deploying on gh-pages
+const routingMiddleware = routerMiddleware(
+  process.env.BUILD === 'pages'
+  ? require('react-router/lib/hashHistory')
+  : require('react-router/lib/browserHistory')
+);
+
+// middlewares are required while store mocking during tests
+export const middlewares = [
   thunkMiddleware,
   multiMiddleware,
-  routerMiddleware(browserHistory),
+  routingMiddleware,
 ];
 
 const configureStore = initialState => {
