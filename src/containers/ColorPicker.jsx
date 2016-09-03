@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import debounce from 'lodash.debounce';
 import { replace } from 'react-router-redux';
-import { ColorPicker } from 'app/components/ColorPicker';
+import debounce from 'lodash.debounce';
+
+import { ColorPicker } from 'app/components';
 import { colorActions } from 'app/actions';
 import { updateWithQuery } from 'app/hocs';
 import { isHex, unprefixHex, prefixHex } from 'app/lib';
@@ -13,9 +14,10 @@ export default class ColorPickerContainer extends Component {
   static propTypes = {
     color(props, propName, componentName) {
       if (!isHex(props[propName])) {
-        return new Error(`Container ${componentName} expected to recieve a valid hex value, shame`);
+        return new Error(`${componentName} expected to recieve a valid hex value, shame`);
       }
     },
+
     location: PropTypes.object.isRequired,
     replace: PropTypes.func.isRequired,
     setLeadColor: PropTypes.func.isRequired,
