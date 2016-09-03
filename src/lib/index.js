@@ -1,1 +1,1 @@
-export validateHex from './validate-hex';
+export { isHex, isUnprefixedHex, isPrefixedHex, prefixHex, unprefixHex } from './hex';

@@ -15,7 +15,7 @@ const updateWithQuery = (queryParam, action) => ComposedComponent =>
     }
 
     render() {
-      return <ComposedComponent />
+      return <ComposedComponent {...this.props} />
     }
   }
 

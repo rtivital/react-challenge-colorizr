@@ -1,5 +1,6 @@
 import { handleActions } from 'redux-actions';
-import { validateHex } from 'app/lib';
+import { isHex, prefixHex } from 'app/lib';
+import color from 'color';
 
 const initialState = {
   lead: '#ccc',
@@ -8,7 +9,7 @@ const initialState = {
 
 export default handleActions({
   SET_LEAD_COLOR(state, { payload }) {
-    if (!validateHex(payload)) { return state; }
-    return { ...state, lead: payload };
+    if (!isHex(payload)) { return state; }
+    return { ...state, lead: prefixHex(payload) };
   },
 }, initialState);
