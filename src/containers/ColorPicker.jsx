@@ -11,7 +11,11 @@ import { isHex, unprefixHex, prefixHex } from 'app/lib';
 @connect(state => ({ color: state.color.lead }), { ...colorActions, replace })
 export default class ColorPickerContainer extends Component {
   static propTypes = {
-    color: PropTypes.string.isRequired,
+    color(props, propName, componentName) {
+      if (!isHex(props[propName])) {
+        return new Error(`Container ${componentName} expected to recieve a valid hex value, shame`);
+      }
+    },
     location: PropTypes.object.isRequired,
     replace: PropTypes.func.isRequired,
     setLeadColor: PropTypes.func.isRequired,
