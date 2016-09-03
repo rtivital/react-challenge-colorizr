@@ -4,6 +4,7 @@
   "description": "Boilerplate for second React Challenge",
   "main": "index.js",
   "scripts": {
+    "test": "./node_modules/.bin/tape --require babel-register --require ignore-styles src/**/*-test.* | tap-notify | faucet",
     "start": "cross-env NODE_ENV=development node server.js",
     "build": "npm run generatePresets && cross-env NODE_ENV=production webpack --config webpack.config.production.js --progress",
     "clean": "node utils/clean.js",
@@ -84,6 +85,7 @@
     "gh-pages": "^0.11.0",
     "glob": "^7.0.3",
     "html-webpack-plugin": "^2.22.0",
+    "ignore-styles": "^5.0.1",
     "jsonfile": "^2.3.0",
     "mkdirp": "^0.5.1",
     "node-sass": "^3.6.0",
