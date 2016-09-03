@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { ColorPicker } from 'app/containers';
 import './index-page.scss';
 

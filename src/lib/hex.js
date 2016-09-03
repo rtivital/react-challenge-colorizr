@@ -3,7 +3,7 @@ export function isUnprefixedHex(color) {
 }
 
 export function isPrefixedHex(color) {
-  return /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(color)
+  return /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(color);
 }
 
 export function isHex(color) {
@@ -19,7 +19,6 @@ export function prefixHex(color) {
 
 export function unprefixHex(color) {
   if (!isHex(color)) { return color; }
-  console.log(isUnprefixedHex(color));
   if (isUnprefixedHex(color)) { return color; }
   return color.slice(1);
 }
