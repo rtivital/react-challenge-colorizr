@@ -1,6 +1,11 @@
-$color-picker-width: 35rem;
+$color-picker-width: 30rem;
+$color-picker-width-small: 25rem;
+
 $color-picker-height: 30rem;
+$color-picker-height-small: 20rem;
+
 $color-picker-wrapper-padding: 1.5rem;
+$color-picker-breakpoint: 550px;
 
 // Component styling
 .color-picker {
@@ -11,16 +16,24 @@ $color-picker-wrapper-padding: 1.5rem;
   box-shadow: $box-shadow;
   display: flex;
   align-items: center;
+  flex-direction: column;
+
+  @include breakpoint($color-picker-breakpoint) {
+    flex-direction: row;
+  }
 }
 
 .color-picker__display {
-  margin-left: 2rem;
+  margin-top: 1.5rem;
+  @include breakpoint($color-picker-breakpoint) {
+    margin-left: 2rem;
+    margin-top: 0;
+  }
 }
 
 // Overrides of default rules
 .react-color-picker {
   display: flex;
-  width: $color-picker-width;
 }
 
 .react-color-picker__hue-inner {
