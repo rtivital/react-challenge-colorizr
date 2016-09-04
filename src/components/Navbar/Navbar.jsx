@@ -1,12 +1,15 @@
 import React from 'react';
 import { Logo } from 'app/components';
-import { Container } from 'app/ui';
+import { Container, Burger } from 'app/ui';
 import NavbarLink from './NavbarLink';
 import './navbar.scss';
 
 const Navbar = () => (
   <nav className="navbar">
     <Container className="navbar__inner">
+      <div className="navbar__burger">
+        <Burger />
+      </div>
       <div className="narbar__logo">
         <Logo />
       </div>

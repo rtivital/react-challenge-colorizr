@@ -16,6 +16,16 @@
   align-items: center;
 }
 
+.navbar__burger {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  left: 3rem;
+  padding: 1rem;
+}
+
 .navbar__navigation {
   margin-left: auto;
 }
