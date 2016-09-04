@@ -1,0 +1,8 @@
+$site-width: 1200px;
+
+.container {
+  max-width: $site-width;
+  padding: 0 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}

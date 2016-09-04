@@ -1,8 +1,10 @@
 import React, { PureComponent, PropTypes } from 'react';
-import { ColorPicker } from 'app/containers';
 import { connect } from 'react-redux';
 import color from 'color';
 import cx from 'classnames';
+
+import { ColorPicker } from 'app/containers';
+import { Container } from 'app/ui';
 import './index-page.scss';
 
 @connect(state => ({ lead: state.color.lead }))
@@ -21,7 +23,7 @@ export default class IndexPage extends PureComponent {
     return (
       <div className="page">
         <header className="header" style={{ backgroundColor: this.props.lead }}>
-          <div className="header__inner">
+          <Container className="header__inner">
             <div className={titlesClassName}>
               <h1 className="header__title">
                 The last color service you will ever need
@@ -33,7 +35,7 @@ export default class IndexPage extends PureComponent {
             <div className="header__color-picker">
               <ColorPicker />
             </div>
-          </div>
+          </Container>
         </header>
       </div>
     );

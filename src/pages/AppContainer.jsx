@@ -8,4 +8,8 @@ const AppContainer = ({ children }) => (
   </div>
 );
 
+AppContainer.propTypes = {
+  children: PropTypes.any.isRequired,
+};
+
 export default AppContainer;

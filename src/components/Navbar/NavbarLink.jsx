@@ -13,7 +13,7 @@ const NavbarLink = ({ index, to, children }) => {
     >
       {children}
     </LinkComponent>
-  )
+  );
 };
 
 NavbarLink.propTypes = {
