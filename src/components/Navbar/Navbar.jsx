@@ -13,8 +13,8 @@ const Navbar = () => (
       </div>
 
       <div className="navbar__navigation">
-        <NavbarLink className="navbar__link" to="/">Create</NavbarLink>
-        <NavbarLink className="navbar__link" to="/eplore">Explore</NavbarLink>
+        <NavbarLink index className="navbar__link" to="/">Create</NavbarLink>
+        <NavbarLink className="navbar__link" to="/explore">Explore</NavbarLink>
         <NavbarLink className="navbar__link" to="/export">Export</NavbarLink>
       </div>
     </div>

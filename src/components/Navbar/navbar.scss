@@ -1,12 +1,15 @@
 .navbar {
-
+  z-index: 100;
+  position: relative;
+  border-bottom: $light-border;
+  box-shadow: $box-shadow;
 }
 
 .navbar__inner {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  padding: 2rem 2rem;
+  padding: 1.5rem 2rem;
   display: flex;
   align-items: center;
 }
