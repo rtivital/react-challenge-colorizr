@@ -1,2 +1,2 @@
-export { ColorDisplay } from './ColorDisplay';
-export { ColorPicker } from './ColorPicker';
+export ColorDisplay from './ColorDisplay/ColorDisplay';
+export ColorPicker from './ColorPicker/ColorPicker';

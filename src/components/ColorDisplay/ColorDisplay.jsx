@@ -4,6 +4,7 @@ import { v4 } from 'node-uuid';
 import cx from 'classnames';
 import { copyToClipboard } from 'app/hocs';
 import { Icon, glyphs } from 'app/ui';
+import './color-display.scss';
 
 const Chanel = ({ value, name }) => (
   <div className="chanel">
