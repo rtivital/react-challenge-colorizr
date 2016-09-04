@@ -126,7 +126,6 @@ $display-height: 8rem;
 .color-display-group {
   background-color: $color-white;
   box-shadow: $box-shadow;
-  border: $light-border;
   margin-top: 3rem;
   padding: 3rem 4rem;
 }
@@ -143,4 +142,8 @@ $display-height: 8rem;
   .color-display__clipboard {
     flex: 1;
   }
+}
+
+.color-display-group__controls {
+  margin-top: 2rem;
 }

@@ -4,6 +4,8 @@
   line-height: 1;
   cursor: pointer;
   transition: all 200ms;
+  border-radius: 4px;
+  font-size: .9em;
 
   &:focus {
     outline: 0;

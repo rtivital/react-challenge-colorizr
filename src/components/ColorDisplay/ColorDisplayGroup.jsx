@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { v4 } from 'node-uuid';
+import { Button, Checkbox } from 'app/ui';
 import ColorDisplay from './ColorDisplay';
 
 export default class ColorDisplayGroup extends Component {
@@ -20,6 +21,10 @@ export default class ColorDisplayGroup extends Component {
         <h3 className="color-display-group__title">{this.props.title}</h3>
         <div className="color-display-group__displays">
           {colorDisplays}
+        </div>
+        <div className="color-display-group__controls">
+          <Checkbox label="Show Info" />
+          <Button>Select All</Button>
         </div>
       </div>
     );

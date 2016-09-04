@@ -41,7 +41,7 @@ export default class IndexPage extends PureComponent {
         </header>
 
         <Container>
-          <ColorDisplayGroup title="Darker and lighter" colors={['#111', '#222', '#333', '#f0f', '#ff0', '#111', '#222', '#333', '#f0f', '#ff0']} />
+          <ColorDisplayGroup title="Darker and lighter" colors={['#111', '#222', '#333', '#444', '#555', '#666', '#777', '#888', '#999', '#aaa']} />
         </Container>
       </div>
     );
