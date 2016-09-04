@@ -94,32 +94,20 @@ $display-height: 8rem;
 }
 
 .clipboard__button {
-  display: block;
   width: 100%;
   border-top: 0 !important;
 }
 
 .color-display__icon {
   opacity: 0;
+  position: absolute;
+  top: 25%;
+  align-self: center;
+  transition: opacity 200ms ease;
+
   .icon {
     width: 4rem;
     height: 4rem;
     transition: fill 200ms;
   }
-
-  &--dark {
-    .icon {
-      fill: $color-black;
-    }
-  }
-
-  &--light {
-    .icon {
-      fill: $color-white;
-    }
-  }
-  position: absolute;
-  top: 25%;
-  align-self: center;
-  transition: opacity 200ms ease;
 }

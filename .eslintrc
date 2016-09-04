@@ -9,7 +9,7 @@
     "linebreak-style": 0,
     "import/prefer-default-export": 0,
     "consistent-return": 0,
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["./test/**/*.jsx", "./test/**/*.js"]}]
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": "./test/**/*.jsx"}]
   },
 
   "settings": {

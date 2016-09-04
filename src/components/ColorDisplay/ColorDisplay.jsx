@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import color from 'color';
 import { v4 } from 'node-uuid';
-import cx from 'classnames';
+
 import { copyToClipboard } from 'app/hocs';
 import { Icon, glyphs } from 'app/ui';
 import './color-display.scss';
@@ -38,16 +38,13 @@ export default class ColorDisplay extends Component {
     );
 
     const iconLuminosity = transformedColor.luminosity();
-    const iconClassName = cx('color-display__icon', {
-      'color-display__icon--dark': iconLuminosity >= 0.5,
-      'color-display__icon--light': iconLuminosity < 0.5,
-    });
+    const iconTheme = iconLuminosity >= 0.5 ? 'dark' : 'light';
 
     return (
       <div className="color-display">
         <div className="color-display__display" style={{ backgroundColor: hex }}>
-          <span className={iconClassName}>
-            <Icon glyph={glyphs.view} />
+          <span className="color-display__icon">
+            <Icon glyph={glyphs.view} theme={iconTheme} />
           </span>
         </div>
         <div className="color-display__chanels">{chanels}</div>
