@@ -1,5 +1,9 @@
 $header-breakpoint: 1000px;
 
+.index-page {
+  background-color: $color-white-gray;
+}
+
 .header {
   transition: background-color 400ms;
   padding: 4rem 0;

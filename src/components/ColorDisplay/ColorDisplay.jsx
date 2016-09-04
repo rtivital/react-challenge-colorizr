@@ -18,10 +18,15 @@ Chanel.propTypes = {
   name: PropTypes.string.isRequired,
 };
 
-@copyToClipboard({ className: 'color-display__clipboard', value: 'colorValue' })
+@copyToClipboard({ className: 'color-display__clipboard', value: 'colorValue', text: 'Copy' })
 export default class ColorDisplay extends Component {
   static propTypes = {
     colorValue: PropTypes.string.isRequired,
+    hideInfo: PropTypes.bool,
+  }
+
+  static defaultProps = {
+    hideInfo: false,
   }
 
   shouldComponentUpdate(nextProps) {
@@ -47,11 +52,17 @@ export default class ColorDisplay extends Component {
             <Icon glyph={glyphs.view} theme={iconTheme} />
           </span>
         </div>
-        <div className="color-display__chanels">{chanels}</div>
-        <div className="color-display__hex">
-          <span className="color-display__hex-name">HEX:</span>
-          <span className="color-display__hex-value">{hex}</span>
-        </div>
+        {do {
+          if (!this.props.hideInfo) {
+            <div className="color-display__info">
+              <div className="color-display__chanels">{chanels}</div>
+              <div className="color-display__hex">
+                <span className="color-display__hex-name">HEX:</span>
+                <span className="color-display__hex-value">{hex}</span>
+              </div>
+            </div>
+          }
+        }}
       </div>
     );
   }

@@ -23,7 +23,7 @@ export default class IndexPage extends PureComponent {
     });
 
     return (
-      <div className="page">
+      <div className="page index-page">
         <header className="header" style={{ backgroundColor: this.props.lead }}>
           <Container className="header__inner">
             <div className={titlesClassName}>
@@ -41,7 +41,7 @@ export default class IndexPage extends PureComponent {
         </header>
 
         <Container>
-          <ColorDisplayGroup colors={['#111', '#222', '#333', '#f0f', '#ff0', '#111', '#222', '#333', '#f0f', '#ff0']} />
+          <ColorDisplayGroup title="Darker and lighter" colors={['#111', '#222', '#333', '#f0f', '#ff0', '#111', '#222', '#333', '#f0f', '#ff0']} />
         </Container>
       </div>
     );

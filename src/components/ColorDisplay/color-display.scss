@@ -78,7 +78,7 @@ $display-height: 8rem;
 .chanel {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  flex: 1;
   border: $light-border;
   border-right: 0;
 
@@ -88,7 +88,10 @@ $display-height: 8rem;
 }
 
 .chanel__name {
+  display: block;
+  width: 100%;
   padding: .3rem 1.3rem;
+  text-align: center;
   border-bottom: $light-border;
 
   font-weight: bold;
@@ -97,6 +100,7 @@ $display-height: 8rem;
 
 .chanel__value {
   padding: .3rem .5rem;
+  text-align: center;
   font-size: .9em;
 }
 
@@ -120,6 +124,23 @@ $display-height: 8rem;
 }
 
 .color-display-group {
+  background-color: $color-white;
+  box-shadow: $box-shadow;
+  border: $light-border;
+  margin-top: 3rem;
+  padding: 3rem 4rem;
+}
+
+.color-display-group__title {
+  margin: 0;
+  margin-bottom: 2rem;
+}
+
+.color-display-group__displays {
   display: flex;
   justify-content: center;
+
+  .color-display__clipboard {
+    flex: 1;
+  }
 }
