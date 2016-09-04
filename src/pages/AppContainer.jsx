@@ -1,11 +1,15 @@
 import React, { PropTypes } from 'react';
-import { Navbar } from 'app/components';
+import { Navbar, Layout, Main, Sidebar } from 'app/components';
 
 const AppContainer = ({ children }) => (
-  <div className="app">
-    <Navbar />
-    {children}
-  </div>
+  <Layout>
+    <Sidebar>Hello</Sidebar>
+    
+    <Main>
+      <Navbar />
+      {children}
+    </Main>
+  </Layout>
 );
 
 AppContainer.propTypes = {

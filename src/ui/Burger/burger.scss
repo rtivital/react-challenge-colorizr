@@ -23,6 +23,14 @@ $color: $color-black;
       }
     }
   }
+
+  &--dark {
+    .burger__icon {
+      &, &::before, &::after {
+        background-color: $color-white-gray;
+      }
+    }
+  }
 }
 
 .burger__icon {
