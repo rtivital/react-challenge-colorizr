@@ -1,6 +1,33 @@
-.page {
-  min-height: 100vh;
+.header {
+  transition: background-color 400ms;
+  padding: 4rem 0;
+  box-shadow: 1px 2px 5px rgba(0,0,0,.15);
+}
+
+.header__inner {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header__titles {
+  &--dark {
+    color: $color-black;
+  }
+
+  &--light {
+    color: $color-white;
+  }
+}
+
+.header__title {
+  font-size: 1.8em;
+}
+
+.header__subtitle {
+  font-size: 1em;
+  font-weight: normal;
 }

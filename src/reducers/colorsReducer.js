@@ -3,7 +3,7 @@ import { colorActions } from 'app/actions';
 import { isHex, prefixHex } from 'app/lib';
 
 const initialState = {
-  lead: '#ccc',
+  lead: '#0c93d2',
   mixer: '#f5f',
 };
 
