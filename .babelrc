@@ -20,10 +20,11 @@
         "transform-react-remove-prop-types",
       ]
     },
-    
+
     "development": {
       "plugins": [
-        "add-module-exports"
+        "add-module-exports",
+        "react-hot-loader/babel"
       ]
     }
   }
