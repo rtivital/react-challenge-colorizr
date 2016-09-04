@@ -145,5 +145,13 @@ $display-height: 8rem;
 }
 
 .color-display-group__controls {
-  margin-top: 2rem;
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.color-display-group__control {
+  &:not(:first-child) {
+    margin-left: 2rem;
+  }
 }

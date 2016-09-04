@@ -23,8 +23,10 @@ export default class ColorDisplayGroup extends Component {
           {colorDisplays}
         </div>
         <div className="color-display-group__controls">
-          <Checkbox label="Show Info" />
-          <Button>Select All</Button>
+          <Checkbox className="color-display-group__control" label="Show Info" />
+          <Checkbox className="color-display-group__control" label="Gradient" />
+          <Button className="color-display-group__control">Select All</Button>
+          <Button className="color-display-group__control" theme="red">Remove All</Button>
         </div>
       </div>
     );

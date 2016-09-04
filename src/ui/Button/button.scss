@@ -39,6 +39,23 @@
       }
     }
   }
+
+  &--red {
+    color: $color-white;
+    background-color: $color-red;
+    border-color: $color-dark-red;
+
+    &:hover {
+      background-color: $color-dark-red;
+    }
+
+    .button__glyph {
+      border-right: 1px solid $color-dark-red;
+      .icon {
+        fill: $color-white;
+      }
+    }
+  }
 }
 
 .button--with-glyph {

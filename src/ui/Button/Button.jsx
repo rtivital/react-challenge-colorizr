@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import cx from 'classnames';
 
-const BUTTON_TYPES = ['white', 'green'];
+const BUTTON_TYPES = ['white', 'green', 'red'];
 
 const Button = ({ children, className, theme, ...others }) => {
   const buttonClassName = cx('button', `button--${theme}`, className);
