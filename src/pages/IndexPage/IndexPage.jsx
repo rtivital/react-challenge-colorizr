@@ -7,6 +7,8 @@ import { ColorPicker } from 'app/containers';
 import { Container } from 'app/ui';
 import './index-page.scss';
 
+import { ColorDisplayGroup } from 'app/components';
+
 @connect(state => ({ lead: state.color.lead }))
 export default class IndexPage extends PureComponent {
   static propTypes = {
@@ -37,6 +39,10 @@ export default class IndexPage extends PureComponent {
             </div>
           </Container>
         </header>
+
+        <Container>
+          <ColorDisplayGroup colors={['#111', '#222', '#333', '#f0f', '#ff0', '#111', '#222', '#333', '#f0f', '#ff0']} />
+        </Container>
       </div>
     );
   }

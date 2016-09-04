@@ -1,12 +1,17 @@
 $display-height: 8rem;
 
+.color-display__clipboard {
+  border: $light-border;
+  & + & {
+    border-left: 0;
+  }
+}
+
 .color-display__display {
   height: $display-height;
-  border-radius: 4px 4px 0 0;
-  border: $light-border;
   border-bottom: 0;
   cursor: pointer;
-  transition: border 250ms ease, border-radius 250ms ease, transform 250ms ease;
+  transition: border 250ms ease, transform 250ms ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -31,6 +36,7 @@ $display-height: 8rem;
   }
 
   &:hover {
+    z-index: 100;
     .color-display__icon {
       opacity: 1;
     }
@@ -41,6 +47,7 @@ $display-height: 8rem;
     border-radius: 0;
     border-color: transparent;
     box-shadow: $box-shadow;
+    z-index: 100;
 
     .color-display__icon {
       opacity: 0;
@@ -60,8 +67,7 @@ $display-height: 8rem;
   display: flex;
   justify-content: space-between;
   padding: .3rem .5rem;
-  border: $light-border;
-  border-top: 0;
+  border-bottom: $light-border;
   font-size: .8em;
 }
 
@@ -74,9 +80,10 @@ $display-height: 8rem;
   flex-direction: column;
   align-items: center;
   border: $light-border;
+  border-right: 0;
 
-  &:not(:last-of-type) {
-    border-right: 0;
+  &:first-of-type {
+    border-left: 0;
   }
 }
 
@@ -95,7 +102,7 @@ $display-height: 8rem;
 
 .clipboard__button {
   width: 100%;
-  border-top: 0 !important;
+  border: 0 !important;
 }
 
 .color-display__icon {
@@ -110,4 +117,9 @@ $display-height: 8rem;
     height: 4rem;
     transition: fill 200ms;
   }
+}
+
+.color-display-group {
+  display: flex;
+  justify-content: center;
 }
