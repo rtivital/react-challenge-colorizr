@@ -17,6 +17,18 @@
   .color-display {
     flex: 1;
   }
+
+  &--gradient {
+    .color-display {
+      border-right: 0;
+    }
+
+    .color-display__display {
+      &:not(:active) {
+        background-color: transparent !important;
+      }
+    }
+  }
 }
 
 .color-display-group__controls {
