@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import color from 'color';
 import { v4 } from 'node-uuid';
+import Clipboard from 'react-copy-to-clipboard';
 
-import { copyToClipboard } from 'app/hocs';
-import { Icon, glyphs } from 'app/ui';
+import { Icon, glyphs, ButtonWithIcon } from 'app/ui';
 import './color-display.scss';
 
 const Chanel = ({ value, name }) => (
@@ -18,7 +18,6 @@ Chanel.propTypes = {
   name: PropTypes.string.isRequired,
 };
 
-@copyToClipboard({ className: 'color-display__clipboard', value: 'colorValue', text: 'Copy' })
 export default class ColorDisplay extends Component {
   static propTypes = {
     colorValue: PropTypes.string.isRequired,
@@ -29,8 +28,20 @@ export default class ColorDisplay extends Component {
     hideInfo: false,
   }
 
-  shouldComponentUpdate(nextProps) {
-    return this.props.colorValue !== nextProps.colorValue;
+  state = { copied: false }
+  timeout = null
+
+  handleCopy = () => {
+    if (this.timeout) { clearTimeout(this.timeout); }
+    this.timeout = setTimeout(() => this.setState({ copied: false }), 2000);
+    this.setState({ copied: true });
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return (
+      this.props.colorValue !== nextProps.colorValue
+      || this.state.copied !== nextState.hideInfo
+    );
   }
 
   render() {
@@ -42,8 +53,10 @@ export default class ColorDisplay extends Component {
       chanel => <Chanel value={rgb[chanel]} name={chanel} key={v4()} />
     );
 
-    const iconLuminosity = transformedColor.luminosity();
-    const iconTheme = iconLuminosity >= 0.5 ? 'dark' : 'light';
+    const iconTheme = transformedColor.luminosity() >= 0.5 ? 'dark' : 'light';
+    const buttonTheme = !this.state.copied ? 'white' : 'green';
+    const buttonText = this.state.copied ? 'Copied' : 'Copy HEX';
+    const buttonGlyph = !this.state.copied ? 'copy' : 'tick';
 
     return (
       <div className="color-display">
@@ -60,6 +73,11 @@ export default class ColorDisplay extends Component {
                 <span className="color-display__hex-name">HEX:</span>
                 <span className="color-display__hex-value">{hex}</span>
               </div>
+              <Clipboard text={hex} onCopy={this.handleCopy}>
+                <ButtonWithIcon theme={buttonTheme} className="color-display__clipboard" glyph={buttonGlyph}>
+                  {buttonText}
+                </ButtonWithIcon>
+              </Clipboard>
             </div>
           }
         }}

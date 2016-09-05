@@ -55,7 +55,7 @@ $main-width-xx-large: 100% - $sidebar-width-xx-large;
   background-color: #2a343c;
   box-shadow: inset -3px 5px 5px 3px rgba(0,0,0, .1);
   transform: translateX(calc(-100% + 8rem));
-  transition: transform 400ms ease;
+  transition: transform 500ms ease;
 
   @include layout-medium { width: $sidebar-width-medium; }
   @include layout-large { width: $sidebar-width-large; }
@@ -72,7 +72,7 @@ $main-width-xx-large: 100% - $sidebar-width-xx-large;
   min-height: 100vh;
   width: calc(100% - 8rem);
   margin-left: 8rem;
-  transition: width 400ms ease, margin-left 400ms ease;
+  transition: width 500ms ease, margin-left 500ms ease;
 
   &--sidebar-opened {
     @include layout-medium {
