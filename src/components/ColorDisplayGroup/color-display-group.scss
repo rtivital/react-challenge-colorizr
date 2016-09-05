@@ -1,0 +1,32 @@
+.color-display-group {
+  background-color: $color-white;
+  box-shadow: $box-shadow;
+  margin-top: 3rem;
+  padding: 3rem 4rem;
+}
+
+.color-display-group__title {
+  margin: 0;
+  margin-bottom: 2rem;
+}
+
+.color-display-group__displays {
+  display: flex;
+  justify-content: center;
+
+  .color-display {
+    flex: 1;
+  }
+}
+
+.color-display-group__controls {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.color-display-group__control {
+  &:not(:first-child) {
+    margin-left: 2rem;
+  }
+}
