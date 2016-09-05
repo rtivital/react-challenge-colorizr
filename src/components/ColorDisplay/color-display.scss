@@ -1,7 +1,8 @@
 $display-height: 8rem;
 
-.color-display__clipboard {
+.color-display {
   border: $light-border;
+  min-width: 11.5rem;
   & + & {
     border-left: 0;
   }
@@ -104,9 +105,10 @@ $display-height: 8rem;
   font-size: .9em;
 }
 
-.clipboard__button {
+.color-display__clipboard {
   width: 100%;
   border: 0 !important;
+  border-radius: 0 !important;
 }
 
 .color-display__icon {
@@ -139,7 +141,7 @@ $display-height: 8rem;
   display: flex;
   justify-content: center;
 
-  .color-display__clipboard {
+  .color-display {
     flex: 1;
   }
 }

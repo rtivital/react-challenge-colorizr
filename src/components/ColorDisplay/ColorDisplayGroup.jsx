@@ -13,7 +13,7 @@ export default class ColorDisplayGroup extends Component {
 
   render() {
     const colorDisplays = this.props.colors.map(
-      (color) => <ColorDisplay colorValue={color} hideInfo key={v4()} />
+      (color) => <ColorDisplay colorValue={color} key={v4()} />
     );
 
     return (
