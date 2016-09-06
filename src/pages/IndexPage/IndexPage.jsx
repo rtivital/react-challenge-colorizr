@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import color from 'color';
 import cx from 'classnames';
 
-import { ColorPicker } from 'app/containers';
+import { ColorPicker, LuminosityGroup } from 'app/containers';
 import { Container } from 'app/ui';
 import './index-page.scss';
 
@@ -41,7 +41,7 @@ export default class IndexPage extends PureComponent {
         </header>
 
         <Container>
-          <ColorDisplayGroup title="Darker and lighter" colors={['#111', '#222', '#333', '#444', '#555', '#666', '#777', '#888', '#999', '#aaa']} />
+          <LuminosityGroup />
         </Container>
       </div>
     );

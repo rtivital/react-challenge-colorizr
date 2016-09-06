@@ -17,8 +17,6 @@ $display-height: 10rem;
 
 .color-display__display {
   height: $display-height;
-  position: relative;
-  z-index: 200;
   border-bottom: 0;
   cursor: pointer;
   transition: border 250ms ease, transform 250ms ease, background-color 250ms ease;
