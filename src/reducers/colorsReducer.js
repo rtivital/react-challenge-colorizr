@@ -27,7 +27,7 @@ export default handleActions({
       darkened.push(value.clone().darken(i * 0.1).hexString());
     }
 
-    const lum = lightened.concat(darkened);
+    const lum = lightened.reverse().concat(darkened);
 
     return { ...state, lead: prefixHex(payload), luminosity: lum };
   },

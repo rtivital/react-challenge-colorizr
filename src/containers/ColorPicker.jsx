@@ -32,7 +32,7 @@ export default class ColorPickerContainer extends Component {
     }
 
     this.props.setLeadColor(prefixHex(colorValue));
-  }, 100)
+  }, 50)
 
   render() {
     return (
