@@ -11,6 +11,12 @@ $color-dark-green: #43A047;
 $color-red: #eb4010;
 $color-dark-red: #c8310c;
 
-$box-shadow: 1px 2px 5px rgba(0, 0, 0, .1),
-  -1px -2px 5px rgba(0, 0, 0, .1);
+$color-blue: #119ce5;
+$color-dark-blue: #138dce;
+
 $light-border: .1rem solid $color-light-gray;
+
+$font-face-base: 'source-sans-pro', sans-serif;
+$font-family-secondary: 'fira-sans', sans-serif;
+
+$box-shadow: 1px 2px 5px rgba(0, 0, 0, .1), -1px -2px 5px rgba(0, 0, 0, .1);

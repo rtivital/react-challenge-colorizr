@@ -1,3 +1,5 @@
+$navbar-spacing: 2rem;
+
 .navbar {
   background-color: $color-white;
   border-bottom: $light-border;
@@ -5,38 +7,30 @@
 }
 
 .navbar__inner {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
   display: flex;
   align-items: center;
-}
-
-.navbar__burger {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: absolute;
-  left: 3rem;
-  padding: 1rem;
-}
-
-.navbar__navigation {
-  margin-left: auto;
+  justify-content: flex-end;
+  padding: $navbar-spacing;
 }
 
 .navbar__link {
-  padding: .7rem 1.5rem;
+  padding: .5rem 1rem;
+  font-size: .9em;
+  
   text-decoration: none;
-  color: $color-black;
-  border-radius: 4px;
+  color: $color-dark-gray;
+  transition: background-color 200ms ease;
+
+  &:not(&--active):hover {
+    background-color: $color-white-gray;
+  }
 
   &:not(:last-of-type) {
-    margin-right: 2rem;
+    margin-right: 1rem;
   }
 
   &--active {
-    background-color: #1391f4;
+    background-color: $color-blue;
     color: $color-white;
   }
 }

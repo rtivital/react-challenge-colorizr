@@ -8,16 +8,14 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: inherit;
 }
 
 body {
   font-size: 1.6em;
   line-height: 1.6;
-  font-family: "source-sans-pro", sans-serif;
+  font-family: $font-face-base;
   color: $color-black;
 }
 

@@ -1,8 +1,7 @@
 $site-width: 1400px;
+$container-spacing: 2rem;
 
 .container {
-  max-width: $site-width;
-  padding: 0 2rem;
-  margin-left: auto;
-  margin-right: auto;
+  @include center($site-width);
+  padding: 0 $container-spacing;
 }

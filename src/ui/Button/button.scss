@@ -1,10 +1,10 @@
 .button {
   padding: .75rem 1rem;
-  border: 1px solid;
+  border: .1rem solid;
   line-height: 1;
   cursor: pointer;
-  transition: all 200ms;
-  border-radius: 4px;
+  transition: all 200ms ease;
+  border-radius: .4rem;
   font-size: .9em;
 
   &:focus {
@@ -14,6 +14,7 @@
   &--white {
     background-color: $color-white;
     border-color: $color-light-gray;
+
     &:hover {
       background-color: $color-white-gray;
     }
@@ -67,6 +68,7 @@
 
 .button__glyph {
   padding: .5rem 1rem;
+
   .icon {
     width: 1.5rem;
     height: 1.5rem;
