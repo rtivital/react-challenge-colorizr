@@ -1,5 +1,5 @@
 {
-  "presets": ["react", "es2015-loose", "stage-0"],
+  "presets": ["react", "es2015", "stage-0"],
   "plugins": [
     "transform-decorators-legacy",
 
@@ -7,7 +7,6 @@
       "root": ["./src"],
       "alias": {
         "app": "./src",
-        "app-ui": "./src/ui"
       }
     }]
   ],
@@ -23,8 +22,7 @@
 
     "development": {
       "plugins": [
-        "add-module-exports",
-        "react-hot-loader/babel"
+        "react-hot-loader/babel",
       ]
     }
   }
