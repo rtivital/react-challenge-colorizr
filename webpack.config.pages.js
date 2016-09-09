@@ -6,6 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const glob = require('glob');
 
 module.exports = {
@@ -44,7 +45,9 @@ module.exports = {
       logo: './logo.png',
       background: '#e91e63',
     }),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.DedupePlugin(),
+    new LodashModuleReplacementPlugin(),
   ],
 
   module: {

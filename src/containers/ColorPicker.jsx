@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { replace } from 'react-router-redux';
-import debounce from 'lodash.debounce';
+import { debounce } from 'lodash';
 
 import { ColorPicker } from 'app/components';
 import { colorActions } from 'app/actions';

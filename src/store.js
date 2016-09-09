@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import multiMiddleware from 'redux-multi';
 import { routerMiddleware } from 'react-router-redux';
-import throttle from 'lodash.throttle';
+import { throttle } from 'lodash';
 import rootReducer from 'app/reducers';
 
 // create routing actions for hashHistory while deploying on gh-pages

@@ -4,6 +4,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const glob = require('glob');
 
 module.exports = {
@@ -53,6 +54,8 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': { 'NODE_ENV': JSON.stringify('development') },
     }),
+
+    new LodashModuleReplacementPlugin(),
   ],
 
   module: {
