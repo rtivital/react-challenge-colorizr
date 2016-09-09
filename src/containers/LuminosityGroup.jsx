@@ -4,6 +4,10 @@ import { ColorDisplayGroup } from 'app/components';
 
 @connect(state => ({ colors: state.color.luminosity }))
 export default class LuminosityGroupContainer extends PureComponent {
+  static propTypes = {
+    colors: PropTypes.array.isRequired,
+  }
+
   render() {
     return (
       <ColorDisplayGroup

@@ -4,7 +4,7 @@ import { Navbar, Layout, Main, Sidebar } from 'app/components';
 const AppContainer = ({ children }) => (
   <Layout>
     <Sidebar>Hello</Sidebar>
-    
+
     <Main>
       <Navbar />
       {children}

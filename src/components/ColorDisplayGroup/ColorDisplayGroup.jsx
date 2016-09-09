@@ -25,7 +25,13 @@ export default class ColorDisplayGroup extends Component {
   }
 
   render() {
-    const colorDisplays = this.props.colors.map(
+    const { colors } = this.props;
+    const firstColor = colors[0];
+    const lastColor = colors[colors.length - 1];
+    const gradient = `linear-gradient(to right, ${firstColor}, ${lastColor})`;
+    const gradientStyle = { backgroundImage: this.state.gradient ? gradient : '' };
+
+    const colorDisplays = colors.map(
       (color) => <ColorDisplay colorValue={color} hideInfo={!this.state.info} key={v4()} />
     );
 
@@ -33,12 +39,10 @@ export default class ColorDisplayGroup extends Component {
       'color-display-group__displays--gradient': this.state.gradient,
     });
 
-    const gradient = `linear-gradient(to right, ${this.props.colors[0]}, ${this.props.colors[this.props.colors.length - 1]})`;
-
     return (
       <div className="color-display-group">
         <h3 className="color-display-group__title">{this.props.title}</h3>
-        <div className={displaysClassName} style={{ backgroundImage: this.state.gradient ? gradient : '' }}>
+        <div className={displaysClassName} style={gradientStyle}>
           {colorDisplays}
         </div>
         <div className="color-display-group__controls">

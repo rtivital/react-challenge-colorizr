@@ -74,11 +74,15 @@ export default class ColorDisplay extends Component {
                 <span className="color-display__hex-value">{hex}</span>
               </div>
               <Clipboard text={hex} onCopy={this.handleCopy}>
-                <ButtonWithIcon theme={buttonTheme} className="color-display__clipboard" glyph={buttonGlyph}>
+                <ButtonWithIcon
+                  className="color-display__clipboard"
+                  theme={buttonTheme}
+                  glyph={buttonGlyph}
+                >
                   {buttonText}
                 </ButtonWithIcon>
               </Clipboard>
-            </div>
+            </div>;
           }
         }}
       </div>

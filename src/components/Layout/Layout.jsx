@@ -44,7 +44,11 @@ export default class Layout extends Component {
   }
 
   toggle = () => {
-    this.state.opened ? this.close() : this.open();
+    if (this.state.opened) {
+      this.close();
+    } else {
+      this.open();
+    }
   }
 
   hideOnMobile = debounce(() => {

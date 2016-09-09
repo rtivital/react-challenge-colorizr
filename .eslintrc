@@ -9,7 +9,9 @@
     "linebreak-style": 0,
     "import/prefer-default-export": 0,
     "consistent-return": 0,
-    "react/prefer-stateless-function": 0
+    "react/prefer-stateless-function": 0,
+    "react/sort-comp": 0,
+    "no-unused-expressions": 0
   },
 
   "settings": {

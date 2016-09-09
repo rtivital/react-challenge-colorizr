@@ -7,8 +7,6 @@ import { ColorPicker, LuminosityGroup } from 'app/containers';
 import { Container } from 'app/ui';
 import './index-page.scss';
 
-import { ColorDisplayGroup } from 'app/components';
-
 @connect(state => ({ lead: state.color.lead }))
 export default class IndexPage extends PureComponent {
   static propTypes = {
