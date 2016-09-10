@@ -4,7 +4,7 @@ import { replace } from 'react-router-redux';
 import { debounce } from 'lodash';
 
 import { ColorPicker } from 'app/components';
-import { colorActions } from 'app/actions';
+import { colorActions } from 'app/modules';
 import { updateWithQuery } from 'app/hocs';
 import { isHex, unprefixHex, prefixHex } from 'app/lib';
 

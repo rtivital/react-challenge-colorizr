@@ -1,7 +1,10 @@
-import { handleActions } from 'redux-actions';
+import { createAction, handleActions } from 'redux-actions';
 import color from 'color';
-import { colorActions } from 'app/actions';
 import { isHex, prefixHex } from 'app/lib';
+
+export const actions = {
+  setLeadColor: createAction('SET_LEAD_COLOR'),
+};
 
 const initialState = {
   lead: '#0c93d2',
@@ -9,8 +12,8 @@ const initialState = {
   luminosity: [],
 };
 
-export default handleActions({
-  [colorActions.setLeadColor](state, { payload }) {
+export const reducer = handleActions({
+  [actions.setLeadColor](state, { payload }) {
     if (!isHex(payload)) { return state; }
     const value = color(prefixHex(payload));
     const luminosity = value.luminosity();
