@@ -4,7 +4,7 @@
   "description": "Boilerplate for second React Challenge",
   "main": "index.js",
   "scripts": {
-    "test": "tape --require babel-register --require ignore-styles tests/**/*.* | tap-notify | faucet",
+    "test": "cross-env NODE_ENV=development tape --require babel-register --require ignore-styles tests/**/*.* | tap-notify | faucet",
     "start": "cross-env NODE_ENV=development babel-node server.js",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.babel.js --progress",
     "clean": "rimraf public",

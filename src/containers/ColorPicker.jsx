@@ -6,7 +6,9 @@ import { debounce } from 'lodash';
 import { ColorPicker } from 'app/components';
 import { colorActions } from 'app/modules';
 import { updateWithQuery } from 'app/hocs';
-import { isHex, unprefixHex, prefixHex } from 'app/lib';
+import { isHex, unprefixHex, prefixHex, hex } from 'app/lib';
+
+console.log(hex);
 
 @updateWithQuery('lead', colorActions.setLeadColor)
 @connect(state => ({ color: state.color.lead }), { ...colorActions, replace })

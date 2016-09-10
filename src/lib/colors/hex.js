@@ -2,16 +2,16 @@
 
 /**
  * validateHex - Utility function for HEX color validation that throws errors while development
- * 
+ *
  * @param {string} value - value to test
  *
  * @example
  * validateHex('#fff');     // it's ok
  * validateHex('#00000');   // TypeError
-  * isUnprefixedHex('zzz'); // TypeError
+ * isUnprefixedHex('zzz');  // TypeError
  * isUnprefixedHex();       // TypeError
  */
-function validateHex(value) {
+export function validateHex(value) {
   if (!isHex(value) && process.env.NODE_ENV === 'development') {
     throw new TypeError(`Recieved value ${value} is not a valid HEX color`);
   }
