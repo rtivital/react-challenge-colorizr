@@ -13,7 +13,7 @@
     "lint:all": "npm run lint && npm run lint:tests",
     "gh:build": "cross-env NODE_ENV=production BUILD=pages webpack --config webpack.config.babel.js --progress",
     "gh:deploy": "npm run clean && npm run gh:build && node utils/deploy",
-    "docs": "jsdoc --configure jsdoc.json --destination docs --recurse"
+    "docs": "jsdoc --configure jsdoc.json --destination public/docs --recurse"
   },
   "repository": {
     "type": "git",

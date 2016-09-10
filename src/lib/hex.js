@@ -20,7 +20,10 @@ export function prefixHex(color) {
 /**
  * Will unprefix hex value
  * @param {string} color
- * @return {strung} hex color value
+ * @return {string} hex color value
+ *
+ * @example
+ * unprefixHex('#ccc');
  */
 export function unprefixHex(color) {
   if (!isHex(color)) { return color; }
