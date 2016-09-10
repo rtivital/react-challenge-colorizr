@@ -12,7 +12,8 @@
     "lint:tests": "eslint -c tests.eslint.json tests --ext .js --ext .jsx --fix",
     "lint:all": "npm run lint && npm run lint:tests",
     "gh:build": "cross-env NODE_ENV=production BUILD=pages webpack --config webpack.config.babel.js --progress",
-    "gh:deploy": "npm run clean && npm run gh:build && node utils/deploy"
+    "gh:deploy": "npm run clean && npm run gh:build && node utils/deploy",
+    "docs": "jsdoc --configure jsdoc.json --destination docs --recurse"
   },
   "repository": {
     "type": "git",
@@ -89,6 +90,8 @@
     "gh-pages": "^0.11.0",
     "html-webpack-plugin": "^2.22.0",
     "ignore-styles": "^5.0.1",
+    "jsdoc": "^3.4.1",
+    "jsdoc-jsx": "^0.1.0",
     "jsonfile": "^2.3.0",
     "lodash-webpack-plugin": "^0.10.0",
     "mkdirp": "^0.5.1",

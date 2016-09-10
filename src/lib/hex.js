@@ -17,6 +17,11 @@ export function prefixHex(color) {
   return `#${color}`;
 }
 
+/**
+ * Will unprefix hex value
+ * @param {string} color
+ * @return {strung} hex color value
+ */
 export function unprefixHex(color) {
   if (!isHex(color)) { return color; }
   if (isUnprefixedHex(color)) { return color; }
