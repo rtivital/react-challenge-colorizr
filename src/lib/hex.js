@@ -22,3 +22,30 @@ export function unprefixHex(color) {
   if (isUnprefixedHex(color)) { return color; }
   return color.slice(1);
 }
+
+export function createLongHex(color) {
+  const prefixed = isPrefixedHex(color);
+  const hex = unprefixHex(color);
+
+  if (hex.length === 6) { return color; }
+
+  if (hex.length === 3) {
+    const longHex = hex.split('').map((chr) => chr + chr).join('');
+    return prefixed ? prefixHex(longHex) : longHex;
+  }
+
+  return color;
+}
+
+export function splitHex(color, splitType = 'object') {
+  const hex = unprefixHex(createLongHex(color));
+  const chanels = [];
+
+  for (let i = 0; i < hex.length; i += 2) {
+    chanels.push(parseInt(hex.slice(i, i + 2), 16));
+  }
+
+  return splitType === 'object'
+    ? { r: chanels[0], g: chanels[1], b: chanels[2] }
+    : chanels;
+}
