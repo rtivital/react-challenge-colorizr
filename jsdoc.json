@@ -1,15 +1,16 @@
 {
-    "tags": {
-        "allowUnknownTags": true,
-        "dictionaries": ["jsdoc","closure"]
-    },
-    "source": {
-      "include": "./src",
-        "includePattern": ".+\\.(js|jsx)?$"
-    },
-    "plugins": [],
-    "templates": {
-        "cleverLinks": false,
-        "monospaceLinks": false
-    }
+  "tags": {
+      "allowUnknownTags": true,
+      "dictionaries": ["jsdoc","closure"]
+  },
+
+  "source": {
+    "include": "./src/lib",
+    "includePattern": ".+\\.(js|jsx)?$"
+  },
+
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": false
+  }
 }
