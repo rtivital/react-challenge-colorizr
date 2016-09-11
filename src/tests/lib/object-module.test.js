@@ -27,14 +27,32 @@ test('Object module - objectUtils functions', (t) => {
 
 test('Object module - assignStaticPropsToClass function', (t) => {
   class CoolClass {}
-  const properties = { a: 1, b: 'string', c() {}, d: new Date(), e: [1, 2, 3], __private: true };
-  assignStaticPropsToClass(CoolClass, properties);
+  const props = { a: 1, b: 'string', c() {}, d: new Date(), e: [1, 2, 3], __private: true };
+  assignStaticPropsToClass(CoolClass, props);
 
-  Object.keys(properties).forEach((property) => {
+  Object.keys(props).forEach((property) => {
     if (property.charAt(0) === '_') {
       t.equal(hasOwnProperty(CoolClass, property), false, 'Did not expect to assign private property to class');
     } else {
       t.equal(hasOwnProperty(CoolClass, property), true, `Expected to assign property ${property} to class`);
+    }
+  });
+
+  class AnotherCoolClass {}
+  const anotherProps = { f: 'another prop', g: 'one more', __anotherPrivate: 'here' };
+  assignStaticPropsToClass(AnotherCoolClass, props, anotherProps);
+
+  Object.keys({ ...props, ...anotherProps }).forEach((property) => {
+    if (property.charAt(0) === '_') {
+      t.equal(
+        hasOwnProperty(AnotherCoolClass, property), false,
+        'Did not expect to assign private property to class from multiple entries'
+      );
+    } else {
+      t.equal(
+        hasOwnProperty(AnotherCoolClass, property), true,
+        `Expected to assign property ${property} to class from multiple entries`
+      );
     }
   });
 
