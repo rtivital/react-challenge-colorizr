@@ -2,7 +2,7 @@
 import test from 'tape-catch';
 import { hex } from 'app/lib';
 
-/** ********* validateHex development utility and isHex function tests **********/
+/********** validateHex development utility and isHex function tests **********/
 const randomValues = ['', NaN, null, {}, [1, 3, 4], 'hello', 29, new Date()];
 const invalidColors = ['#f', '#ff', '#ffff', '#fffff', '#zzz', 'f', 'f0', 'f000'];
 const validColors = ['#7986cb', '#009688', '#f45', 'fdd835', 'a1887f', 'c22'];
@@ -52,7 +52,7 @@ test('HEX module - isHex function', (t) => {
 });
 
 
-/** ***************** isPrefixedHex and isUnprefixedHex tests *******************/
+/******************* isPrefixedHex and isUnprefixedHex tests *******************/
 const prefixedHex = ['#7986cb', '#009688', '#f45'];
 const unprefixedHex = ['fdd835', 'a1887f', 'c22'];
 
@@ -87,7 +87,7 @@ test('HEX module - unprefixHex and prefixHex functions', (t) => {
 });
 
 
-/** ********************** createLongHex function tests ************************/
+/************************ createLongHex function tests ************************/
 const shortPrefixed = ['#ccc', '#ddd', '#d41'];
 const shortUnprefixed = ['ccc', 'ddd', 'd41'];
 const short = [...shortPrefixed, ...shortUnprefixed];
@@ -128,7 +128,7 @@ test('HEX module - createLongHex function', (t) => {
   t.end();
 });
 
-/* splitHex, createLongHex and chanelToHex functions tests */
+/*********** splitHex, createLongHex and chanelToHex functions tests ***********/
 function assignSplittedHex(object, hexString, chanels) {
   object[hexString] = {
     array: chanels,

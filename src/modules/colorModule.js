@@ -1,6 +1,6 @@
 import { createAction, handleActions } from 'redux-actions';
 import color from 'color';
-import { isHex, prefixHex } from 'app/lib';
+import { hex } from 'app/lib';
 
 export const actions = {
   setLeadColor: createAction('SET_LEAD_COLOR'),
@@ -14,8 +14,8 @@ const initialState = {
 
 export const reducer = handleActions({
   [actions.setLeadColor](state, { payload }) {
-    if (!isHex(payload)) { return state; }
-    const value = color(prefixHex(payload));
+    if (!hex.isHex(payload)) { return state; }
+    const value = color(hex.prefixHex(payload));
     const luminosity = value.luminosity();
     const lightColors = parseInt(luminosity * 10, 10);
     const darkColors = 10 - lightColors;
@@ -32,6 +32,6 @@ export const reducer = handleActions({
 
     const lum = lightened.reverse().concat(darkened);
 
-    return { ...state, lead: prefixHex(payload), luminosity: lum };
+    return { ...state, lead: hex.prefixHex(payload), luminosity: lum };
   },
 }, initialState);

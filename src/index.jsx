@@ -34,3 +34,7 @@ if (process.env.BUILD === 'pages') {
     document.getElementById('app')
   );
 }
+
+import { Colorizr } from 'app/lib';
+
+console.log(Colorizr.isPrefixedHex);

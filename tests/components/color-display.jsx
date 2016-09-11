@@ -16,7 +16,6 @@ const selectors = {
 };
 
 test(`<ColorDisplay /> with right formated ${formated}`, (t) => {
-  // ColorDisplay is wrapped inside copyToClipboard hoc, so it needs to be shallowed one more time
   const wrapper = shallow(<ColorDisplay colorValue={formated} />);
 
   const display = wrapper.find(selectors.display);
