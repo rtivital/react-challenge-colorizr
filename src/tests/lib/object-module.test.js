@@ -28,7 +28,7 @@ test('Object module - objectUtils functions', (t) => {
 test('Object module - assignStaticPropsToClass function', (t) => {
   class CoolClass {}
   const props = { a: 1, b: 'string', c() {}, d: new Date(), e: [1, 2, 3], __private: true };
-  assignStaticPropsToClass(CoolClass, props);
+  assignStaticPropsToClass(props)(CoolClass);
 
   Object.keys(props).forEach((property) => {
     if (property.charAt(0) === '_') {
@@ -40,7 +40,7 @@ test('Object module - assignStaticPropsToClass function', (t) => {
 
   class AnotherCoolClass {}
   const anotherProps = { f: 'another prop', g: 'one more', __anotherPrivate: 'here' };
-  assignStaticPropsToClass(AnotherCoolClass, props, anotherProps);
+  assignStaticPropsToClass(props, anotherProps)(AnotherCoolClass);
 
   Object.keys({ ...props, ...anotherProps }).forEach((property) => {
     if (property.charAt(0) === '_') {
