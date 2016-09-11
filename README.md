@@ -1,6 +1,6 @@
 # Второй выпуск React Challenge
 
-![React Challenge Colorizr](img/repo-header.png)
+![React Challenge Colorizr](repo-header.png)
 
 [![Build Status](https://travis-ci.org/rtivital/react-challenge-colorizr.svg?branch=master)](https://travis-ci.org/rtivital/react-challenge-colorizr)
 [![Dependency Status](https://dependencyci.com/github/rtivital/react-challenge-colorizr/badge)](https://dependencyci.com/github/rtivital/react-challenge-colorizr)

@@ -13,7 +13,8 @@
     "react/sort-comp": 0,
     "no-unused-expressions": 0,
     "react/forbid-prop-types": 0,
-    "react/no-danger": 0
+    "react/no-danger": 0,
+    "import/no-extraneous-dependencies": 0,
   },
 
   "settings": {
