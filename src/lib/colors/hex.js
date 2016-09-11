@@ -120,7 +120,7 @@ export function createLongHex(value, prefixed = false) {
   validateHex(value);
 
   const hex = unprefixHex(value);
-  if (hex.length === 6) { return value; }
+  if (hex.length === 6) { return prefixed ? prefixHex(value) : hex; }
 
   const longHex = hex.split('').map((chr) => chr + chr).join('');
   return prefixed ? prefixHex(longHex) : longHex;
@@ -169,7 +169,6 @@ export function chanelToHex(chanel) {
   const value = chanel.toString(16);
   return value.length === 2 ? value : `0${value}`;
 }
-
 
 /**
  * mergeHex - Merges splited hex value to string
