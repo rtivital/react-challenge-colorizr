@@ -1,51 +1,11 @@
+/* eslint-disable max-len, no-param-reassign */
 import test from 'tape-catch';
 import { hex } from 'app/lib';
 
-function assignSplittedHex(object, hexString, chanels) {
-  object[hexString] = {
-    array: chanels,
-    object: { r: chanels[0], g: chanels[1], b: chanels[2] },
-  };
-}
-
-function createChanel(chanel, converted) {
-  return { chanel, converted };
-}
-
-const development = process.env.NODE_ENV === 'development';
-
-const randomValues = ['', NaN, null, {}, [1,3,4], 'hello', 29, new Date];
+/** ********* validateHex development utility and isHex function tests **********/
+const randomValues = ['', NaN, null, {}, [1, 3, 4], 'hello', 29, new Date()];
 const invalidColors = ['#f', '#ff', '#ffff', '#fffff', '#zzz', 'f', 'f0', 'f000'];
-const prefixedHex = ['#7986cb', '#009688', '#f45'];
-const unprefixedHex = ['fdd835', 'a1887f', 'c22'];
-const validColors = [...prefixedHex, ...unprefixedHex];
-
-const shortPrefixed = ['#ccc', '#ddd', '#d41'];
-const shortUnprefixed = ['ccc', 'ddd', 'd41'];
-const short = [...shortPrefixed, ...shortUnprefixed];
-
-const longPrefixed = ['#cccccc', '#dddddd', '#dd4411'];
-const longUnprefixed = ['cccccc', 'dddddd', 'dd4411'];
-const long = [...longPrefixed, ...longUnprefixed];
-
-const splittedHex = {};
-assignSplittedHex(splittedHex, '#fff', [255, 255, 255]);
-assignSplittedHex(splittedHex, 'c56', [204, 85, 102]);
-assignSplittedHex(splittedHex, '#34f68c', [52, 246, 140]);
-assignSplittedHex(splittedHex, '50ff4c', [80, 255, 76]);
-
-// mergeHex function will always return long hex value
-const mergedHex = {};
-assignSplittedHex(mergedHex, '#ffffff', [255, 255, 255]);
-assignSplittedHex(mergedHex, 'ffffff', [255, 255, 255]);
-assignSplittedHex(mergedHex, '#34f68c', [52, 246, 140]);
-assignSplittedHex(mergedHex, '34f68c', [52, 246, 140]);
-
-const chanels = [
-  createChanel(255, 'ff'),
-  createChanel(0, '00'),
-  createChanel(15, '0f'),
-];
+const validColors = ['#7986cb', '#009688', '#f45', 'fdd835', 'a1887f', 'c22'];
 
 test('HEX module - validateHex utility', (t) => {
   invalidColors.forEach((invalidColor) => {
@@ -85,11 +45,16 @@ test('HEX module - isHex function', (t) => {
   });
 
   randomValues.forEach((randomValue) => {
-    t.equal(hex.isHex(randomValue), false, `Expected random value ${randomValue} not to be hex`)
+    t.equal(hex.isHex(randomValue), false, `Expected random value ${randomValue} not to be hex`);
   });
 
   t.end();
 });
+
+
+/** ***************** isPrefixedHex and isUnprefixedHex tests *******************/
+const prefixedHex = ['#7986cb', '#009688', '#f45'];
+const unprefixedHex = ['fdd835', 'a1887f', 'c22'];
 
 test('HEX module - isUnprefixedHex and isPrefixedHex functions', (t) => {
   unprefixedHex.forEach((unprefixed) => {
@@ -120,6 +85,16 @@ test('HEX module - unprefixHex and prefixHex functions', (t) => {
 
   t.end();
 });
+
+
+/** ********************** createLongHex function tests ************************/
+const shortPrefixed = ['#ccc', '#ddd', '#d41'];
+const shortUnprefixed = ['ccc', 'ddd', 'd41'];
+const short = [...shortPrefixed, ...shortUnprefixed];
+
+const longPrefixed = ['#cccccc', '#dddddd', '#dd4411'];
+const longUnprefixed = ['cccccc', 'dddddd', 'dd4411'];
+const long = [...longPrefixed, ...longUnprefixed];
 
 test('HEX module - createLongHex function', (t) => {
   short.forEach((shortHex, index) => {
@@ -152,6 +127,37 @@ test('HEX module - createLongHex function', (t) => {
 
   t.end();
 });
+
+/* splitHex, createLongHex and chanelToHex functions tests */
+function assignSplittedHex(object, hexString, chanels) {
+  object[hexString] = {
+    array: chanels,
+    object: { r: chanels[0], g: chanels[1], b: chanels[2] },
+  };
+}
+
+function createChanel(chanel, converted) {
+  return { chanel, converted };
+}
+
+const splittedHex = {};
+assignSplittedHex(splittedHex, '#fff', [255, 255, 255]);
+assignSplittedHex(splittedHex, 'c56', [204, 85, 102]);
+assignSplittedHex(splittedHex, '#34f68c', [52, 246, 140]);
+assignSplittedHex(splittedHex, '50ff4c', [80, 255, 76]);
+
+// mergeHex function will always return long hex value
+const mergedHex = {};
+assignSplittedHex(mergedHex, '#ffffff', [255, 255, 255]);
+assignSplittedHex(mergedHex, 'ffffff', [255, 255, 255]);
+assignSplittedHex(mergedHex, '#34f68c', [52, 246, 140]);
+assignSplittedHex(mergedHex, '34f68c', [52, 246, 140]);
+
+const chanels = [
+  createChanel(255, 'ff'),
+  createChanel(0, '00'),
+  createChanel(15, '0f'),
+];
 
 test('HEX module - splitHex function', (t) => {
   Object.keys(splittedHex).forEach((hexString) => {
