@@ -1,10 +1,11 @@
 export function isObject(value) {
-  return typeof value === 'object' && value !== null && !Array.isArray(value);
+  const type = typeof value;
+  return (type === 'object' || type === 'function') && value !== null && !Array.isArray(value);
 }
 
 export function isEmpty(value) {
   if (!isObject(value)) { return true; }
-  return Object.keys(value).length > 0;
+  return !Object.keys(value).length;
 }
 
 /**
