@@ -14,7 +14,6 @@ const Main = ({ children }, { sidebarOpened }) => {
 };
 
 Main.propTypes = {
-  opened: PropTypes.bool,
   children: PropTypes.any,
 };
 

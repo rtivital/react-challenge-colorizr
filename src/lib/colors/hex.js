@@ -1,23 +1,6 @@
 /** @module HEX */
 
 /**
- * validateHex - Utility function for HEX color validation that throws errors while development
- *
- * @param {string} value - value to test
- *
- * @example
- * validateHex('#fff');     // it's ok
- * validateHex('#00000');   // TypeError
- * isUnprefixedHex('zzz');  // TypeError
- * isUnprefixedHex();       // TypeError
- */
-export function validateHex(value) {
-  if (!isHex(value) && process.env.NODE_ENV === 'development') {
-    throw new TypeError(`Recieved value ${value} is not a valid HEX color`);
-  }
-}
-
-/**
  * isUnprefixedHex - Tests if provided HEX color does not contain hash
  *
  * @param {string} value - HEX color to test
@@ -67,6 +50,23 @@ export function isHex(value) {
 }
 
 /**
+ * validateHex - Utility function for HEX color validation that throws errors while development
+ *
+ * @param {string} value - value to test
+ *
+ * @example
+ * validateHex('#fff');     // it's ok
+ * validateHex('#00000');   // TypeError
+ * isUnprefixedHex('zzz');  // TypeError
+ * isUnprefixedHex();       // TypeError
+ */
+export function validateHex(value) {
+  if (!isHex(value) && process.env.NODE_ENV === 'development') {
+    throw new TypeError(`Recieved value ${value} is not a valid HEX color`);
+  }
+}
+
+/**
  * unprefixHex - Used to unprefix HEX color value (remove hash character at position 0)
  *
  * @param {string} value - HEX color with (#fff) or without hash (fff)
@@ -99,7 +99,7 @@ export function unprefixHex(value) {
  */
 export function prefixHex(value) {
   validateHex(value);
-  return isPrefixedHex(value) ? value :`#${value}`;
+  return isPrefixedHex(value) ? value : `#${value}`;
 }
 
 /**

@@ -22,11 +22,11 @@ export const reducer = handleActions({
     const darkened = [];
     const lightened = [];
 
-    for (let i = 0; i < lightColors; i++) {
+    for (let i = 0; i < lightColors; i += 1) {
       lightened.push(value.clone().lighten(i * 0.1).hexString());
     }
 
-    for (let i = 0; i < darkColors; i++) {
+    for (let i = 0; i < darkColors; i += 1) {
       darkened.push(value.clone().darken(i * 0.1).hexString());
     }
 

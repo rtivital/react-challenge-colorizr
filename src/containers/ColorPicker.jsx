@@ -6,16 +6,14 @@ import { debounce } from 'lodash';
 import { ColorPicker } from 'app/components';
 import { colorActions } from 'app/modules';
 import { updateWithQuery } from 'app/hocs';
-import { isHex, unprefixHex, prefixHex, hex } from 'app/lib';
-
-console.log(hex);
+import { hex } from 'app/lib';
 
 @updateWithQuery('lead', colorActions.setLeadColor)
 @connect(state => ({ color: state.color.lead }), { ...colorActions, replace })
 export default class ColorPickerContainer extends Component {
   static propTypes = {
     color(props, propName, componentName) {
-      if (!isHex(props[propName])) {
+      if (!hex.isHex(props[propName])) {
         return new Error(`${componentName} expected to recieve a valid hex value, shame`);
       }
     },
@@ -26,14 +24,14 @@ export default class ColorPickerContainer extends Component {
   }
 
   handleChange = debounce((colorValue) => {
-    if (isHex(colorValue)) {
+    if (hex.isHex(colorValue)) {
       this.props.replace({
         pathname: this.props.location.pathname,
-        query: { lead: unprefixHex(colorValue) },
+        query: { lead: hex.unprefixHex(colorValue) },
       });
     }
 
-    this.props.setLeadColor(prefixHex(colorValue));
+    this.props.setLeadColor(hex.prefixHex(colorValue));
   }, 50)
 
   render() {

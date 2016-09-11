@@ -18,13 +18,7 @@ const Sidebar = ({ children }, { sidebarOpened, toggleSidebar }) => {
 };
 
 Sidebar.propTypes = {
-  opened: PropTypes.bool,
-  toggle: PropTypes.func,
   children: PropTypes.any,
-};
-
-Sidebar.defaultProps = {
-  opened: true,
 };
 
 Sidebar.contextTypes = {

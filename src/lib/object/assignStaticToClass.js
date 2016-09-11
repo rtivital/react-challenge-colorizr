@@ -1,4 +1,4 @@
-import { isObject, hasOwnProperty } from './utils';
+import { hasOwnProperty } from './utils';
 
 export default function assignStaticPropsToClass(Constructor, ...modules) {
   modules.forEach((module) => {
@@ -8,7 +8,7 @@ export default function assignStaticPropsToClass(Constructor, ...modules) {
       }
 
       if (functionName.charAt(0) !== '_') {
-        Constructor[functionName] = module[functionName];
+        Object.defineProperty(Constructor, functionName, { value: module[functionName] });
       }
     });
   });

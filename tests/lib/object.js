@@ -7,7 +7,7 @@ test('Object module - objectUtils functions', (t) => {
   // isObject function tests
   t.equal(isObject({}), true, 'Expected isObject to treat empty object as object');
   t.equal(isObject({ a: 1 }), true, 'Expected isObject to treat object with keys as object');
-  t.equal(isObject(function () {}), true, 'Expected isObject to treat function as object');
+  t.equal(isObject(() => {}), true, 'Expected isObject to treat function as object');
   t.equal(isObject(null), false, 'Expected isObject not to treat null as object');
   t.equal(isObject([]), false, 'Expected isObject not to treat empty array as object');
   t.equal(isObject([1, 2, 3]), false, 'Expected isObject not to treat array with items as object');
@@ -16,7 +16,7 @@ test('Object module - objectUtils functions', (t) => {
   t.equal(isEmpty({}), true, 'Expected isEmpty to treat empty object as empty');
   t.equal(isEmpty({ a: 1 }), false, 'Expected isEmpty not to treat object with porp as empty');
 
-  //hasOwnProperty function tests
+  // hasOwnProperty function tests
   t.equal(hasOwnProperty({}, 'a'), false, 'Did not expect hasOwnProperty to find key in empty object');
   t.equal(hasOwnProperty('a', 'a'), false, 'Did not expect hasOwnProperty to find key in string');
   t.equal(hasOwnProperty([{ a: 1 }], 'a'), false, 'Did not expect hasOwnProperty to find key in array');
@@ -26,8 +26,8 @@ test('Object module - objectUtils functions', (t) => {
 });
 
 test('Object module - assignStaticPropsToClass function', (t) => {
-  class CoolClass {};
-  const properties = { a: 1, b: 'string', c: function() {}, d: new Date(), e: [1, 2, 3], __private: true };
+  class CoolClass {}
+  const properties = { a: 1, b: 'string', c() {}, d: new Date(), e: [1, 2, 3], __private: true };
   assignStaticPropsToClass(CoolClass, properties);
 
   Object.keys(properties).forEach((property) => {

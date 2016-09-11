@@ -9,9 +9,9 @@ const Burger = ({ active, className, theme, onClick }) => {
   });
 
   return (
-    <div className={classNames} onClick={onClick}>
+    <button className={classNames} onClick={onClick}>
       <span className="burger__icon" />
-    </div>
+    </button>
   );
 };
 
