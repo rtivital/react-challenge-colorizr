@@ -30,19 +30,27 @@ export function convertSplittedToObject(value) {
   return value;
 }
 
-export function lumChanel(chanel, percent, factor = 1) {
-  return Math.max(0, chanel - (255 * factor * percent / 100));
+function lumChanel(chanel, percent, factor = 1) {
+  return Math.min(Math.max(0, chanel - (255 * factor * percent / 100)), 255);
 }
 
-export function darken(value, percent) {
+function applyToChanels(value, callback, ...args) {
   if (Array.isArray(value)) {
-    return value.map((chanel) => lumChanel(chanel, percent, -1));
+    return value.map((chanel) => callback.apply(null, chanel, args));
   }
 
   const color = {};
   Object.keys(value).forEach((chanel) => {
-    color[chanel] = lumChanel(value[chanel], percent, -1);
+    color[chanel] = callback.apply(null, value[chanel], args);
   });
 
   return color;
+}
+
+export function darken(value, percent) {
+  return applyToChanels(lumChanel, percent, -1);
+}
+
+export function lighten(value, percent) {
+  return applyToChanels(lumChanel, percent, 1);
 }
