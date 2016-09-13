@@ -13,19 +13,12 @@ export default class Colorizr {
       throw new Error(`Recieved value ${color} is not a valid color`);
     }
 
-    const splittedColor = isSplitted
+    this.color = isSplitted
       ? convertSplittedToObject(color)
       : hex.splitHex(color, 'object');
-
-    Object.keys(splittedColor).forEach((chanel) => {
-      Object.defineProperty(this, chanel, {
-        value: splittedColor[chanel],
-        enumerable: true,
-      });
-    });
   }
 
   clone() {
-    return new Colorizr(this);
+    return new Colorizr(this.color);
   }
 }
