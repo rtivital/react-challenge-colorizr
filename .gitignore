@@ -38,4 +38,5 @@ jspm_packages
 
 # Project Files
 public
+dist
 docs

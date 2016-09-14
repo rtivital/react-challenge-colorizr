@@ -15,7 +15,7 @@ const loaders = [
   { // react-hot is implemented as babel plugin now
     test: /\.(js|jsx)$/,
     loader: 'babel',
-    include: path.join(__dirname, 'src'),
+    include: [path.join(__dirname, 'src'), path.join(__dirname, 'server')],
     exclude: /node_modules/,
   },
 
