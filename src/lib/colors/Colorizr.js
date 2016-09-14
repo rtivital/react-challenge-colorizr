@@ -1,12 +1,12 @@
 import assignStaticPropsToClass from '../object/assignStaticToClass';
 import * as hex from './hex';
-import { isSplittedColor, convertSplittedToObject } from './splitted';
+import * as splitted from './splitted';
 
 @assignStaticPropsToClass(hex)
 export default class Colorizr {
   constructor(color) {
     const isHexString = hex.isHex(color);
-    const isSplitted = isSplittedColor(color);
+    const isSplitted = splitted.isSplittedColor(color);
 
     // @TODO add rgb and rgba color validations
     if (!isHexString && !isSplitted) {
@@ -14,11 +14,21 @@ export default class Colorizr {
     }
 
     this.color = isSplitted
-      ? convertSplittedToObject(color)
+      ? splitted.convertSplittedToObject(color)
       : hex.splitHex(color, 'object');
   }
 
   clone() {
     return new Colorizr(this.color);
+  }
+
+  darken(percent) {
+    this.color = splitted.darken(this.color, percent);
+    return this;
+  }
+
+  lighten(percent) {
+    this.color = splitted.lighten(this.color, percent);
+    return this;
   }
 }

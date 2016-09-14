@@ -31,7 +31,7 @@ export function convertSplittedToObject(value) {
 }
 
 function lumChanel(chanel, percent, factor = 1) {
-  return Math.min(Math.max(0, chanel - (255 * factor * percent / 100)), 255);
+  return parseInt(Math.min(Math.max(0, chanel - (255 * factor * percent / 100)), 255), 10);
 }
 
 function applyToChanels(value, callback, ...args) {
@@ -48,9 +48,9 @@ function applyToChanels(value, callback, ...args) {
 }
 
 export function darken(value, percent) {
-  return applyToChanels(lumChanel, percent, -1);
+  return applyToChanels(value, lumChanel, percent, 1);
 }
 
 export function lighten(value, percent) {
-  return applyToChanels(lumChanel, percent, 1);
+  return applyToChanels(value, lumChanel, percent, -1);
 }
