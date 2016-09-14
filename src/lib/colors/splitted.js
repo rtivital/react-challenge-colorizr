@@ -36,12 +36,12 @@ function lumChanel(chanel, percent, factor = 1) {
 
 function applyToChanels(value, callback, ...args) {
   if (Array.isArray(value)) {
-    return value.map((chanel) => callback.apply(null, chanel, args));
+    return value.map((chanel) => callback.call(null, chanel, ...args));
   }
 
   const color = {};
   Object.keys(value).forEach((chanel) => {
-    color[chanel] = callback.apply(null, value[chanel], args);
+    color[chanel] = callback.call(null, value[chanel], ...args);
   });
 
   return color;
