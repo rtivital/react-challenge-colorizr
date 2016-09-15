@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Navbar, Layout, Main, Sidebar } from 'app/components';
+import { Navbar, Layout, Main, Sidebar } from 'components';
 
 const AppContainer = ({ children }) => (
   <Layout>

@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { replace } from 'react-router-redux';
 import { debounce } from 'lodash';
 
-import { ColorPicker } from 'app/components';
-import { colorActions } from 'app/modules';
-import { updateWithQuery } from 'app/hocs';
-import { hex } from 'app/lib';
+import { ColorPicker } from 'components';
+import { colorActions } from 'modules';
+import { updateWithQuery } from 'hocs';
+import { hex } from 'lib';
 
 @updateWithQuery('lead', colorActions.setLeadColor)
 @connect(state => ({ color: state.color.lead }), { ...colorActions, replace })

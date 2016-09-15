@@ -1,7 +1,7 @@
 import React from 'react';
 import test from 'tape-catch';
 import { shallow } from 'enzyme';
-import { ColorPicker } from 'app/components';
+import { ColorPicker } from 'components';
 
 test('<ColorPicker /> render', (t) => {
   let onChangeTest = '#000';

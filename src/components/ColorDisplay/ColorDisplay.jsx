@@ -3,7 +3,7 @@ import color from 'color';
 import { v4 } from 'node-uuid';
 import Clipboard from 'react-copy-to-clipboard';
 
-import { Icon, glyphs, ButtonWithIcon } from 'app/ui';
+import { Icon, glyphs, ButtonWithIcon } from 'ui';
 import './color-display.scss';
 
 const Chanel = ({ value, name }) => (

@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { v4 } from 'node-uuid';
 import cx from 'classnames';
-import { Button, Checkbox } from 'app/ui';
-import { ColorDisplay } from 'app/components';
+
+import { Button, Checkbox } from 'ui';
+import { ColorDisplay } from 'components';
 import './color-display-group.scss';
 
 export default class ColorDisplayGroup extends Component {

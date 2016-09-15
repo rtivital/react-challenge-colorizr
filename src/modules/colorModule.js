@@ -1,6 +1,6 @@
 import { createAction, handleActions } from 'redux-actions';
 import color from 'color';
-import { hex } from 'app/lib';
+import { hex } from 'lib';
 
 export const actions = {
   setLeadColor: createAction('SET_LEAD_COLOR'),

@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import color from 'color';
 import cx from 'classnames';
 
-import { ColorPicker, LuminosityGroup } from 'app/containers';
-import { Container } from 'app/ui';
+import { ColorPicker, LuminosityGroup } from 'containers';
+import { Container } from 'ui';
 import './index-page.scss';
 
 @connect(state => ({ lead: state.color.lead }))

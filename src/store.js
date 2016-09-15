@@ -3,7 +3,7 @@ import thunkMiddleware from 'redux-thunk';
 import multiMiddleware from 'redux-multi';
 import { routerMiddleware } from 'react-router-redux';
 import { throttle } from 'lodash';
-import rootReducer from 'app/modules';
+import rootReducer from 'modules';
 
 // create routing actions for hashHistory while deploying on gh-pages
 const routingMiddleware = routerMiddleware(

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import cx from 'classnames';
-import { Burger } from 'app/ui';
+import { Burger } from 'ui';
 
 const Sidebar = ({ children }, { sidebarOpened, toggleSidebar }) => {
   const className = cx('sidebar', {

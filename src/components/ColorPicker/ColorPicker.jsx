@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import ColorPickerComponent from 'react-color-picker';
-import { ColorDisplay } from 'app/components';
+
+import { ColorDisplay } from 'components';
 import 'react-color-picker/index.css';
 import './color-picker.scss';
 

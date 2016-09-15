@@ -1,5 +1,5 @@
 import test from 'tape-catch';
-import { objectUtils, assignStaticPropsToClass } from 'app/lib';
+import { objectUtils, assignStaticPropsToClass } from 'lib';
 
 const { isObject, isEmpty, hasOwnProperty } = objectUtils;
 

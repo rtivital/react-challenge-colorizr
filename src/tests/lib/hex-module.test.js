@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import test from 'tape-catch';
-import { hex } from 'app/lib';
+import { hex } from 'lib';
 
 
 // -------------------------------------------------------

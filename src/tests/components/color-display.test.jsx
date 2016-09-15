@@ -2,7 +2,7 @@ import React from 'react';
 import test from 'tape-catch';
 import { shallow } from 'enzyme';
 import Clipboard from 'react-copy-to-clipboard';
-import { ColorDisplay } from 'app/components';
+import { ColorDisplay } from 'components';
 
 const formated = '#FFFFFF';
 const unformated = '#fff';

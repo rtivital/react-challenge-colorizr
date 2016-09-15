@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import Router from 'react-router/lib/Router';
 import Route from 'react-router/lib/Route';
 import IndexRoute from 'react-router/lib/IndexRoute';
-import { AppContainer, IndexPage, ExportPage, ExplorePage } from 'app/pages';
+import { AppContainer, IndexPage, ExportPage, ExplorePage } from 'pages';
 
 const AppRouter = ({ history }) => (
   <Router history={history}>
