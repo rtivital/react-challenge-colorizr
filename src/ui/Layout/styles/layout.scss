@@ -1,0 +1,105 @@
+@import '~breakpoint-sass/stylesheets/breakpoint';
+
+$layout-breakpoint-small: 45rem;
+$layout-breakpoint-medium: 52rem;
+$layout-breakpoint-large: 70rem;
+$layout-breakpoint-x-large: 90rem;
+
+$sidebar-width-small: 100%;
+$sidebar-width-medium: 45%;
+$sidebar-width-large: 35%;
+$sidebar-width-x-large: 28%;
+$sidebar-width-xx-large: 25%;
+
+$main-width-small: 100%;
+$main-width-medium: 100% - $sidebar-width-medium;
+$main-width-large: 100% - $sidebar-width-large;
+$main-width-x-large: 100% - $sidebar-width-x-large;
+$main-width-xx-large: 100% - $sidebar-width-xx-large;
+
+@mixin layout-medium {
+  @include breakpoint($layout-breakpoint-small) {
+    @content;
+  }
+}
+
+@mixin layout-large {
+  @include breakpoint($layout-breakpoint-medium) {
+    @content;
+  }
+}
+
+@mixin layout-x-large {
+  @include breakpoint($layout-breakpoint-large) {
+    @content;
+  }
+}
+
+@mixin layout-xx-large {
+  @include breakpoint($layout-breakpoint-x-large) {
+    @content;
+  }
+}
+
+.layout {
+  position: relative;
+  min-height: 100vh;
+}
+
+.layout > .sidebar {
+  position: fixed;
+  min-height: 100vh;
+  width: $sidebar-width-small;
+
+  z-index: 200;
+  background-color: #2a343c;
+  box-shadow: inset -3px 5px 5px 3px rgba(0,0,0, .1);
+  transform: translateX(calc(-100% + 8rem));
+  transition: transform 500ms ease;
+
+  @include layout-medium { width: $sidebar-width-medium; }
+  @include layout-large { width: $sidebar-width-large; }
+  @include layout-x-large { width: $sidebar-width-x-large; }
+  @include layout-xx-large { width: $sidebar-width-xx-large; }
+
+  &--opened {
+    transform: translateX(0);
+  }
+}
+
+.layout > .main {
+  position: relative;
+  min-height: 100vh;
+  width: calc(100% - 8rem);
+  margin-left: 8rem;
+  transition: width 500ms ease, margin-left 500ms ease;
+
+  &--sidebar-opened {
+    @include layout-medium {
+      width: $main-width-medium;
+      margin-left: $sidebar-width-medium;
+    }
+
+    @include layout-large {
+      width: $main-width-large;
+      margin-left: $sidebar-width-large;
+    }
+
+    @include layout-x-large {
+      width: $main-width-x-large;
+      margin-left: $sidebar-width-x-large;
+    }
+
+    @include layout-xx-large {
+      width: $main-width-xx-large;
+      margin-left: $sidebar-width-xx-large;
+    }
+  }
+}
+
+.sidebar__burger {
+  background-color: $color-black;
+  padding: 1.6rem;
+  display: flex;
+  justify-content: flex-end;
+}
