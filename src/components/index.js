@@ -1,3 +1,4 @@
+export AppContainer from './AppContainer/AppContainer';
 export ColorDisplay from './ColorDisplay/ColorDisplay';
 export ColorDisplayGroup from './ColorDisplayGroup/ColorDisplayGroup';
 export ColorPicker from './ColorPicker/ColorPicker';
