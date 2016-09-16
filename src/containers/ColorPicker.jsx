@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { replace } from 'react-router-redux';
 import { debounce } from 'lodash';
@@ -10,7 +10,7 @@ import { hex } from 'lib';
 
 @updateWithQuery('lead', colorActions.setLeadColor)
 @connect(state => ({ color: state.color.lead }), { ...colorActions, replace })
-export default class ColorPickerContainer extends Component {
+export default class ColorPickerContainer extends PureComponent {
   static propTypes = {
     color(props, propName, componentName) {
       if (!hex.isHex(props[propName])) {
