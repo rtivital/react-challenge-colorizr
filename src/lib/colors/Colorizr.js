@@ -31,4 +31,12 @@ export default class Colorizr {
     this.color = splitted.lighten(this.color, percent);
     return this;
   }
+
+  luminosity() {
+    return splitted.getLuminosity(this.color);
+  }
+
+  hex() {
+    return hex.mergeHex(this.color);
+  }
 }

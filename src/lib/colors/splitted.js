@@ -30,6 +30,15 @@ export function convertSplittedToObject(value) {
   return value;
 }
 
+export function convertSplittedToArray(value) {
+  if (Array.isArray(value)) { return value; }
+  if (isObject(value)) {
+    return [value.r, value.g, value.b];
+  }
+
+  return value;
+}
+
 function lumChanel(chanel, percent, factor = 1) {
   return parseInt(Math.min(Math.max(0, chanel - (255 * factor * percent / 100)), 255), 10);
 }
@@ -53,4 +62,17 @@ export function darken(value, percent) {
 
 export function lighten(value, percent) {
   return applyToChanels(value, lumChanel, percent, -1);
+}
+
+function getChanelLuminosity(value) {
+  const chanel = value / 255;
+  return (chanel <= 0.03928) ? chanel / 12.92 : Math.pow(((chanel + 0.055) / 1.055), 2.4);
+}
+
+export function getLuminosity(value) {
+  const color = convertSplittedToObject(value);
+  const chanelsLuminosity = applyToChanels(color, getChanelLuminosity);
+  const { r, g, b } = chanelsLuminosity;
+
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
 }
