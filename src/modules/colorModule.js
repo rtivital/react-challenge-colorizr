@@ -37,7 +37,7 @@ function getLuminosityGroup(value) {
   return lightened.reverse().concat(darkened);
 }
 
-function getMixedGroup(value) {
+function getMixedGroup() {
   return [];
 }
 
