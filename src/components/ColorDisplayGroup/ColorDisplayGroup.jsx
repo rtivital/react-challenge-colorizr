@@ -6,6 +6,21 @@ import { Button, Checkbox } from 'ui';
 import { ColorDisplay } from 'components';
 import './color-display-group.scss';
 
+function createGradient(colors) {
+  let gradient = 'linear-gradient(to right,';
+  const { length } = colors;
+
+  colors.forEach((color, index) => {
+    const percent = 100 * (index + 1) / length;
+    gradient += `${color} ${percent}%,`;
+  });
+
+  gradient = gradient.slice(0, gradient.length - 1);
+  gradient += ')';
+
+  return gradient;
+}
+
 export default class ColorDisplayGroup extends Component {
   static propTypes = {
     colors: PropTypes.array.isRequired,
@@ -27,10 +42,6 @@ export default class ColorDisplayGroup extends Component {
 
   render() {
     const { colors } = this.props;
-    const firstColor = colors[0];
-    const lastColor = colors[colors.length - 1];
-    const gradient = `linear-gradient(to right, ${firstColor}, ${lastColor})`;
-    const gradientStyle = { backgroundImage: this.state.gradient ? gradient : '' };
 
     const colorDisplays = colors.map(
       (color) => <ColorDisplay colorValue={color} hideInfo={!this.state.info} key={v4()} />
@@ -43,7 +54,7 @@ export default class ColorDisplayGroup extends Component {
     return (
       <div className="color-display-group">
         <h3 className="color-display-group__title">{this.props.title}</h3>
-        <div className={displaysClassName} style={gradientStyle}>
+        <div className={displaysClassName} style={{ backgroundImage: createGradient(colors) }}>
           {colorDisplays}
         </div>
         <div className="color-display-group__controls">
