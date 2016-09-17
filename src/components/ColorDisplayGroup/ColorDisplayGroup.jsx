@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { v4 } from 'node-uuid';
 import cx from 'classnames';
 
 import { Button, Checkbox } from 'ui';
@@ -44,7 +43,7 @@ export default class ColorDisplayGroup extends Component {
     const { colors } = this.props;
 
     const colorDisplays = colors.map(
-      (color) => <ColorDisplay colorValue={color} hideInfo={!this.state.info} key={v4()} />
+      (color, index) => <ColorDisplay colorValue={color} hideInfo={!this.state.info} key={`${color}-${index}`} />
     );
 
     const displaysClassName = cx('color-display-group__displays', {

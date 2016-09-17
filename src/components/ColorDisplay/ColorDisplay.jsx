@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import color from 'color';
-import { v4 } from 'node-uuid';
 import Clipboard from 'react-copy-to-clipboard';
 
 import { Icon, glyphs, ButtonWithIcon } from 'ui';
@@ -50,7 +49,7 @@ export default class ColorDisplay extends Component {
     const rgb = transformedColor.rgb();
 
     const chanels = Object.keys(rgb).map(
-      chanel => <Chanel value={rgb[chanel]} name={chanel} key={v4()} />
+      (chanel, index) => <Chanel value={rgb[chanel]} name={chanel} key={`chanel-${chanel}-${index}`} />
     );
 
     const iconTheme = transformedColor.luminosity() >= 0.5 ? 'dark' : 'light';
