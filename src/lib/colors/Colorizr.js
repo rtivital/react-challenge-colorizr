@@ -32,6 +32,12 @@ export default class Colorizr {
     return this;
   }
 
+  mix(mixer, percent) {
+    const colorToMix = mixer instanceof Colorizr ? mixer : new Colorizr(mixer);
+    this.color = splitted.mix(this.color, colorToMix.color, percent);
+    return this;
+  }
+
   luminosity() {
     return splitted.getLuminosity(this.color);
   }

@@ -76,3 +76,16 @@ export function getLuminosity(value) {
 
   return 0.2126 * r + 0.7152 * g + 0.0722 * b;
 }
+
+export function mix(value, mixer, percent) {
+  const color = convertSplittedToObject(value);
+  const colorToMix = convertSplittedToObject(mixer);
+  const mixed = {};
+
+  Object.keys(color).forEach((chanel) => {
+    const delimeter = percent / 100;
+    mixed[chanel] = parseInt(color[chanel] * delimeter + colorToMix[chanel] * (1 - delimeter), 10);
+  });
+
+  return mixed;
+}

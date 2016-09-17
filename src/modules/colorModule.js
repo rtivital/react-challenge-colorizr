@@ -2,7 +2,7 @@ import { createAction, handleActions } from 'redux-actions';
 import { Colorizr } from 'lib';
 
 const INITIAL_LEAD_COLOR = '#0C93D2';
-const INITIAL_MIXED_COLOR = '#F44336';
+const INITIAL_MIXED_COLOR = '#1F6CA9';
 
 function getLuminosityGroup(value) {
   const color = new Colorizr(value);
@@ -34,11 +34,19 @@ function getLuminosityGroup(value) {
     }
   }
 
-  return lightened.reverse().concat(darkened);
+  return darkened.reverse().slice(1).concat(color.hex()).concat(lightened);
 }
 
-function getMixedGroup() {
-  return [];
+function getMixedGroup(value, mixer) {
+  const color = new Colorizr(value);
+  const colorToMix = new Colorizr(mixer);
+  const mixed = [];
+
+  for (let i = 0; i < 10; i++) {
+    mixed.push(color.clone().mix(colorToMix, i * 10).hex());
+  }
+
+  return mixed;
 }
 
 export const actions = {
@@ -60,6 +68,7 @@ export const reducer = handleActions({
       ...state,
       lead: Colorizr.prefixHex(payload),
       luminosity: getLuminosityGroup(payload),
+      mixedGroup: getMixedGroup(payload, state.mixer),
     };
   },
 }, initialState);
