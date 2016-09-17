@@ -6,6 +6,7 @@ import { ColorDisplayGroup } from 'components';
 export default class MixedGroup extends PureComponent {
   static propTypes = {
     colors: PropTypes.array.isRequired,
+    mixer: PropTypes.string.isRequired,
   }
 
   render() {
