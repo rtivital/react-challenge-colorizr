@@ -64,17 +64,10 @@ export function lighten(value, percent) {
   return applyToChanels(value, lumChanel, percent, -1);
 }
 
-function getChanelLuminosity(value) {
-  const chanel = value / 255;
-  return (chanel <= 0.03928) ? chanel / 12.92 : Math.pow(((chanel + 0.055) / 1.055), 2.4);
-}
-
 export function getLuminosity(value) {
   const color = convertSplittedToObject(value);
-  const chanelsLuminosity = applyToChanels(color, getChanelLuminosity);
-  const { r, g, b } = chanelsLuminosity;
-
-  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  const { r, g, b } = color;
+  return (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255 * 100;
 }
 
 export function mix(value, mixer, percent) {

@@ -6,35 +6,20 @@ const INITIAL_MIXED_COLOR = '#1F6CA9';
 
 function getLuminosityGroup(value) {
   const color = new Colorizr(value);
-  const darkened = [];
+
+  const luminosity = parseInt(color.luminosity() / 10, 10);
   const lightened = [];
-  let enableLight = true;
-  let enableDark = true;
+  const darkened = [];
 
-  for (let i = 1; i <= 5; i += 1) {
-    const lightenedColor = color.clone().lighten(i * 10);
-    const darkenedColor = color.clone().darken(i * 10);
-
-    if (lightenedColor.luminosity() === 1) { enableLight = false; }
-    if (darkenedColor.luminosity() === 0) { enableDark = false; }
-
-    if (enableLight) { lightened.push(lightenedColor.hex()); }
-    if (enableDark) { darkened.push(darkenedColor.hex()); }
+  for (let ii = 1; ii <= 10 - luminosity; ii++) {
+    lightened.push(color.clone().lighten(ii * 10).hex());
   }
 
-  for (let i = 1, l = 10 - (lightened.length + darkened.length); i <= l; i++) {
-    if (enableLight) {
-      const lightenedColor = color.clone().lighten((i + 5) * 10);
-      lightened.push(lightenedColor.hex());
-    }
-
-    if (enableDark) {
-      const darkenedColor = color.clone().darken((i + 5) * 10);
-      darkened.push(darkenedColor.hex());
-    }
+  for (let ii = 1; ii <= luminosity; ii++) {
+    darkened.push(color.clone().darken(ii * 10).hex());
   }
 
-  return darkened.reverse().slice(1).concat(color.hex()).concat(lightened);
+  return darkened.reverse().concat(color.hex()).concat(lightened.slice(1));
 }
 
 function getMixedGroup(value, mixer) {
@@ -67,7 +52,7 @@ export const reducer = handleActions({
     return {
       ...state,
       lead: Colorizr.prefixHex(payload),
-      luminosity: getLuminosityGroup(payload),
+      luminosityGroup: getLuminosityGroup(payload),
       mixedGroup: getMixedGroup(payload, state.mixer),
     };
   },
