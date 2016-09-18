@@ -43,12 +43,14 @@ $main-width-xx-large: 100% - $sidebar-width-xx-large;
 
 .layout {
   position: relative;
-  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 .layout > .sidebar {
   position: fixed;
   min-height: 100vh;
+  align-self: flex-start;
   width: $sidebar-width-small;
 
   z-index: 200;
@@ -68,32 +70,17 @@ $main-width-xx-large: 100% - $sidebar-width-xx-large;
 }
 
 .layout > .main {
+  flex: 1;
   position: relative;
   min-height: 100vh;
-  width: calc(100% - 8rem);
-  margin-left: 8rem;
-  transition: width 500ms ease, margin-left 500ms ease;
+  max-width: calc(100% - 8rem);
+  transform: translateX(8rem);
+  margin-left: 0;
+  margin-right: 0;
+  transition: width 500ms ease, transform 500ms ease;
 
   &--sidebar-opened {
-    @include layout-medium {
-      width: $main-width-medium;
-      margin-left: $sidebar-width-medium;
-    }
-
-    @include layout-large {
-      width: $main-width-large;
-      margin-left: $sidebar-width-large;
-    }
-
-    @include layout-x-large {
-      width: $main-width-x-large;
-      margin-left: $sidebar-width-x-large;
-    }
-
-    @include layout-xx-large {
-      width: $main-width-xx-large;
-      margin-left: $sidebar-width-xx-large;
-    }
+    transform: translateX(25rem) scale(.5);
   }
 }
 
