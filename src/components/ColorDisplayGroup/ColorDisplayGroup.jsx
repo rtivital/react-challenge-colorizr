@@ -1,24 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import cx from 'classnames';
 
+import { gradient } from 'lib';
 import { Button, Checkbox } from 'ui';
 import { ColorDisplay } from 'components';
 import './color-display-group.scss';
-
-function createGradient(colors) {
-  let gradient = 'linear-gradient(to right,';
-  const { length } = colors;
-
-  colors.forEach((color, index) => {
-    const percent = 100 * (index + 1) / length;
-    gradient += `${color} ${percent}%,`;
-  });
-
-  gradient = gradient.slice(0, gradient.length - 1);
-  gradient += ')';
-
-  return gradient;
-}
 
 export default class ColorDisplayGroup extends Component {
   static propTypes = {
@@ -53,7 +39,7 @@ export default class ColorDisplayGroup extends Component {
     return (
       <div className="color-display-group">
         <h3 className="color-display-group__title">{this.props.title}</h3>
-        <div className={displaysClassName} style={{ backgroundImage: createGradient(colors) }}>
+        <div className={displaysClassName} style={{ backgroundImage: gradient.createGradient(colors) }}>
           {colorDisplays}
         </div>
         <div className="color-display-group__controls">
