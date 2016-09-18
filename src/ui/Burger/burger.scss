@@ -4,8 +4,14 @@ $burger-gutter: .5rem;
 $color: $color-black;
 
 .burger {
+  border: 0;
   cursor: pointer;
   padding: 1rem;
+
+  &:focus {
+    outline: 0;
+  }
+  
   &--active {
     .burger__icon {
       background-color: transparent !important;
@@ -25,6 +31,7 @@ $color: $color-black;
   }
 
   &--dark {
+    background-color: $color-black;
     .burger__icon {
       &, &::before, &::after {
         background-color: $color-white-gray;
