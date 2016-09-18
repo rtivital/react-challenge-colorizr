@@ -188,5 +188,6 @@ export function mergeHex(value, prefix = true) {
     color += chanelToHex(value.b);
   }
 
-  return prefix ? `#${color}` : color;
+  const result = prefix ? `#${color}` : color;
+  return result.toUpperCase();
 }

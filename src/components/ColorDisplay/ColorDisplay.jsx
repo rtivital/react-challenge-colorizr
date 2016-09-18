@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import color from 'color';
 import Clipboard from 'react-copy-to-clipboard';
 
+import { Colorizr } from 'lib';
 import { Icon, glyphs, ButtonWithIcon } from 'ui';
 import './color-display.scss';
 
@@ -44,15 +44,15 @@ export default class ColorDisplay extends Component {
   }
 
   render() {
-    const transformedColor = color(this.props.colorValue);
-    const hex = transformedColor.hexString();
-    const rgb = transformedColor.rgb();
+    const transformedColor = new Colorizr(this.props.colorValue);
+    const hex = transformedColor.hex();
+    const rgb = transformedColor.clone().color;
 
     const chanels = Object.keys(rgb).map(
       (chanel, index) => <Chanel value={rgb[chanel]} name={chanel} key={`chanel-${chanel}-${index}`} />
     );
 
-    const iconTheme = transformedColor.luminosity() >= 0.5 ? 'dark' : 'light';
+    const iconTheme = transformedColor.luminosity() >= 50 ? 'dark' : 'light';
     const buttonTheme = !this.state.copied ? 'white' : 'green';
     const buttonText = this.state.copied ? 'Copied' : 'Copy HEX';
     const buttonGlyph = !this.state.copied ? 'copy' : 'tick';

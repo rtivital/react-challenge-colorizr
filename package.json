@@ -36,7 +36,6 @@
     "axios": "^0.14.0",
     "breakpoint-sass": "^2.7.0",
     "classnames": "^2.2.5",
-    "color": "^0.11.3",
     "extend": "^3.0.0",
     "lodash": "^4.15.0",
     "node-uuid": "^1.4.7",

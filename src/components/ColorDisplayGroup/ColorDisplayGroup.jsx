@@ -39,7 +39,10 @@ export default class ColorDisplayGroup extends Component {
     return (
       <div className="color-display-group">
         <h3 className="color-display-group__title">{this.props.title}</h3>
-        <div className={displaysClassName} style={{ backgroundImage: gradient.createGradient(colors) }}>
+        <div
+          className={displaysClassName}
+          style={{ backgroundImage: gradient.createGradient(colors) }}
+        >
           {colorDisplays}
         </div>
         <div className="color-display-group__controls">
