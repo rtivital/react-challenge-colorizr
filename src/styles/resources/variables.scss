@@ -1,22 +1,22 @@
 $color-white: #fff;
-$color-white-gray: #f5f5f5;
-$color-light-gray: #d7d7d7;
-$color-gray: #aaa;
+$color-white-gray: #F5F5F5;
+$color-light-gray: #D7D7D7;
+$color-gray: #AAA;
 $color-dark-gray: #444;
 $color-black: #222;
 
 $color-green: #4CAF50;
 $color-dark-green: #43A047;
 
-$color-red: #eb4010;
-$color-dark-red: #c8310c;
+$color-red: #Eb4010;
+$color-dark-red: #C8310C;
 
-$color-blue: #119ce5;
-$color-dark-blue: #138dce;
+$color-blue: #119CE5;
+$color-dark-blue: #138DCE;
 
 $light-border: .1rem solid $color-light-gray;
 
-$font-face-base: 'source-sans-pro', sans-serif;
-$font-family-secondary: 'fira-sans', sans-serif;
+$font-face-base: 'source-sans-pro', Helvetica, Arial, sans-serif;
+$font-family-mono: 'inconsolata', 'Lucida Console', Monaco, monospace;
 
-$box-shadow: 1px 2px 5px rgba(0, 0, 0, .1), -1px -2px 5px rgba(0, 0, 0, .1);
+$box-shadow: .1rem .2rem .5rem rgba(0, 0, 0, .1), -.1rem -.2rem .5rem rgba(0, 0, 0, .1);
