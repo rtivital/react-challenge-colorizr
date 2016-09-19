@@ -75,11 +75,13 @@ $display-height: 10rem;
   display: flex;
   justify-content: space-between;
   padding: .3rem .5rem;
-  font-size: .8em;
+  font-size: .9em;
+  font-family: $font-family-mono;
 }
 
 .color-display__hex-name {
   font-weight: bold;
+  font-family: $font-face-base;
 }
 
 .chanel {
@@ -107,7 +109,7 @@ $display-height: 10rem;
 .chanel__value {
   padding: .3rem .5rem;
   text-align: center;
-  font-size: .9em;
+  font-family: $font-family-mono;
 }
 
 .color-display__clipboard {
