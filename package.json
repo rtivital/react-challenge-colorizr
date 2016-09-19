@@ -13,6 +13,7 @@
     "lint:fix": "eslint src --ext .js --ext .jsx --fix",
     "gh:build": "npm run clean && cross-env NODE_ENV=production BUILD=pages webpack --config webpack.config.babel.js --progress",
     "gh:deploy": "npm run gh:build && node utils/deploy",
+    "deploy": "npm run gh:deploy",
     "docs": "jsdoc --configure jsdoc.json --destination public/docs --recurse"
   },
   "repository": {
