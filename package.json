@@ -11,8 +11,8 @@
     "clean": "rimraf public",
     "lint": "eslint src --ext .js --ext .jsx",
     "lint:fix": "eslint src --ext .js --ext .jsx --fix",
-    "gh:build": "cross-env NODE_ENV=production BUILD=pages webpack --config webpack.config.babel.js --progress",
-    "gh:deploy": "npm run clean && npm run gh:build && node utils/deploy",
+    "gh:build": "npm run clean && cross-env NODE_ENV=production BUILD=pages webpack --config webpack.config.babel.js --progress",
+    "gh:deploy": "npm run gh:build && node utils/deploy",
     "docs": "jsdoc --configure jsdoc.json --destination public/docs --recurse"
   },
   "repository": {
