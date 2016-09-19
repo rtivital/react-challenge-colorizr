@@ -5,12 +5,18 @@ import { ColorDisplayGroup, ColorDisplay } from 'components';
 import { Checkbox } from 'ui';
 
 const colors = ['#fff', '#ccc', 'DDD', 'EEE', '46fe9d', '09f53c'];
+const title = 'Darker and Lighter';
 
 test('<ColorDisplayGroup /> render', (t) => {
-  const wrapper = shallow(<ColorDisplayGroup colors={colors} />);
+  const wrapper = shallow(<ColorDisplayGroup colors={colors} title={title} />);
   const displays = wrapper.find(ColorDisplay);
   const checkboxes = wrapper.find(Checkbox);
   const initialState = wrapper.state();
+
+  t.equal(
+    wrapper.find('.color-display-group__title').text(), title,
+    'Expected to set right title to component'
+  );
 
   // trigger info and gradient toggle
   checkboxes.map((checkbox) => checkbox.simulate('change'));
@@ -20,7 +26,6 @@ test('<ColorDisplayGroup /> render', (t) => {
     displays.length, colors.length,
     `Expected to render ${colors.length} displays, instead got ${displays.length}`
   );
-
 
   t.equal(
     initialState.gradient, !simulatedState.gradient,
