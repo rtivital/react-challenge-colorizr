@@ -15,12 +15,17 @@ test('Object module - objectUtils functions', (t) => {
   // isEmpty function tests
   t.equal(isEmpty({}), true, 'Expected isEmpty to treat empty object as empty');
   t.equal(isEmpty({ a: 1 }), false, 'Expected isEmpty not to treat object with porp as empty');
+  t.equal(isEmpty([]), true, 'Expected isEmpty to treat array as empty');
+  t.equal(isEmpty([{ a: 1 }]), true, 'Expected isEmpty to treat array with object as empty');
+  t.equal(isEmpty(f => f), true, 'Expected isEmpty to treat array with object as empty');
 
   // hasOwnProperty function tests
   t.equal(hasOwnProperty({}, 'a'), false, 'Did not expect hasOwnProperty to find key in empty object');
   t.equal(hasOwnProperty('a', 'a'), false, 'Did not expect hasOwnProperty to find key in string');
   t.equal(hasOwnProperty([{ a: 1 }], 'a'), false, 'Did not expect hasOwnProperty to find key in array');
   t.equal(hasOwnProperty({ a: 1 }, 'a'), true, 'Expect hasOwnProperty to find key in object with props');
+  t.equal(hasOwnProperty(undefined, 'a'), false, 'Did not expect hasOwnProperty to find key in undefined');
+  t.equal(hasOwnProperty(null, 'a'), false, 'Did not expect hasOwnProperty to find key in null');
 
   t.end();
 });

@@ -19,5 +19,5 @@ export function isEmpty(value) {
  * hasOwnProperty(undefined, 'a'); // false
  */
 export function hasOwnProperty(value, prop) {
-  return value && Object.prototype.hasOwnProperty.call(value, prop);
+  return !!value && Object.prototype.hasOwnProperty.call(value, prop);
 }
