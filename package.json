@@ -16,6 +16,7 @@
     "deploy": "npm run gh:deploy",
     "docs": "jsdoc --configure jsdoc.json --destination public/docs --recurse"
   },
+  "pre-commit": ["test"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rtivital/react-challenge-colorizr.git"
@@ -97,6 +98,7 @@
     "mkdirp": "^0.5.1",
     "node-sass": "^3.6.0",
     "postcss-loader": "^0.13.0",
+    "pre-commit": "^1.1.3",
     "react-addons-test-utils": "^15.3.1",
     "react-hot-loader": "^3.0.0-beta.3",
     "rimraf": "^2.5.4",
