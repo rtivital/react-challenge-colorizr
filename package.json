@@ -114,6 +114,7 @@
     "style-loader": "^0.13.1",
     "svg-sprite-loader": "0.0.27",
     "tap-notify": "^1.0.0",
+    "tap-spec": "^4.1.1",
     "tape": "^4.6.0",
     "tape-catch": "^1.0.6",
     "webpack": "^1.13.0",
