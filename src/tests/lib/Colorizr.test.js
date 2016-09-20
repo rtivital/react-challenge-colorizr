@@ -14,7 +14,7 @@ test('Colorizr constructor tests', (t) => {
 
     t.deepEqual(
       chanels, CHANELS.slice(0).sort(),
-      `Expected Colorizr to produce splitted color value with ${CHANELS.join(', ')} keys`
+      `Colorizr produces splitted color value with ${CHANELS.join(', ')} keys`
     );
 
     values.forEach((chanelValue) => {
@@ -25,10 +25,7 @@ test('Colorizr constructor tests', (t) => {
         && chanelValue <= 255
       );
 
-      t.equal(
-        valid, true,
-        `Expected Colorizr to produce valid color chanel, but got ${chanelValue}`
-      );
+      t.equal(valid, true, 'Colorizr produces valid color chanel');
     });
   });
 
