@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
-import Link from 'react-router/lib/Link';
-import IndexLink from 'react-router/lib/IndexLink';
+import { Link, IndexLink } from 'react-router';
 
 const NavbarLink = ({ index, to, children }) => {
   const LinkComponent = index ? IndexLink : Link;

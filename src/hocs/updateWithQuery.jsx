@@ -1,6 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { connect } from 'react-redux';
-import withRouter from 'react-router/lib/withRouter';
+import { withRouter } from 'react-router/lib';
 
 const updateWithQuery = (queryParam, action) => ComposedComponent =>
 @withRouter
