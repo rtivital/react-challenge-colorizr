@@ -16,13 +16,13 @@ test('HEX module - validateHex utility', (t) => {
       t.throws(
         () => hex.validateHex(invalidColor),
         `Recieved value ${invalidColor} is not a valid HEX color`,
-        `Expected to throw an error in dev environment with invalid color: ${invalidColor}`
+        `Throw an error in dev environment with invalid color: ${invalidColor}`
       );
     } else {
       t.doesNotThrow(
         () => hex.validateHex(invalidColor),
         `Recieved value ${invalidColor} is not a valid HEX color`,
-        `Did not expect to throw an error out of dev environment with invalid color: ${invalidColor}`
+        `Do not throw an error out of dev environment with invalid color: ${invalidColor}`
       );
     }
   });
@@ -31,7 +31,7 @@ test('HEX module - validateHex utility', (t) => {
     t.doesNotThrow(
       () => hex.validateHex(validColor),
       `Recieved value ${validColor} is not a valid HEX color`,
-      `Did not expect to throw an error with valid color: ${validColor}`
+      `Do not throw an error with valid color: ${validColor}`
     );
   });
 
@@ -40,15 +40,15 @@ test('HEX module - validateHex utility', (t) => {
 
 test('HEX module - isHex function', (t) => {
   invalidColors.forEach((invalidColor) => {
-    t.equal(hex.isHex(invalidColor), false, `Expected invalid color ${invalidColor} not to be hex`);
+    t.equal(hex.isHex(invalidColor), false, `Invalid color ${invalidColor} is not treated as hex`);
   });
 
   validColors.forEach((validColor) => {
-    t.equal(hex.isHex(validColor), true, `Expected valid color ${validColor} to be hex`);
+    t.equal(hex.isHex(validColor), true, `Valid color ${validColor} is treated as hex`);
   });
 
   randomValues.forEach((randomValue) => {
-    t.equal(hex.isHex(randomValue), false, `Expected random value ${randomValue} not to be hex`);
+    t.equal(hex.isHex(randomValue), false, `Random value ${randomValue} is not treated as hex`);
   });
 
   t.end();
@@ -63,13 +63,13 @@ const unprefixedHex = ['fdd835', 'a1887f', 'c22'];
 
 test('HEX module - isUnprefixedHex and isPrefixedHex functions', (t) => {
   unprefixedHex.forEach((unprefixed) => {
-    const message = `Expected color ${unprefixed} to be detected as unprefixed hex value`;
+    const message = `${unprefixed} is detected as unprefixed hex value`;
     t.equal(hex.isUnprefixedHex(unprefixed), true, message);
     t.equal(hex.isPrefixedHex(unprefixed), false, message);
   });
 
   prefixedHex.forEach((prefixed) => {
-    const message = `Expected color ${prefixed} to be detected as prefixed hex value`;
+    const message = `${prefixed} is not detected as prefixed hex value`;
     t.equal(hex.isUnprefixedHex(prefixed), false, message);
     t.equal(hex.isPrefixedHex(prefixed), true, message);
   });
@@ -79,13 +79,13 @@ test('HEX module - isUnprefixedHex and isPrefixedHex functions', (t) => {
 
 test('HEX module - unprefixHex and prefixHex functions', (t) => {
   unprefixedHex.forEach((unprefixed) => {
-    t.equal(hex.unprefixHex(unprefixed), unprefixed, 'Expected unprefixHex not to modify unprefixed values');
-    t.equal(hex.prefixHex(unprefixed), `#${unprefixed}`, 'Expected prefixHex to add prefix to unprefixedHex');
+    t.equal(hex.unprefixHex(unprefixed), unprefixed, 'unprefixHex does not modify unprefixed values');
+    t.equal(hex.prefixHex(unprefixed), `#${unprefixed}`, 'prefixHex adds prefix to unprefixedHex');
   });
 
   prefixedHex.forEach((prefixed) => {
-    t.equal(hex.unprefixHex(prefixed), prefixed.slice(1), 'Expected unprefixHex not to modify prefixed values');
-    t.equal(hex.prefixHex(prefixed), prefixed, 'Expected prefixHex not to modify prefixed values');
+    t.equal(hex.unprefixHex(prefixed), prefixed.slice(1), 'unprefixHex does not modify prefixed values');
+    t.equal(hex.prefixHex(prefixed), prefixed, 'prefixHex do modify prefixed values');
   });
 
   t.end();
@@ -108,13 +108,13 @@ test('HEX module - createLongHex function', (t) => {
     t.equal(
       hex.createLongHex(shortHex, true),
       hex.prefixHex(long[index]),
-      `Expected to create long prefixed value from short ${shortHex}`
+      `Creates long prefixed value from short ${shortHex}`
     );
 
     t.equal(
       hex.createLongHex(shortHex, false),
       hex.unprefixHex(long[index]),
-      `Expected to create long unprefixed value from short ${shortHex}`
+      `Creates long unprefixed value from short ${shortHex}`
     );
   });
 
@@ -122,13 +122,13 @@ test('HEX module - createLongHex function', (t) => {
     t.equal(
       hex.createLongHex(longHex, true),
       hex.prefixHex(longHex),
-      `Expected to create long prefixed value from long ${longHex}`
+      `Creates long prefixed value from long ${longHex}`
     );
 
     t.equal(
       hex.createLongHex(longHex, false),
       hex.unprefixHex(longHex),
-      `Expected to create long unprefixed value from long ${longHex}`
+      `Creates long unprefixed value from long ${longHex}`
     );
   });
 
@@ -174,18 +174,8 @@ const chanels = [
 test('HEX module - splitHex function', (t) => {
   Object.keys(splittedHex).forEach((hexString) => {
     const { array, object } = splittedHex[hexString];
-
-    t.deepEqual(
-      hex.splitHex(hexString, 'object'),
-      object,
-      `Expected to split hex ${hexString} to object`
-    );
-
-    t.deepEqual(
-      hex.splitHex(hexString, 'array'),
-      array,
-      `Expected to split hex ${hexString} to array`
-    );
+    t.deepEqual(hex.splitHex(hexString, 'object'), object, `Splits hex ${hexString} to object`);
+    t.deepEqual(hex.splitHex(hexString, 'array'), array, `Splits hex ${hexString} to array`);
   });
 
   t.end();
@@ -193,7 +183,7 @@ test('HEX module - splitHex function', (t) => {
 
 test('HEX module - chanelToHex function', (t) => {
   chanels.forEach(({ chanel, converted }) => {
-    t.equal(hex.chanelToHex(chanel), converted, `Expected to convert chanel ${chanel} to hex format`);
+    t.equal(hex.chanelToHex(chanel), converted, `Converts chanel ${chanel} to hex format`);
   });
 
   t.end();
@@ -206,25 +196,25 @@ test('HEX module - mergeHex function', (t) => {
     t.equal(
       hex.mergeHex(array, true),
       hex.prefixHex(hexString),
-      `Expected to merge hex ${hexString} with prefix from array ${array}`
+      `Merges hex ${hexString} with prefix from array ${array}`
     );
 
     t.equal(
       hex.mergeHex(array, false),
       hex.unprefixHex(hexString),
-      `Expected to merge hex ${hexString} without prefix from array ${array}`
+      `Merges hex ${hexString} without prefix from array ${array}`
     );
 
     t.equal(
       hex.mergeHex(object, true),
       hex.prefixHex(hexString),
-      `Expected to merge hex ${hexString} with prefix from object ${object}`
+      `Merges hex ${hexString} with prefix from object ${object}`
     );
 
     t.equal(
       hex.mergeHex(object, false),
       hex.unprefixHex(hexString),
-      `Expected to merge hex ${hexString} without prefix from object ${object}`
+      `Merges hex ${hexString} without prefix from object ${object}`
     );
   });
 

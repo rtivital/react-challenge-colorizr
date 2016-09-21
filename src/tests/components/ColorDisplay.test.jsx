@@ -23,20 +23,20 @@ test(`<ColorDisplay /> with right formated ${formated}`, (t) => {
   const chanels = wrapper.find(selectors.chanels);
 
   // Hex color display tests
-  t.equal(getBackgound(display), formated, 'Expected to set backgroundColor style prop');
-  t.equal(hexContainer.text(), formated, 'Expected to display formated hex value');
+  t.equal(getBackgound(display), formated, 'Sets backgroundColor style prop');
+  t.equal(hexContainer.text(), formated, 'Displays formated hex value');
 
   // Color chanels tests
-  t.equal(chanels.length, 3, 'Expected three color chanels to render');
+  t.equal(chanels.length, 3, 'three color chanels were rendered');
   t.deepEqual(
     chanels.map((chanel) => chanel.prop('value')),
     [255, 255, 255],
-    'Expected to split color into rgb'
+    'Splits color to rgb'
   );
 
   // clipboard test
   wrapper.find(Clipboard).simulate('copy');
-  t.equal(wrapper.state('copied'), true, 'Expected to copy value to clipboard');
+  t.equal(wrapper.state('copied'), true, 'Copies value to clipboard');
 
   t.end();
 });
@@ -48,8 +48,8 @@ test('<ColorDisplay /> with unformated value', (t) => {
   const hexContainer = wrapper.find(selectors.hexContainer);
 
   // Test only for right hex format on my own risk
-  t.equal(getBackgound(display), formated, 'Expected to set formated color as backgroundColor');
-  t.equal(hexContainer.text(), formated, 'Expected to display formated hex value');
+  t.equal(getBackgound(display), formated, 'Sets formated color as backgroundColor');
+  t.equal(hexContainer.text(), formated, 'Displays formated hex value');
 
   t.end();
 });

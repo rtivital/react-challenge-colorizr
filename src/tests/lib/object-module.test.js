@@ -5,27 +5,27 @@ const { isObject, isEmpty, hasOwnProperty } = objectUtils;
 
 test('Object module - objectUtils functions', (t) => {
   // isObject function tests
-  t.equal(isObject({}), true, 'Expected isObject to treat empty object as object');
-  t.equal(isObject({ a: 1 }), true, 'Expected isObject to treat object with keys as object');
-  t.equal(isObject(() => {}), true, 'Expected isObject to treat function as object');
-  t.equal(isObject(null), false, 'Expected isObject not to treat null as object');
-  t.equal(isObject([]), false, 'Expected isObject not to treat empty array as object');
-  t.equal(isObject([1, 2, 3]), false, 'Expected isObject not to treat array with items as object');
+  t.equal(isObject({}), true, 'isObject treats empty object as object');
+  t.equal(isObject({ a: 1 }), true, 'isObject treats object with keys as object');
+  t.equal(isObject(() => {}), true, 'isObject treats function as object');
+  t.equal(isObject(null), false, 'isObject does not treat null as object');
+  t.equal(isObject([]), false, 'isObject does not treat empty array as object');
+  t.equal(isObject([1, 2, 3]), false, 'isObject does not treat array with items as object');
 
   // isEmpty function tests
-  t.equal(isEmpty({}), true, 'Expected isEmpty to treat empty object as empty');
-  t.equal(isEmpty({ a: 1 }), false, 'Expected isEmpty not to treat object with porp as empty');
-  t.equal(isEmpty([]), true, 'Expected isEmpty to treat array as empty');
-  t.equal(isEmpty([{ a: 1 }]), true, 'Expected isEmpty to treat array with object as empty');
-  t.equal(isEmpty(f => f), true, 'Expected isEmpty to treat array with object as empty');
+  t.equal(isEmpty({}), true, 'isEmpty treats empty object as empty');
+  t.equal(isEmpty({ a: 1 }), false, 'isEmpty does not treat object with porp as empty');
+  t.equal(isEmpty([]), true, 'isEmpty treats array as empty');
+  t.equal(isEmpty([{ a: 1 }]), true, 'isEmpty treats array with object as empty');
+  t.equal(isEmpty(f => f), true, 'isEmpty treats array with object as empty');
 
   // hasOwnProperty function tests
-  t.equal(hasOwnProperty({}, 'a'), false, 'Did not expect hasOwnProperty to find key in empty object');
-  t.equal(hasOwnProperty('a', 'a'), false, 'Did not expect hasOwnProperty to find key in string');
-  t.equal(hasOwnProperty([{ a: 1 }], 'a'), false, 'Did not expect hasOwnProperty to find key in array');
-  t.equal(hasOwnProperty({ a: 1 }, 'a'), true, 'Expect hasOwnProperty to find key in object with props');
-  t.equal(hasOwnProperty(undefined, 'a'), false, 'Did not expect hasOwnProperty to find key in undefined');
-  t.equal(hasOwnProperty(null, 'a'), false, 'Did not expect hasOwnProperty to find key in null');
+  t.equal(hasOwnProperty({}, 'a'), false, 'hasOwnProperty does not find key in empty object');
+  t.equal(hasOwnProperty('a', 'a'), false, 'hasOwnProperty does not find key in string');
+  t.equal(hasOwnProperty([{ a: 1 }], 'a'), false, 'hasOwnProperty does not find key in array');
+  t.equal(hasOwnProperty({ a: 1 }, 'a'), true, 'hasOwnProperty finds key in object with props');
+  t.equal(hasOwnProperty(undefined, 'a'), false, 'hasOwnProperty does not find key in undefined');
+  t.equal(hasOwnProperty(null, 'a'), false, 'hasOwnProperty does not find key in null');
 
   t.end();
 });
@@ -37,9 +37,9 @@ test('Object module - assignStaticPropsToClass function', (t) => {
 
   Object.keys(props).forEach((property) => {
     if (property.charAt(0) === '_') {
-      t.equal(hasOwnProperty(CoolClass, property), false, 'Did not expect to assign private property to class');
+      t.equal(hasOwnProperty(CoolClass, property), false, 'Private property was not assigned to class');
     } else {
-      t.equal(hasOwnProperty(CoolClass, property), true, `Expected to assign property ${property} to class`);
+      t.equal(hasOwnProperty(CoolClass, property), true, `Property ${property} was assigned to class`);
     }
   });
 
@@ -51,12 +51,12 @@ test('Object module - assignStaticPropsToClass function', (t) => {
     if (property.charAt(0) === '_') {
       t.equal(
         hasOwnProperty(AnotherCoolClass, property), false,
-        'Did not expect to assign private property to class from multiple entries'
+        'Private property was not assigned to class from multiple entries'
       );
     } else {
       t.equal(
         hasOwnProperty(AnotherCoolClass, property), true,
-        `Expected to assign property ${property} to class from multiple entries`
+        `Property ${property} was assigned to class from multiple entries`
       );
     }
   });

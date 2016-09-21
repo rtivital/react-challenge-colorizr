@@ -15,26 +15,23 @@ test('<ColorDisplayGroup /> render', (t) => {
 
   t.equal(
     wrapper.find('.color-display-group__title').text(), title,
-    'Expected to set right title to component'
+    'Sets right title to component'
   );
 
   // trigger info and gradient toggle
   checkboxes.map((checkbox) => checkbox.simulate('change'));
   const simulatedState = wrapper.state();
 
-  t.equal(
-    displays.length, colors.length,
-    `Expected to render ${colors.length} displays, instead got ${displays.length}`
-  );
+  t.equal(displays.length, colors.length, `Renders ${colors.length} displays`);
 
   t.equal(
     initialState.gradient, !simulatedState.gradient,
-    'Expected to toggle gradient with checkbox onChange event'
+    'Toggles gradient with checkbox onChange event'
   );
 
   t.equal(
     initialState.info, !simulatedState.info,
-    'Expected to toggle displays info with checkbox onChange event'
+    'Toggles displays info with checkbox onChange event'
   );
 
   t.end();

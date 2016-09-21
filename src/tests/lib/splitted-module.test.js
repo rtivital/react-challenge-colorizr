@@ -21,11 +21,11 @@ const invalidSplittedColors = [
 
 test('Splitted color module - isSplittedColor function', (t) => {
   validSplittedColors.forEach((color) => {
-    t.equal(splitted.isSplittedColor(color), true, `Expected to treat ${color} as splitted`);
+    t.equal(splitted.isSplittedColor(color), true, `Treats ${color} as splitted`);
   });
 
   invalidSplittedColors.forEach((color) => {
-    t.equal(splitted.isSplittedColor(color), false, `Expected to treat ${color} as not splitted`);
+    t.equal(splitted.isSplittedColor(color), false, `Treats ${color} as not splitted`);
   });
 
   t.end();
