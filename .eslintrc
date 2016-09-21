@@ -19,6 +19,7 @@
     "no-mixed-operators": 0,
     "no-confusing-arrow": 0,
     "no-plusplus": 0,
+    "new-cap": 0,
   },
 
   "settings": {

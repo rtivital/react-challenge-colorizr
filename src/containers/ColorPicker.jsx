@@ -9,7 +9,7 @@ import { updateWithQuery } from 'hocs';
 import { hex } from 'lib';
 
 @updateWithQuery('lead', colorActions.setLeadColor)
-@connect(state => ({ color: state.color.lead }), { ...colorActions, replace })
+@connect(state => ({ color: state.get('color').lead }), { ...colorActions, replace })
 export default class ColorPickerContainer extends PureComponent {
   static propTypes = {
     color(props, propName, componentName) {

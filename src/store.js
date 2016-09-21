@@ -3,6 +3,7 @@ import thunkMiddleware from 'redux-thunk';
 import multiMiddleware from 'redux-multi';
 import { routerMiddleware } from 'react-router-redux';
 import { throttle } from 'lodash';
+import Immutable from 'immutable';
 import rootReducer from 'modules';
 
 // create routing actions for hashHistory while deploying on gh-pages
@@ -12,8 +13,7 @@ const routingMiddleware = routerMiddleware(
   : require('react-router/lib/browserHistory')
 );
 
-// middlewares are required while store mocking during tests
-export const middlewares = [
+const middlewares = [
   thunkMiddleware,
   multiMiddleware,
   routingMiddleware,
@@ -23,7 +23,7 @@ function loadState() {
   try {
     const serializedState = JSON.parse(localStorage.getItem('state'));
     if (serializedState === null) { return undefined; }
-    return serializedState;
+    return Immutable.Map(serializedState);
   } catch (e) {
     return undefined;
   }
@@ -31,9 +31,9 @@ function loadState() {
 
 function saveState(state) {
   try {
-    // remove routing before saving: it ruins everything!
-    const stateToSave = { ...state };
-    delete stateToSave.routing;
+    const stateToSave = {
+      color: state.get('color'),
+    };
 
     localStorage.setItem('state', JSON.stringify(stateToSave));
     return null;
