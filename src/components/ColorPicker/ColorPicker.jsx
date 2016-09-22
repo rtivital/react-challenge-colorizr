@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ColorPickerComponent from 'react-color-picker';
+import cx from 'classnames';
 
 import { ColorDisplay } from 'components';
 import 'react-color-picker/index.css';
@@ -9,6 +10,7 @@ export default class ColorPicker extends Component {
   static propTypes = {
     defaultColor: PropTypes.string,
     onChange: PropTypes.func,
+    className: PropTypes.string,
   }
 
   static defaultProps = {
@@ -25,7 +27,7 @@ export default class ColorPicker extends Component {
 
   render() {
     return (
-      <div className="color-picker">
+      <div className={cx('color-picker', this.props.className)}>
         <ColorPickerComponent
           onDrag={this.handleColorSelection}
           defaultColor={this.props.defaultColor}

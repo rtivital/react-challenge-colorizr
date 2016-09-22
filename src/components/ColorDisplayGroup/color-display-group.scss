@@ -1,3 +1,15 @@
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 50%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .color-display-group {
   background-color: $color-white;
   box-shadow: $box-shadow;
@@ -5,9 +17,33 @@
   padding: 3rem 4rem;
 }
 
+.color-display-group__header {
+  display: flex;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+
 .color-display-group__title {
   margin: 0;
-  margin-bottom: 2rem;
+  line-height: 1;
+}
+
+.color-display-group__mixer {
+  position: relative;
+}
+
+.color-display-group__color-picker {
+  position: absolute;
+  z-index: 1100;
+  top: 3rem;
+  animation-name: fadeInDown;
+  animation-duration: 300ms;
+}
+
+.color-display-group__picker-toggle {
+  height: 3rem;
+  width: 3rem;
+  border: 0;
 }
 
 .color-display-group__displays {

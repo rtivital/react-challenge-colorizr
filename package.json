@@ -51,6 +51,7 @@
     "react-copy-to-clipboard": "^4.2.3",
     "react-dom": "^15.3.2",
     "react-fastclick": "^2.1.2",
+    "react-onclickoutside": "^5.7.0",
     "react-redux": "^4.4.5",
     "react-router": "^3.0.0-beta.1",
     "react-router-redux": "^4.0.5",

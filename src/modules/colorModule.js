@@ -31,7 +31,7 @@ export const reducer = handleActions({
     if (!hex.isHex(payload)) { return state; }
     return state.merge({
       mixer: hex.prefixHex(payload),
-      mixedGroup: groups.getMixedGroup(payload, state.get('mixer')),
+      mixedGroup: groups.getMixedGroup(state.get('lead'), payload),
     });
   },
 }, initialState);

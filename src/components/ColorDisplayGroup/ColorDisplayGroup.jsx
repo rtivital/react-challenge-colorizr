@@ -4,12 +4,16 @@ import cx from 'classnames';
 import { gradient } from 'lib';
 import { Button, Checkbox } from 'ui';
 import { ColorDisplay } from 'components';
+import ColorSelectionControl from './ColorSelectionControl';
 import './color-display-group.scss';
 
 export default class ColorDisplayGroup extends Component {
   static propTypes = {
     colors: PropTypes.array.isRequired,
     title: PropTypes.string.isRequired,
+    enableSelection: PropTypes.bool,
+    selectionColor: PropTypes.string,
+    handleChange: PropTypes.func,
   }
 
   state = {
@@ -25,6 +29,10 @@ export default class ColorDisplayGroup extends Component {
     this.setState({ info: !this.state.info });
   }
 
+  toggleMixer = () => {
+    this.setState({ showColorPicker: !this.state.mixer });
+  }
+
   render() {
     const { colors } = this.props;
 
@@ -38,7 +46,17 @@ export default class ColorDisplayGroup extends Component {
 
     return (
       <div className="color-display-group">
-        <h3 className="color-display-group__title">{this.props.title}</h3>
+        <div className="color-display-group__header">
+          <h3 className="color-display-group__title">{this.props.title}</h3>
+          {do {
+            if (this.props.enableSelection) {
+              <ColorSelectionControl
+                selectionColor={this.props.selectionColor}
+                onChange={this.props.handleChange}
+              />;
+            }
+          }}
+        </div>
         <div
           className={displaysClassName}
           style={{ backgroundImage: gradient.createGradient(colors) }}
