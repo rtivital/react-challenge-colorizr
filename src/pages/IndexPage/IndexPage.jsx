@@ -7,7 +7,7 @@ import { ColorPicker, LuminosityGroup, MixedGroup } from 'containers';
 import { Container } from 'ui';
 import './index-page.scss';
 
-@connect(state => ({ lead: state.get('color').lead }))
+@connect(state => ({ lead: state.get('color').get('lead') }))
 export default class IndexPage extends PureComponent {
   static propTypes = {
     lead: PropTypes.string.isRequired,
