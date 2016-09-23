@@ -48,6 +48,7 @@ export default class ColorDisplayGroup extends Component {
       <div className="color-display-group">
         <div className="color-display-group__header">
           <h3 className="color-display-group__title">{this.props.title}</h3>
+
           {do {
             if (this.props.enableSelection) {
               <ColorSelectionControl
