@@ -68,18 +68,41 @@ const percent = 10;
 const delimiter = percent / 100;
 const darkener = (chanel) => parseInt(chanel - 255 / percent, 10);
 const lightener = (chanel) => parseInt(chanel + 255 / percent, 10);
-const mix = (chanel, mixer) =>
+
+const mixChanels = (chanel, mixer) =>
   parseInt(chanel * delimiter + mixer * (1 - delimiter), 10);
+
+const mixColors = (color, mixer) =>
+  color.map((chanel, index) => mixChanels(chanel, mixer[index]));
 
 const black = [0, 0, 0];
 const white = [255, 255, 255];
 const gray = [70, 70, 70];
+const red = [200, 0, 0];
+const green = [0, 200, 0];
+const blue = [0, 0, 200];
 
 const lightenBlack = black.map(lightener);
 const darkenedWhite = white.map(darkener);
 const lightenedGray = gray.map(lightener);
 const darkenedGray = gray.map(darkener);
-const mixed = black.map((chanel, index) => mix(chanel, white[index]));
+
+const mixed = [
+  { colors: [black, white] },
+  { colors: [black, blue] },
+  { colors: [white, green] },
+  { colors: [white, red] },
+  { colors: [red, blue] },
+  { colors: [green, red] },
+  { colors: [blue, red] },
+];
+
+const mixedTests = mixed.map((sample) => {
+  const result = {};
+  result.expected = mixColors(...sample.colors, percent);
+  result.result = splitted.mix(...sample.colors, percent, true);
+  return result;
+});
 
 test('Splitted color module - lighten function', (t) => {
   const { lighten } = splitted;
@@ -98,7 +121,9 @@ test('Splitted color module - darken function', (t) => {
 });
 
 test('Splitted color module - mix function', (t) => {
-  t.deepEqual(splitted.mix(black, white, percent, true), mixed, 'Mixes black and white colors');
+  mixedTests.forEach(({ expected, result }) => {
+    t.deepEqual(expected, result, `Mixed ${expected} and ${result} colors`);
+  });
 
   t.end();
 });
