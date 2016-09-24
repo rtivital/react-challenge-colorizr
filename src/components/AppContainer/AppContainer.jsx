@@ -33,7 +33,13 @@ export default class AppContainer extends Component {
     const { sidebarOpened } = this.state;
     return (
       <Layout>
-        <Sidebar sidebarOpened={sidebarOpened} toggleSidebar={this.toggle}>Hello</Sidebar>
+        <Sidebar
+          sidebarOpened={sidebarOpened}
+          toggleSidebar={this.toggle}
+          closeSidebar={this.close}
+        >
+          Hello
+        </Sidebar>
         <Main sidebarOpened={sidebarOpened}>
           <Navbar />
           {this.props.children}

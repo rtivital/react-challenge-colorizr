@@ -1,27 +1,36 @@
-import React, { PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
+import onClickOutside from 'react-onclickoutside';
 import cx from 'classnames';
 import { Burger } from 'ui';
 
-const Sidebar = ({ children, sidebarOpened, toggleSidebar }) => {
-  const className = cx('sidebar', {
-    'sidebar--opened': sidebarOpened,
-  });
+@onClickOutside
+export default class Sidebar extends PureComponent {
+  static propTypes = {
+    children: PropTypes.any.isRequired,
+    sidebarOpened: PropTypes.bool.isRequired,
+    toggleSidebar: PropTypes.func.isRequired,
+    closeSidebar: PropTypes.func.isRequired,
+  }
 
-  return (
-    <aside className={className}>
-      <div className="sidebar__burger">
-        <Burger theme="dark" onClick={toggleSidebar} active={sidebarOpened} />
-      </div>
+  handleClickOutside = () => {
+    this.props.closeSidebar();
+  }
 
-      {children}
-    </aside>
-  );
-};
+  render() {
+    const { children, sidebarOpened, toggleSidebar } = this.props;
 
-Sidebar.propTypes = {
-  children: PropTypes.any.isRequired,
-  sidebarOpened: PropTypes.bool.isRequired,
-  toggleSidebar: PropTypes.func.isRequired,
-};
+    const className = cx('sidebar', {
+      'sidebar--opened': sidebarOpened,
+    });
 
-export default Sidebar;
+    return (
+      <aside className={className}>
+        <div className="sidebar__burger">
+          <Burger theme="dark" onClick={toggleSidebar} active={sidebarOpened} />
+        </div>
+
+        {children}
+      </aside>
+    );
+  }
+}
