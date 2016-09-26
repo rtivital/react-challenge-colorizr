@@ -59,10 +59,16 @@ export default class ColorDisplay extends Component {
 
     return (
       <div className="color-display">
-        <div className="color-display__display" style={{ backgroundColor: hex }}>
-          <span className="color-display__icon">
-            <Icon glyph={glyphs.view} theme={iconTheme} />
-          </span>
+        <div className="color-display__wrapper">
+          <div className="color-display__display" style={{ backgroundColor: hex }}>
+            <span className="color-display__icon">
+              <Icon glyph={glyphs.view} theme={iconTheme} />
+            </span>
+          </div>
+
+          <button className="color-display__add">
+            <Icon glyph={glyphs.add} theme="dark" />
+          </button>
         </div>
         {do {
           if (!this.props.hideInfo) {
