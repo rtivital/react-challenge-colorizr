@@ -1,3 +1,4 @@
+import { clamp } from 'lodash';
 import { isObject, hasOwnProperty } from '../object/utils';
 
 const CHANELS = ['r', 'g', 'b'];
@@ -48,7 +49,7 @@ export function convertSplittedToArray(value) {
 }
 
 function lumChanel(chanel, percent, factor = 1) {
-  return parseInt(Math.min(Math.max(0, chanel - (255 * factor * percent / 100)), 255), 10);
+  return parseInt(clamp(chanel - (chanel * factor * percent / 100), 0, 255), 10);
 }
 
 function applyToChanels(value, callback, ...args) {

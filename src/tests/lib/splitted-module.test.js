@@ -66,8 +66,8 @@ test('Splitted color module - convertSplittedToObject and convertSplittedToArray
 
 const percent = 10;
 const delimiter = percent / 100;
-const darkener = (chanel) => parseInt(chanel - 255 / percent, 10);
-const lightener = (chanel) => parseInt(chanel + 255 / percent, 10);
+const darkener = (chanel) => parseInt(chanel - chanel / percent, 10);
+const lightener = (chanel) => parseInt(chanel + chanel / percent, 10);
 const mix = (chanel, mixer) =>
   parseInt(chanel * delimiter + mixer * (1 - delimiter), 10);
 
