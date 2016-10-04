@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import cx from 'classnames';
+import { block, applyModifiers } from 'rbem';
 
 import { gradient } from 'lib';
 import { Button, Checkbox } from 'ui';
@@ -34,20 +34,29 @@ export default class ColorDisplayGroup extends Component {
   }
 
   render() {
+    const component = block('color-display-group');
+
     const { colors } = this.props;
 
     const colorDisplays = colors.map(
-      (color, index) => <ColorDisplay colorValue={color} hideInfo={!this.state.info} key={`${color}-${index}`} />
+      (color, index) => (
+        <ColorDisplay
+          colorValue={color}
+          hideInfo={!this.state.info}
+          key={`${color}-${index}`}
+        />
+      )
     );
 
-    const displaysClassName = cx('color-display-group__displays', {
-      'color-display-group__displays--gradient': this.state.gradient,
+    const displaysClassName = applyModifiers(component('displays'), {
+      gradient: this.state.gradient,
     });
 
     return (
-      <div className="color-display-group">
-        <div className="color-display-group__header">
-          <h3 className="color-display-group__title">{this.props.title}</h3>
+      <div className={component()}>
+        <div className={component('header')}>
+          <h3 className={component('title')}>{this.props.title}</h3>
+
           {do {
             if (this.props.enableSelection) {
               <ColorSelectionControl
@@ -63,21 +72,21 @@ export default class ColorDisplayGroup extends Component {
         >
           {colorDisplays}
         </div>
-        <div className="color-display-group__controls">
+        <div className={component('controls')}>
           <Checkbox
-            className="color-display-group__control"
+            className={component('control')}
             label="Show Info"
             checked={this.state.info}
             onChange={this.toggleInfo}
           />
           <Checkbox
-            className="color-display-group__control"
+            className={component('control')}
             label="Gradient"
             checked={this.state.gradient}
             onChange={this.toggleGradient}
           />
-          <Button className="color-display-group__control">Select All</Button>
-          <Button className="color-display-group__control" theme="red">Remove All</Button>
+          <Button className={component('control')}>Select All</Button>
+          <Button className={component('control')} theme="red">Remove All</Button>
         </div>
       </div>
     );
