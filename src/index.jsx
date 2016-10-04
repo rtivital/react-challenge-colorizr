@@ -12,11 +12,7 @@ import './styles/index.scss';
 
 const store = configureStore();
 const history = process.env.BUILD === 'pages' ? hashHistory : browserHistory;
-const appHistory = syncHistoryWithStore(history, store, {
-  selectLocationState(state) {
-    return state.get('routing').toJS();
-  },
-});
+const appHistory = syncHistoryWithStore(history, store);
 
 render(
   <Provider store={store}>

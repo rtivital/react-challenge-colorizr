@@ -10,8 +10,8 @@ import { hex } from 'lib';
 
 @updateWithQuery('mixer', colorActions.setMixedColor)
 @connect(state => ({
-  mixer: state.get('color').get('mixer'),
-  colors: state.get('color').get('mixedGroup').toArray(),
+  mixer: state.color.mixer,
+  colors: state.color.mixedGroup,
 }), { ...colorActions, replace })
 export default class MixedGroup extends PureComponent {
   static propTypes = {

@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux-immutable';
+import { combineReducers } from 'redux';
+import { routerReducer as routing } from 'react-router-redux';
 import { reducer as color } from './colorModule';
-import routing from './routing';
 
 export default combineReducers({ routing, color });
 
