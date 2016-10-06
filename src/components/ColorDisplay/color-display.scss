@@ -2,6 +2,7 @@ $display-height: 10rem;
 
 .color-display {
   min-width: 11.5rem;
+
   & + & {
     .color-display__info {
       border-left: 0;
@@ -25,7 +26,8 @@ $display-height: 10rem;
   justify-content: space-between;
   position: relative;
 
-  &::before, &::after {
+  &::before,
+  &::after {
     opacity: 0;
     transition: opacity 300ms ease;
     display: block;
@@ -35,16 +37,17 @@ $display-height: 10rem;
 
   &::before {
     content: 'White';
-    color: #fff;
+    color: $color-white;
   }
 
   &::after {
     content: 'Black';
-    color: #000;
+    color: $color-true-black;
   }
 
   &:hover {
     z-index: 100;
+
     .color-display__icon {
       opacity: 1;
     }
@@ -61,7 +64,8 @@ $display-height: 10rem;
       opacity: 0;
     }
 
-    &::before, &::after {
+    &::before,
+    &::after {
       opacity: 1;
     }
   }
@@ -90,6 +94,7 @@ $display-height: 10rem;
   flex: 1;
   border: $light-border;
   border-right: 0;
+
   &:first-of-type {
     border-left: 0;
   }
@@ -101,7 +106,6 @@ $display-height: 10rem;
   padding: .3rem 1.3rem;
   text-align: center;
   border-bottom: $light-border;
-
   font-weight: bold;
   font-size: .8em;
 }

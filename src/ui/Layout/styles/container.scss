@@ -3,5 +3,6 @@ $container-spacing: 2rem;
 
 .container {
   @include center($site-width);
+
   padding: 0 $container-spacing;
 }

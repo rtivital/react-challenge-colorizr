@@ -11,7 +11,6 @@ $color-picker-breakpoint: 550px;
 .color-picker {
   padding: $color-picker-wrapper-padding;
   border: $light-border;
-
   background-color: $color-white;
   box-shadow: $box-shadow;
   display: flex;
@@ -25,6 +24,7 @@ $color-picker-breakpoint: 550px;
 
 .color-picker__display {
   margin-top: 1.5rem;
+
   @include breakpoint($color-picker-breakpoint) {
     margin-left: 2rem;
     margin-top: 0;
@@ -43,18 +43,16 @@ $color-picker-breakpoint: 550px;
 .react-color-picker__hue-drag {
   height: .5rem !important;
   border: none !important;
-
   background-color: $color-white;
-  box-shadow: 0 0 1rem -.05rem rgba(0,0,0, 0.8);
+  box-shadow: 0 0 1rem -.05rem rgba(0, 0, 0, .8);
 }
 
 .react-color-picker__saturation-drag {
   width: 1rem !important;
   height: 1rem !important;
   border: .1rem solid transparent !important;
-
   background-color: $color-white !important;
-  box-shadow: 0 0 .3rem .1rem rgba(0,0,0, 0.3);
+  box-shadow: 0 0 .3rem .1rem rgba(0, 0, 0, .3);
 }
 
 .react-color-picker__saturation-inner {

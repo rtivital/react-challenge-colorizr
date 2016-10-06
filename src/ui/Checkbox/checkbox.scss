@@ -25,7 +25,6 @@ $checkbox-position: $checkbox-size + $checkbox-spacing;
       border-radius: .2rem;
       position: absolute;
       left: -1 * $checkbox-position;
-
       content: '';
       transition: all 200ms ease;
     }
@@ -46,7 +45,6 @@ $checkbox-position: $checkbox-size + $checkbox-spacing;
 .checkbox__label {
   position: relative;
   display: flex;
-
   font-size: .9em;
   user-select: none;
   -webkit-user-select: none;

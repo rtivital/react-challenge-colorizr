@@ -52,17 +52,13 @@ $main-width-xx-large: 100% - $sidebar-width-xx-large;
   min-height: 100vh;
   align-self: flex-start;
   width: $sidebar-width-small;
-
   z-index: 200;
-  background-color: #2a343c;
-  box-shadow: inset -3px 5px 5px 3px rgba(0,0,0, .1);
+  background-color: $color-dark-gray;
+  box-shadow: inset -.3rem .5rem .5rem .3rem rgba(0, 0, 0, .1);
   transform: translateX(calc(-100% + 8rem));
   transition: transform 500ms ease;
 
   @include layout-medium { width: $sidebar-width-medium; }
-  @include layout-large { width: $sidebar-width-large; }
-  @include layout-x-large { width: $sidebar-width-x-large; }
-  @include layout-xx-large { width: $sidebar-width-xx-large; }
 
   &--opened {
     transform: translateX(0);

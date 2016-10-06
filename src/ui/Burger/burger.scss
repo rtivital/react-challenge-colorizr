@@ -3,6 +3,14 @@ $burger-height: .3rem;
 $burger-gutter: .5rem;
 $color: $color-black;
 
+@mixin all-parts {
+  &,
+  &::before,
+  &::after {
+    @content;
+  }
+}
+
 .burger {
   border: 0;
   cursor: pointer;
@@ -11,7 +19,7 @@ $color: $color-black;
   &:focus {
     outline: 0;
   }
-  
+
   &--active {
     .burger__icon {
       background-color: transparent !important;
@@ -24,7 +32,7 @@ $color: $color-black;
     background-color: $color-white-gray;
 
     .burger__icon {
-      &, &::before, &::after {
+      @include all-parts {
         background-color: $color-dark-gray;
       }
     }
@@ -32,8 +40,9 @@ $color: $color-black;
 
   &--dark {
     background-color: $color-black;
+
     .burger__icon {
-      &, &::before, &::after {
+      @include all-parts {
         background-color: $color-white-gray;
       }
     }
@@ -47,17 +56,18 @@ $color: $color-black;
   margin-bottom: $burger-height + $burger-gutter;
   user-select: none;
 
-  &, &::before, &::after {
+  @include all-parts {
     display: block;
     width: $width;
     height: $burger-height;
     background-color: $color;
-    outline: 0.1rem solid transparent;
+    outline: .1rem solid transparent;
     transition-property: background-color, transform;
     transition-duration: 200ms;
   }
 
-  &::before, &::after {
+  &::before,
+  &::after {
     position: absolute;
     content: '';
   }

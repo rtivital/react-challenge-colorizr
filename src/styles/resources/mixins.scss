@@ -7,6 +7,6 @@
 }
 
 @mixin color-switch($prop) {
-  &--light { #{$prop}: #fff; }
-  &--dark { #{$prop}: #000; }
+  &--light { #{$prop}: $color-white; }
+  &--dark { #{$prop}: $color-true-black; }
 }

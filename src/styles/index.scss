@@ -1,4 +1,5 @@
 @import '~normalize-scss/sass/normalize';
+
 @include normalize();
 
 html {
@@ -8,7 +9,9 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
