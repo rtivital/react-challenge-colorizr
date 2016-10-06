@@ -23,7 +23,7 @@ export const reducer = handleActions({
       ...state,
       lead: hex.prefixHex(payload),
       luminosityGroup: groups.getLuminosityGroup(payload),
-      mixedGroup: groups.getMixedGroup(payload, state.get('mixer')),
+      mixedGroup: groups.getMixedGroup(payload, state.mixer),
     };
   },
 
@@ -32,7 +32,7 @@ export const reducer = handleActions({
     return {
       ...state,
       mixer: hex.prefixHex(payload),
-      mixedGroup: groups.getMixedGroup(state.get('lead'), payload),
+      mixedGroup: groups.getMixedGroup(state.lead, payload),
     };
   },
 }, initialState);
