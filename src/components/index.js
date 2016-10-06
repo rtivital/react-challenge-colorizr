@@ -2,5 +2,6 @@ export AppContainer from './AppContainer/AppContainer';
 export ColorDisplay from './ColorDisplay/ColorDisplay';
 export ColorDisplayGroup from './ColorDisplayGroup/ColorDisplayGroup';
 export ColorPicker from './ColorPicker/ColorPicker';
+export ColorSelection from './ColorSelection/ColorSelection';
 export Logo from './Logo/Logo';
 export Navbar from './Navbar/Navbar';

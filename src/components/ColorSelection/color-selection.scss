@@ -1,0 +1,28 @@
+.color-selection {
+  background-color: $color-black;
+}
+
+.color-selection__title {
+  color: $color-white;
+  margin-top: 0;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: 1.7rem;
+  letter-spacing: .3rem;
+  text-transform: uppercase;
+}
+
+.color-selection__samples {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2rem;
+}
+
+.color-selection__sample {
+  width: 3.5rem;
+  height: 3.5rem;
+
+  &:not(:first-of-type) {
+    margin-left: 2rem;
+  }
+}

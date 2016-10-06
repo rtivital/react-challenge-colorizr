@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { debounce } from 'lodash';
 
 import { Navbar } from 'components';
+import { ColorSelection } from 'components';
 import { Layout, Main, Sidebar } from 'ui';
 
 export default class AppContainer extends Component {
@@ -38,7 +39,7 @@ export default class AppContainer extends Component {
           toggleSidebar={this.toggle}
           closeSidebar={this.close}
         >
-          Hello
+          <ColorSelection colors={['#fff', '#ccc', '#bbb']} />
         </Sidebar>
         <Main sidebarOpened={sidebarOpened}>
           <Navbar />
