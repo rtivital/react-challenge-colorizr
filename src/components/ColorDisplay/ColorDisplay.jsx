@@ -59,37 +59,29 @@ export default class ColorDisplay extends Component {
 
     return (
       <div className="color-display">
-        <div className="color-display__wrapper">
-          <div className="color-display__display" style={{ backgroundColor: hex }}>
-            <span className="color-display__icon">
-              <Icon glyph={glyphs.view} theme={iconTheme} />
-            </span>
-          </div>
-
-          <button className="color-display__add">
-            <Icon glyph={glyphs.add} theme="dark" />
-          </button>
+        <div className="color-display__display" style={{ backgroundColor: hex }}>
+          <span className="color-display__icon">
+            <Icon glyph={glyphs.view} theme={iconTheme} />
+          </span>
         </div>
-        {do {
-          if (!this.props.hideInfo) {
-            <div className="color-display__info">
-              <div className="color-display__chanels">{chanels}</div>
-              <div className="color-display__hex">
-                <span className="color-display__hex-name">HEX:</span>
-                <span className="color-display__hex-value">{hex}</span>
-              </div>
-              <Clipboard text={hex} onCopy={this.handleCopy}>
-                <ButtonWithIcon
-                  className="color-display__clipboard"
-                  theme={buttonTheme}
-                  glyph={buttonGlyph}
-                >
-                  {buttonText}
-                </ButtonWithIcon>
-              </Clipboard>
-            </div>;
-          }
-        }}
+        {!this.props.hideInfo && (
+          <div className="color-display__info">
+            <div className="color-display__chanels">{chanels}</div>
+            <div className="color-display__hex">
+              <span className="color-display__hex-name">HEX:</span>
+              <span className="color-display__hex-value">{hex}</span>
+            </div>
+            <Clipboard text={hex} onCopy={this.handleCopy}>
+              <ButtonWithIcon
+                className="color-display__clipboard"
+                theme={buttonTheme}
+                glyph={buttonGlyph}
+              >
+                {buttonText}
+              </ButtonWithIcon>
+            </Clipboard>
+          </div>
+        )}
       </div>
     );
   }

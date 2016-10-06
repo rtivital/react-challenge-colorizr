@@ -126,7 +126,7 @@ $display-height: 10rem;
 .color-display__icon {
   opacity: 0;
   position: absolute;
-  top: 45%;
+  top: 30%;
   align-self: center;
   transition: opacity 200ms ease;
 
@@ -144,36 +144,5 @@ $display-height: 10rem;
     .color-display__add {
       opacity: 1;
     }
-  }
-}
-
-.color-display__add {
-  opacity: 0;
-  transition: opacity 300ms ease;
-  position: absolute;
-  z-index: 200;
-  top: 0;
-  left: 0;
-  background-color: $color-blue;
-  border: 0;
-  box-shadow: $box-shadow;
-  cursor: pointer;
-  width: 100%;
-  height: 3.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  &:focus {
-    outline: 0;
-  }
-
-  .icon {
-    width: 2.3rem;
-    height: 2.3rem;
-    padding: 0;
-    line-height: 1;
-    margin: 0;
-    fill: $color-white;
   }
 }
