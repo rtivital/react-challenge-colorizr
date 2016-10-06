@@ -1,8 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { debounce } from 'lodash';
 
-import { Navbar } from 'components';
-import { ColorSelection } from 'components';
+import { ColorSelection, Navbar } from 'components';
 import { Layout, Main, Sidebar } from 'ui';
 
 export default class AppContainer extends Component {
