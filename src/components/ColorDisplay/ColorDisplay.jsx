@@ -52,10 +52,11 @@ export default class ColorDisplay extends Component {
       (chanel, index) => <Chanel value={rgb[chanel]} name={chanel} key={`chanel-${chanel}-${index}`} />
     );
 
+    const { copied } = this.state;
     const iconTheme = transformedColor.luminosity() >= 50 ? 'dark' : 'light';
-    const buttonTheme = !this.state.copied ? 'white' : 'green';
-    const buttonText = this.state.copied ? 'Copied' : 'Copy HEX';
-    const buttonGlyph = !this.state.copied ? 'copy' : 'tick';
+    const buttonTheme = copied ? 'green' : 'white';
+    const buttonText = copied ? 'Copied' : 'Copy HEX';
+    const buttonGlyph = copied ? 'tick' : 'copy';
 
     return (
       <div className="color-display">
