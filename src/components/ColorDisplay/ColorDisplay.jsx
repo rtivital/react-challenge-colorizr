@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Clipboard from 'react-copy-to-clipboard';
+import { block } from 'rbem';
 
 import { Colorizr } from 'lib';
 import { Icon, glyphs, ButtonWithIcon } from 'ui';
@@ -44,6 +45,7 @@ export default class ColorDisplay extends Component {
   }
 
   render() {
+    const component = block('color-display');
     const transformedColor = new Colorizr(this.props.colorValue);
     const hex = transformedColor.hex();
     const rgb = transformedColor.clone().color;
@@ -59,22 +61,22 @@ export default class ColorDisplay extends Component {
     const buttonGlyph = copied ? 'tick' : 'copy';
 
     return (
-      <div className="color-display">
-        <div className="color-display__display" style={{ backgroundColor: hex }}>
-          <span className="color-display__icon">
+      <div className={component()}>
+        <div className={component('display')} style={{ backgroundColor: hex }}>
+          <span className={component('icon')}>
             <Icon glyph={glyphs.view} theme={iconTheme} />
           </span>
         </div>
         {!this.props.hideInfo && (
-          <div className="color-display__info">
-            <div className="color-display__chanels">{chanels}</div>
-            <div className="color-display__hex">
-              <span className="color-display__hex-name">HEX:</span>
-              <span className="color-display__hex-value">{hex}</span>
+          <div className={component('info')}>
+            <div className={component('chanels')}>{chanels}</div>
+            <div className={component('hex')}>
+              <span className={component('hex-name')}>HEX:</span>
+              <span className={component('hex-value')}>{hex}</span>
             </div>
             <Clipboard text={hex} onCopy={this.handleCopy}>
               <ButtonWithIcon
-                className="color-display__clipboard"
+                className={component('clipboard')}
                 theme={buttonTheme}
                 glyph={buttonGlyph}
               >
