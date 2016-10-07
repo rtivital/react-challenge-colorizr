@@ -1,26 +1,33 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router/lib';
+import { withRouter } from 'react-router';
+import { replace } from 'react-router-redux';
+import { debounce } from 'lodash';
 
 const updateWithQuery = (queryParam, action) => ComposedComponent =>
 @withRouter
-@connect()
+@connect(null, { replace, action })
 class UpdateWithQuery extends PureComponent {
   static propTypes = {
     location: PropTypes.object.isRequired,
-    dispatch: PropTypes.func.isRequired,
+    action: PropTypes.func.isRequired,
+    replace: PropTypes.func.isRequired,
   }
 
   componentWillMount() {
     if (typeof action === 'function' && typeof queryParam === 'string') {
-      this.props.dispatch(
-        action(this.props.location.query[queryParam])
-      );
+      this.props.action(this.props.location.query[queryParam]);
     }
   }
 
+  updateQuery = debounce((value) => {
+    const { query } = this.props.location;
+    const params = Object.assign({}, query, { [queryParam]: value });
+    this.props.replace({ query: params });
+  }, 200)
+
   render() {
-    return <ComposedComponent {...this.props} />;
+    return <ComposedComponent {...this.props} updateQuery={this.updateQuery} />;
   }
 };
 
