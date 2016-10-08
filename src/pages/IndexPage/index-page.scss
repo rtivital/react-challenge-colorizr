@@ -1,5 +1,11 @@
 $header-breakpoint: 1000px;
 
+@keyframes gradient-background {
+    0% { background-position: 0% 72%; }
+    50% { background-position: 100% 29%; }
+    100% { background-position: 0% 72%; }
+}
+
 .index-page {
   background-color: $color-white-gray;
   padding-bottom: 20rem;
@@ -7,6 +13,8 @@ $header-breakpoint: 1000px;
 
 .header {
   transition: background-color 400ms;
+  animation: gradient-background 23s ease infinite;
+  background-size: 400%;
   padding: 4rem 0;
   padding-top: 10rem;
   box-shadow: 1px 2px 5px rgba(0, 0, 0, .15);
@@ -41,6 +49,7 @@ $header-breakpoint: 1000px;
   font-size: 1.8em;
   margin: 0;
   padding: 0;
+  text-shadow: $box-shadow;
 }
 
 .header__subtitle {
