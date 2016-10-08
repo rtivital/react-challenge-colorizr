@@ -13,16 +13,24 @@
 }
 
 .color-selection__samples {
-  display: flex;
-  flex-wrap: wrap;
   padding: 2rem;
+  padding-right: 0;
+  padding-bottom: 0;
 }
 
 .color-selection__sample {
-  width: 3.5rem;
-  height: 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $color-white;
+}
 
-  &:not(:first-of-type) {
-    margin-left: 2rem;
-  }
+.color-selection__display {
+  width: 8rem;
+  height: 5rem;
+}
+
+.color-selection__value {
+  font-family: $font-family-mono;
+  font-size: 1.8rem;
 }

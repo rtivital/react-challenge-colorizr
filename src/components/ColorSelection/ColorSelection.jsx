@@ -1,9 +1,19 @@
 import React, { PropTypes } from 'react';
+import { block } from 'rbem';
+import { hex } from 'lib';
 import './color-selection.scss';
 
-const ColorSelectionSample = ({ color }) => (
-  <div className="color-selection__sample" style={{ backgroundColor: color }} />
-);
+const component = block('color-selection');
+
+const ColorSelectionSample = ({ color }) => {
+  const value = hex.createLongHex(color, true).toUpperCase();
+  return (
+    <div className={component('sample')}>
+      <div className={component('value')}>{value}</div>
+      <div className={component('display')} style={{ backgroundColor: value }} />
+    </div>
+  );
+};
 
 ColorSelectionSample.propTypes = {
   color: PropTypes.string.isRequired,
