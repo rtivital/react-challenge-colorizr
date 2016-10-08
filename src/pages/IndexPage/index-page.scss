@@ -12,11 +12,9 @@ $header-breakpoint: 1000px;
 }
 
 .header {
-  transition: background-color 400ms;
-  animation: gradient-background 23s ease infinite;
+  animation: gradient-background 50s ease infinite;
   background-size: 400%;
-  padding: 4rem 0;
-  padding-top: 10rem;
+  padding: 7.5rem 0;
   box-shadow: 1px 2px 5px rgba(0, 0, 0, .15);
 }
 
@@ -32,14 +30,12 @@ $header-breakpoint: 1000px;
 }
 
 .header__titles {
-  padding: 0 1rem;
   text-align: center;
   margin-bottom: 3rem;
 
   @include color-switch(color);
 
   @include breakpoint($header-breakpoint) {
-    padding: 0 2rem;
     margin-bottom: 0;
     text-align: left;
   }
@@ -55,8 +51,4 @@ $header-breakpoint: 1000px;
 .header__subtitle {
   font-size: 1em;
   font-weight: normal;
-}
-
-.header__color-picker {
-  padding: 0 2rem;
 }
