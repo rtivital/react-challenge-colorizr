@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { hashHistory, browserHistory } from 'react-router';
+import { AppContainer } from 'react-hot-loader';
 
 import 'react-fastclick';
 
@@ -14,9 +15,28 @@ const store = configureStore();
 const history = process.env.BUILD === 'pages' ? hashHistory : browserHistory;
 const appHistory = syncHistoryWithStore(history, store);
 
+const rootElement = document.getElementById('app');
+
 render(
-  <Provider store={store}>
-    <AppRouter history={appHistory} />
-  </Provider>,
-  document.getElementById('app')
+  <AppContainer>
+    <Provider store={store}>
+      <AppRouter history={appHistory} />
+    </Provider>
+  </AppContainer>,
+  rootElement
 );
+
+if (module.hot) {
+  module.hot.accept('./routes', () => {
+    const NextAppRouter = require('./routes').default;
+
+    render(
+      <AppContainer>
+        <Provider store={store}>
+          <NextAppRouter history={appHistory} />
+        </Provider>
+      </AppContainer>,
+      rootElement
+    );
+  });
+}

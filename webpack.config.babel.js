@@ -110,6 +110,7 @@ export default {
   entry: production
     ? ['babel-polyfill', './src/index']
     : [
+      'react-hot-loader/patch',
       'webpack-dev-server/client?http://localhost:3002',
       'webpack/hot/only-dev-server',
       'babel-polyfill',

@@ -24,6 +24,15 @@ const configureStore = (initialState) => {
       : f => f
   ));
 
+  if (module.hot) {
+    // Enable Webpack hot module replacement for reducers
+    module.hot.accept('./modules', () => {
+      const nextRootReducer = require('./modules/index');
+
+      store.replaceReducer(nextRootReducer);
+    });
+  }
+
   return store;
 };
 
