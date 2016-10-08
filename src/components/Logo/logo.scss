@@ -11,9 +11,9 @@
   user-select: none;
   transition: letter-spacing 100ms ease;
 
-
   &:hover {
     letter-spacing: .3rem;
+
     .logo__letter {
       color: $color-black !important;
     }
