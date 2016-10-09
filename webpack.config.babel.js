@@ -54,8 +54,8 @@ const pluginsBase = [
   }),
 
   new FaviconsWebpackPlugin({
-    logo: './logo.png',
-    background: '#119ce5',
+    logo: './favicon.png',
+    background: '#ffeeee',
     icons: {
       android: false,
       appleIcon: false,
