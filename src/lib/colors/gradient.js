@@ -1,5 +1,5 @@
-export function createGradient(colors) {
-  let gradient = 'linear-gradient(to right,';
+export function createGradient(colors, direction = 'right') {
+  let gradient = `linear-gradient(to ${direction},`;
   const { length } = colors;
 
   colors.forEach((color, index) => {

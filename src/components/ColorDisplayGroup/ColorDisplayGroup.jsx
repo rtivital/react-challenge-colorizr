@@ -90,7 +90,7 @@ export default class ColorDisplayGroup extends Component {
         </div>
         <div
           className={displaysClassName}
-          style={{ backgroundImage: gradient.createGradient(colors) }}
+          style={{ backgroundImage: gradient.createGradient(colors, 'left') }}
         >
           {colorsRows}
         </div>

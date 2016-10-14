@@ -58,6 +58,7 @@
 .color-display-group__displays {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 
   .color-display {
     flex: 1;
@@ -86,4 +87,9 @@
   &:not(:first-child) {
     margin-left: 2rem;
   }
+}
+
+.color-display-group__row {
+  display: flex;
+  flex: 1 50%;
 }
