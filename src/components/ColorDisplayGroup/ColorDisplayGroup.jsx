@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { block, applyModifiers } from 'rbem';
+import { chunk } from 'lodash';
 
 import { gradient } from 'lib';
 import { Button, Checkbox } from 'ui';
@@ -37,6 +38,27 @@ export default class ColorDisplayGroup extends Component {
     const component = block('color-display-group');
 
     const { colors } = this.props;
+    const chunks = chunk(colors, colors.length / 2);
+
+    const colorsRows = chunks.map((colorsChunk, chunkIndex) => {
+      const chunkContent = colorsChunk.map((color, index) => (
+        <ColorDisplay
+          colorValue={color}
+          hideInfo={!this.state.info}
+          key={`${color}-${index}`}
+        />
+      ));
+
+      return (
+        <div
+          className={component('row')}
+          style={{ backgroundImage: gradient.createGradient(colorsChunk) }}
+          key={`${chunkIndex}-row`}
+        >
+          {chunkContent}
+        </div>
+      )
+    });
 
     const colorDisplays = colors.map(
       (color, index) => (
@@ -70,7 +92,7 @@ export default class ColorDisplayGroup extends Component {
           className={displaysClassName}
           style={{ backgroundImage: gradient.createGradient(colors) }}
         >
-          {colorDisplays}
+          {colorsRows}
         </div>
         <div className={component('controls')}>
           <Checkbox
