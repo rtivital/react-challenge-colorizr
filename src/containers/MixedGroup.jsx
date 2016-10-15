@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { updateWithQuery } from 'hocs';
 import { ColorDisplayGroup } from 'components';
-import { colorActions } from 'modules';
+import { colorActions } from 'redux-modules';
 import { hex } from 'lib';
 
 @updateWithQuery('mixer', colorActions.setMixedColor)

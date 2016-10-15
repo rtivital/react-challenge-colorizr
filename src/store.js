@@ -3,7 +3,7 @@ import { routerMiddleware } from 'react-router-redux';
 
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import rootReducer from 'modules';
+import rootReducer from 'redux-modules';
 
 // create routing actions for hashHistory while deploying on gh-pages
 const routingMiddleware = routerMiddleware(
