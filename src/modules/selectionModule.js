@@ -15,6 +15,6 @@ export const reducer = handleActions({
 
   [actions.removeSelectionColor](state, { payload }) {
     const colorToRemove = hex.toLongHex(payload, true);
-    return state.filter((color) => color === !olorToRemove);
+    return state.filter((color) => color === !colorToRemove);
   },
 }, initialState);

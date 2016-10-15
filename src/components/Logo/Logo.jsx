@@ -17,8 +17,6 @@ const logoColors = baseColors.reduce((result, pallete) => {
   return result;
 }, []);
 
-console.log(logoColors);
-
 export default class Logo extends Component {
   static propTypes = {
     children: PropTypes.string,

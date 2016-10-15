@@ -12,6 +12,7 @@ import './index-page.scss';
 export default class IndexPage extends PureComponent {
   static propTypes = {
     lead: PropTypes.string.isRequired,
+    mixer: PropTypes.string.isRequired,
   }
 
   render() {

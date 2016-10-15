@@ -57,18 +57,8 @@ export default class ColorDisplayGroup extends Component {
         >
           {chunkContent}
         </div>
-      )
+      );
     });
-
-    const colorDisplays = colors.map(
-      (color, index) => (
-        <ColorDisplay
-          colorValue={color}
-          hideInfo={!this.state.info}
-          key={`${color}-${index}`}
-        />
-      )
-    );
 
     const displaysClassName = applyModifiers(component('displays'), {
       gradient: this.state.gradient,
