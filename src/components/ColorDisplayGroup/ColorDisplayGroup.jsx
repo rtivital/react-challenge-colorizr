@@ -52,7 +52,7 @@ export default class ColorDisplayGroup extends Component {
       return (
         <div
           className={component('row')}
-          style={{ backgroundImage: gradient.createGradient(colorsChunk) }}
+          style={{ backgroundImage: this.state.gradient && gradient.createGradient(colorsChunk) }}
           key={`${chunkIndex}-row`}
         >
           {chunkContent}
@@ -78,10 +78,7 @@ export default class ColorDisplayGroup extends Component {
             }
           }}
         </div>
-        <div
-          className={displaysClassName}
-          style={{ backgroundImage: gradient.createGradient(colors, 'left') }}
-        >
+        <div className={displaysClassName}>
           {colorsRows}
         </div>
         <div className={component('controls')}>

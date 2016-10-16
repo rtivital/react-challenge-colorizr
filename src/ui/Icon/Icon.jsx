@@ -2,9 +2,9 @@ import React, { PropTypes } from 'react';
 import cx from 'classnames';
 import './icon.scss';
 
-const Icon = ({ glyph, theme }) => (
+const Icon = ({ glyph, theme, className }) => (
   <svg
-    className={cx('icon', {
+    className={cx('icon', className, {
       'icon--light': theme === 'light',
       'icon--dark': theme === 'dark',
     })}

@@ -7,6 +7,10 @@ $display-height: 10rem;
     .color-display__info {
       border-left: 0;
     }
+
+    .color-display__add {
+      border-left: 0;
+    }
   }
 }
 
@@ -14,6 +18,19 @@ $display-height: 10rem;
   background-color: $color-white;
   border: $light-border;
   border-top: 0;
+}
+
+.color-display__add {
+  width: 100%;
+  display: block;
+  border-bottom: 0;
+  border-radius: 0;
+
+  &-icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    fill: $color-black;
+  }
 }
 
 .color-display__display {

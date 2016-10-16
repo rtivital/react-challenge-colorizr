@@ -3,7 +3,7 @@ import Clipboard from 'react-copy-to-clipboard';
 import { block } from 'rbem';
 
 import { Colorizr } from 'lib';
-import { Icon, glyphs, ButtonWithIcon } from 'ui';
+import { Icon, glyphs, Button, ButtonWithIcon } from 'ui';
 import './color-display.scss';
 
 const Chanel = ({ value, name }) => (
@@ -17,6 +17,7 @@ Chanel.propTypes = {
   value: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
 };
+
 
 export default class ColorDisplay extends Component {
   static propTypes = {
@@ -62,6 +63,11 @@ export default class ColorDisplay extends Component {
 
     return (
       <div className={component()}>
+      <Button className={component('add')}>
+        <Icon glyph={glyphs.add} className={component('add-icon')}>
+          Add
+        </Icon>
+      </Button>
         <div className={component('display')} style={{ backgroundColor: hex }}>
           <span className={component('icon')}>
             <Icon glyph={glyphs.view} theme={iconTheme} />

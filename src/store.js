@@ -19,7 +19,6 @@ const middlewares = [
 function loadState() {
   try {
     const serializedState = JSON.parse(localStorage.getItem('state'));
-
     if (serializedState === null) { return undefined; }
     return serializedState;
   } catch (e) {
