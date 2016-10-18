@@ -15,6 +15,7 @@ const Icon = ({ glyph, theme, className }) => (
 Icon.propTypes = {
   glyph: PropTypes.string.isRequired,
   theme: PropTypes.string,
+  className: PropTypes.string,
 };
 
 Icon.defaultProps = {

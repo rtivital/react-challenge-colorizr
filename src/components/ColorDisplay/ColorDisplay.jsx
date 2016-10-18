@@ -63,11 +63,11 @@ export default class ColorDisplay extends Component {
 
     return (
       <div className={component()}>
-      <Button className={component('add')}>
-        <Icon glyph={glyphs.add} className={component('add-icon')}>
-          Add
-        </Icon>
-      </Button>
+        <Button className={component('add')}>
+          <Icon glyph={glyphs.add} className={component('add-icon')}>
+            Add
+          </Icon>
+        </Button>
         <div className={component('display')} style={{ backgroundColor: hex }}>
           <span className={component('icon')}>
             <Icon glyph={glyphs.view} theme={iconTheme} />
