@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { debounce } from 'lodash';
 
-import { ColorSelection, Navbar } from 'components';
+import { ColorSelection, Navbar, Footer } from 'components';
 import { Layout, Main, Sidebar } from 'ui';
 
 export default class AppContainer extends Component {
@@ -43,6 +43,7 @@ export default class AppContainer extends Component {
         <Main sidebarOpened={sidebarOpened}>
           <Navbar />
           {this.props.children}
+          <Footer />
         </Main>
       </Layout>
     );

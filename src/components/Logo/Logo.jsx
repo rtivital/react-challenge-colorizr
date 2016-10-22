@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { IndexLink } from 'react-router';
+import cx from 'classnames';
 import { random } from 'lodash';
 import './logo.scss';
 
@@ -20,6 +21,8 @@ const logoColors = baseColors.reduce((result, pallete) => {
 export default class Logo extends Component {
   static propTypes = {
     children: PropTypes.string,
+    className: PropTypes.string,
+    light: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -65,10 +68,10 @@ export default class Logo extends Component {
     ));
 
     return (
-      <div className="logo">
+      <div className={cx('logo', this.props.className)}>
         <IndexLink
           to="/"
-          className="logo__link"
+          className={cx('logo__link', { 'logo__link--light': this.props.light })}
           onMouseEnter={this.clearInterval}
           onMouseLeave={this.applyInterval}
         >

@@ -1,0 +1,30 @@
+.footer {
+  background-color: $color-black;
+  color: $color-white;
+  padding: 5rem 0;
+}
+
+.footer__logo {
+  display: inline-block;
+  margin-right: .5rem;
+
+  .logo__link {
+    font-size: 1.8rem;
+  }
+}
+
+.footer__title {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: bold;
+}
+
+.footer__heart {
+  fill: $color-red;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: 0 .3rem;
+}

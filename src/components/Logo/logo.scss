@@ -18,6 +18,14 @@
       color: $color-black !important;
     }
   }
+
+  &--light {
+    &:hover {
+      .logo__letter {
+        color: $color-white !important;
+      }
+    }
+  }
 }
 
 .logo__letter {
