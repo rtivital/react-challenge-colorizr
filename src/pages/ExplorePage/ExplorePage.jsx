@@ -1,8 +1,9 @@
 import React from 'react';
+import { Calc } from 'components';
 
 const ExplorePage = () => (
   <div className="page">
-    Explore
+    <Calc />
   </div>
 );
 
