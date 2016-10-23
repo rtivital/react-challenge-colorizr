@@ -28,3 +28,12 @@
   height: 1.2rem;
   margin: 0 .3rem;
 }
+
+.footer__link {
+  color: $color-blue;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}

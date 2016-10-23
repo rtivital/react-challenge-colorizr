@@ -11,7 +11,8 @@ const Footer = () => (
       </div>
 
       <p className="footer__description">
-        Build with <Icon className="footer__heart" glyph={glyphs.heart} /> by Vitaly Rtishchev
+        Build with <Icon className="footer__heart" glyph={glyphs.heart} />
+        by <a href="https://github.com/rtivital" className="footer__link" target="_blank">Vitaly Rtishchev</a>
       </p>
     </Container>
   </footer>
