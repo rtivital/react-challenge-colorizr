@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run lint:withoutfix && npm run lint:styles && npm run testonly",
     "testonly": "cross-env NODE_ENV=development tape --require babel-register --require ignore-styles src/**/*.test.{js,jsx} | tap-notify | tap-spec",
-    "start": "cross-env NODE_ENV=development babel-node server.js",
+    "start": "npm run presets && cross-env NODE_ENV=development babel-node server.js",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.babel.js --progress",
     "clean": "rimraf public",
     "lint": "eslint src --ext .js --ext .jsx --fix",
