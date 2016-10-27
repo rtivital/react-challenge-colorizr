@@ -12,7 +12,7 @@ const Footer = () => (
 
       <p className="footer__description">
         Build with <Icon className="footer__heart" glyph={glyphs.heart} />
-        by <a href="https://github.com/rtivital" className="footer__link" target="_blank">Vitaly Rtishchev</a>
+        by <a href="https://github.com/rtivital" className="footer__link" target="_blank" rel="noopener noreferrer">Vitaly Rtishchev</a>
       </p>
     </Container>
   </footer>
