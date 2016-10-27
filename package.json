@@ -16,7 +16,7 @@
     "gh:deploy": "npm run gh:build && gh-pages -d public",
     "deploy": "npm run gh:deploy",
     "docs": "jsdoc --configure jsdoc.json --destination public/docs --recurse",
-    "presets": "node presets/generate.js"
+    "presets": "node scripts/generate.js"
   },
   "pre-commit": [
     "test"
@@ -100,11 +100,8 @@
     "html-webpack-plugin": "^2.22.0",
     "ignore-styles": "^5.0.1",
     "jsdoc": "^3.4.1",
-    "jsdoc-jsx": "^0.1.0",
-    "jsonfile": "^2.4.0",
     "lodash-webpack-plugin": "^0.10.1",
     "mkdirp": "^0.5.1",
-    "mkdirp-promise": "^3.0.1",
     "node-sass": "^3.10.0",
     "postcss-loader": "^0.13.0",
     "pre-commit": "^1.1.3",
