@@ -1,9 +1,10 @@
 const Promise = require('bluebird');
 const rp = require('request-promise');
 const flatten = require('lodash').flatten;
-const fs = Promise.promisifyAll(require('fs-extra'));
 const mkdirp = Promise.promisify(require('mkdirp'));
-const colors = require('colors');
+const writeJson = Promise.promisify(require('jsonfile').writeFile);
+
+require('colors');
 
 
 const MAX_POPULAR_STEP = 15;
@@ -12,7 +13,7 @@ const PUBLIC_FOLDER = './public';
 const FILE_NAME = `${PUBLIC_FOLDER}/presets.json`;
 const HEX_RE = {
   hex: /[0-9a-f]{6}/g,
-  hexX4: /[0-9a-f]{24}/g
+  hexX4: /[0-9a-f]{24}/g,
 };
 
 function getReuestData(step, sort = 'popular') {
@@ -32,5 +33,5 @@ for (let index = 0; index < MAX_POPULAR_STEP; index++) {
 
 mkdirp('./public')
   .then(() => Promise.map(requests, parseResponseData))
-  .then((data) => fs.writeJson(FILE_NAME, flatten(data)))
-  .then(() => console.log(`Scrapped data from ${POST_URL.green} placed to ${FILE_NAME.yellow}`))
+  .then((data) => writeJson(FILE_NAME, flatten(data)))
+  .then(() => console.log(`Scrapped data from ${POST_URL.green} placed to ${FILE_NAME.yellow}`));
