@@ -42,5 +42,4 @@ jspm_packages
 # Project Files
 public
 docs
-yarn.lock
 .eslintcache
