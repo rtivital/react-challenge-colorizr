@@ -1,0 +1,15 @@
+.presets-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.preset {
+  display: flex;
+}
+
+.preset__item {
+  border: 0;
+  outline: 0;
+  height: 5rem;
+  width: 5rem;
+}

@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import './presets.scss';
 
 const PrestPropType = PropTypes.arrayOf(PropTypes.string);
 
@@ -27,7 +28,7 @@ const Presets = ({ data, ...others }) => {
   );
 
   return (
-    <div className="preset-group">{presets}</div>
+    <div className="presets-group">{presets}</div>
   );
 };
 
