@@ -1,10 +1,14 @@
-.presets-group {
+.presets__paginator {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .preset {
   display: flex;
+  margin: 1rem;
+  padding: 1.5rem;
+  border: .1rem solid $color-white-gray;
 }
 
 .preset__item {

@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { Paginator } from 'components';
 import './presets.scss';
 
 const PrestPropType = PropTypes.arrayOf(PropTypes.string);
@@ -28,7 +29,9 @@ const Presets = ({ data, ...others }) => {
   );
 
   return (
-    <div className="presets-group">{presets}</div>
+    <Paginator className="presets__paginator">
+      {presets}
+    </Paginator>
   );
 };
 

@@ -6,4 +6,5 @@ export ColorSelection from './ColorSelection/ColorSelection';
 export Logo from './Logo/Logo';
 export Navbar from './Navbar/Navbar';
 export Footer from './Footer/Footer';
+export Paginator from './Paginator/Paginator';
 export Presets from './Presets/Presets';
