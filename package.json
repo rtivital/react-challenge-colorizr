@@ -4,13 +4,15 @@
   "description": "Boilerplate for second React Challenge",
   "main": "index.js",
   "scripts": {
-    "test": "npm run lint:withoutfix && npm run lint:styles && npm run testonly",
-    "testonly": "cross-env NODE_ENV=development tape --require babel-register --require ignore-styles src/**/*.test.{js,jsx} | tap-notify | tap-spec",
+    "test": "npm run lint:withoutfix && npm run lint:styles && npm run test:only",
+    "test:cache": "npm run lint:cache && npm run lint:styles && npm run test:only",
+    "test:only": "cross-env NODE_ENV=development tape --require babel-register --require ignore-styles src/**/*.test.{js,jsx} | tap-notify | tap-spec",
     "start": "npm run presets && cross-env NODE_ENV=development babel-node server.js",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.babel.js --progress",
     "clean": "rimraf public",
     "lint": "eslint src --ext .js --ext .jsx --fix",
     "lint:withoutfix": "eslint src --ext .js --ext .jsx",
+    "lint:cache": "eslint src --ext .js --ext .jsx --cache",
     "lint:styles": "stylelint **/*.scss",
     "gh:build": "npm run clean && npm run presets && cross-env NODE_ENV=production BUILD=pages webpack --config webpack.config.babel.js --progress",
     "gh:deploy": "npm run gh:build && gh-pages -d public",
@@ -19,7 +21,7 @@
     "presets": "node scripts/generate.js"
   },
   "pre-commit": [
-    "test"
+    "test:cache"
   ],
   "repository": {
     "type": "git",
