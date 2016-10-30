@@ -4,7 +4,7 @@ require('colors');
 
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
-const webpackConfig = require('../webpack.config.babel');
+const webpackConfig = require('../webpack.config');
 
 
 const PORT = 3002;
