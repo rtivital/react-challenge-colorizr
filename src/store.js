@@ -1,10 +1,9 @@
 import { browserHistory, hashHistory } from 'react-router';
 import { routerMiddleware } from 'react-router-redux';
-import { throttle } from 'lodash';
-
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import rootReducer from 'redux-modules';
+import { throttle } from 'lodash';
+import rootReducer from 'modules';
 
 // create routing actions for hashHistory while deploying on gh-pages
 const routingMiddleware = routerMiddleware(
@@ -55,8 +54,8 @@ const configureStore = (initialState = loadState()) => {
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
-    module.hot.accept('./redux-modules', () => {
-      const nextRootReducer = require('./redux-modules/index');
+    module.hot.accept('./modules', () => {
+      const nextRootReducer = require('./modules/index');
 
       store.replaceReducer(nextRootReducer);
     });

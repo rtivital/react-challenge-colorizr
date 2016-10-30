@@ -2,7 +2,7 @@ import React, { PureComponent, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import { ColorPicker } from 'components';
-import { colorActions } from 'redux-modules';
+import { colorActions } from 'modules';
 import { updateWithQuery } from 'hocs';
 import { hex } from 'lib';
 

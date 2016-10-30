@@ -1,13 +1,10 @@
-import { createAction, handleActions } from 'redux-actions';
+import { handleActions } from 'redux-actions';
 import { hex, groups } from 'lib';
+import types from './types';
 
-export const actions = {
-  setLeadColor: createAction('COLOR/SET_LEAD_COLOR'),
-  setMixedColor: createAction('COLOR/SET_MIXED_COLOR'),
-};
 
 const INITIAL_LEAD_COLOR = '#0C93D2';
-const INITIAL_MIXED_COLOR = '#1F6CA9';
+const INITIAL_MIXED_COLOR = '#0DF9C4';
 
 const initialState = {
   lead: INITIAL_LEAD_COLOR,
@@ -16,8 +13,9 @@ const initialState = {
   mixedGroup: groups.getMixedGroup(INITIAL_LEAD_COLOR, INITIAL_MIXED_COLOR),
 };
 
-export const reducer = handleActions({
-  [actions.setLeadColor](state, { payload }) {
+
+export default handleActions({
+  [types.SET_LEAD_COLOR](state, { payload }) {
     if (!hex.isHex(payload)) { return state; }
     return {
       ...state,
@@ -27,7 +25,7 @@ export const reducer = handleActions({
     };
   },
 
-  [actions.setMixedColor](state, { payload }) {
+  [types.SET_MIXED_COLOR](state, { payload }) {
     if (!hex.isHex(payload)) { return state; }
     return {
       ...state,

@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
 
-const ExplorePage = () => (
-  <div className="page">
-    Explore
-  </div>
-);
+export default class ExplorePage extends Component {
+  componentDidMount() {
+    axios.get('/presets.json').then(response => console.log(response));
+  }
 
-export default ExplorePage;
+  render() {
+    return (
+      <div>ExplorePage</div>
+    );
+  }
+}
