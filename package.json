@@ -12,7 +12,7 @@
     "lint": "eslint src --ext .js --ext .jsx --fix",
     "lint:withoutfix": "eslint src --ext .js --ext .jsx",
     "lint:styles": "stylelint **/*.scss",
-    "gh:build": "npm run clean && cross-env NODE_ENV=production BUILD=pages webpack --config webpack.config.babel.js --progress",
+    "gh:build": "npm run presets && npm run clean && cross-env NODE_ENV=production BUILD=pages webpack --config webpack.config.babel.js --progress",
     "gh:deploy": "npm run gh:build && gh-pages -d public",
     "deploy": "npm run gh:deploy",
     "docs": "jsdoc --configure jsdoc.json --destination public/docs --recurse",
