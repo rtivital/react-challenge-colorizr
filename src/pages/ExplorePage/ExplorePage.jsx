@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Presets } from 'containers';
 
 export default class ExplorePage extends Component {
   componentDidMount() {
@@ -8,7 +9,7 @@ export default class ExplorePage extends Component {
 
   render() {
     return (
-      <div>ExplorePage</div>
+      <div><Presets /></div>
     );
   }
 }
