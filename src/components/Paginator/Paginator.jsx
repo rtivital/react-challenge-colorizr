@@ -21,6 +21,8 @@ export default class Paginator extends Component {
 
   state = {
     page: this.props.initialPage,
+    nextAvailable: this.props.initialPage < this.props.pagination - 1,
+    previosAvailable: this.props.initialPage > 0,
   }
 
   setPage = (index) => {
@@ -30,14 +32,22 @@ export default class Paginator extends Component {
   nextPage = () => {
     const { page } = this.state;
     if (page < this.chunk.length - 1) {
-      this.setState({ page: page + 1 });
+      this.setState({
+        page: page + 1,
+        nextAvailable: page + 1 < this.chunk.length - 1,
+        previosAvailable: true,
+      });
     }
   }
 
   previosPage = () => {
     const { page } = this.state;
     if (page > 0) {
-      this.setState({ page: page - 1 });
+      this.setState({
+        page: page - 1,
+        previosAvailable: page - 1 > 0,
+        nextAvailable: true,
+      });
     }
   }
 
@@ -49,8 +59,21 @@ export default class Paginator extends Component {
         </div>
 
         <div className="paginator__controls">
-          <Button className="paginator__button" onClick={this.previosPage}>Previous</Button>
-          <Button className="paginator__button" onClick={this.nextPage}>Next</Button>
+          <Button
+            className="paginator__button"
+            onClick={this.previosPage}
+            disabled={!this.state.previosAvailable}
+          >
+            Previous
+          </Button>
+
+          <Button
+            className="paginator__button"
+            onClick={this.nextPage}
+            disabled={!this.state.nextAvailable}
+          >
+            Next
+          </Button>
         </div>
       </div>
     );

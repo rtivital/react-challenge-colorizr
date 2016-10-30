@@ -11,6 +11,18 @@
     outline: 0;
   }
 
+  &--disabled {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $color-white-gray !important;
+      border: .1rem solid $color-light-gray !important;
+      color: $color-gray !important;
+      cursor: not-allowed;
+    }
+  }
+
   &--white {
     background-color: $color-white;
     border-color: $color-light-gray;
