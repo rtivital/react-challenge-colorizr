@@ -1,17 +1,23 @@
 .presets__paginator {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   margin-top: 3rem;
 }
 
 .preset {
   display: flex;
-  margin: 1rem;
+  margin: 1.5rem 1rem;
   padding: 1.5rem;
   border: .1rem solid $color-white-gray;
   box-shadow: 0 0 .3rem rgba(0, 0, 0, .1);
   border-radius: $radius;
+  transition: background-color 200ms;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-white-gray;
+  }
 }
 
 .preset__item {
@@ -19,4 +25,5 @@
   outline: 0;
   height: 5rem;
   width: 5rem;
+  cursor: pointer;
 }
