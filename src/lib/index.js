@@ -1,4 +1,5 @@
 export HotRouter from './utils/HotRouter';
+export StoriesWrapper from './utils/StoriesWrapper';
 
 export * as hex from './colors/hex';
 export * as gradient from './colors/gradient';

@@ -1,4 +1,5 @@
 import { configure } from '@kadira/storybook';
+import 'styles';
 
 const requireContext = require.context('../src', true, /.story.(js|jsx)/);
 
