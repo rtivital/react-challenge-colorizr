@@ -1,8 +1,6 @@
-import assignStaticPropsToClass from '../object/assignStaticToClass';
 import * as hex from './hex';
 import * as splitted from './splitted';
 
-@assignStaticPropsToClass(hex)
 export default class Colorizr {
   constructor(color) {
     const isHexString = hex.isHex(color);

@@ -1,5 +1,4 @@
-import { clamp } from 'lodash';
-import { isObject, hasOwnProperty } from '../object/utils';
+import { clamp, isPlainObject } from 'lodash';
 
 const CHANELS = ['r', 'g', 'b'];
 
@@ -17,9 +16,9 @@ export function isSplittedColor(value) {
     return value.every(validateChanel);
   }
 
-  if (isObject(value)) {
+  if (isPlainObject(value)) {
     return CHANELS.every(
-      (chanel) => hasOwnProperty(value, chanel) && validateChanel(value[chanel])
+      (chanel) => chanel in value && validateChanel(value[chanel])
     );
   }
 
@@ -27,7 +26,7 @@ export function isSplittedColor(value) {
 }
 
 export function convertSplittedToObject(value) {
-  if (isObject(value)) { return value; }
+  if (isPlainObject(value)) { return value; }
   if (Array.isArray(value)) {
     return {
       r: value[0],
@@ -41,7 +40,7 @@ export function convertSplittedToObject(value) {
 
 export function convertSplittedToArray(value) {
   if (Array.isArray(value)) { return value; }
-  if (isObject(value)) {
+  if (isPlainObject(value)) {
     return [value.r, value.g, value.b];
   }
 
