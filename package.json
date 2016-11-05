@@ -22,7 +22,7 @@
     "deploy": "npm run gh:deploy",
     "presets": "node scripts/generate"
   },
-  "pre-commit": [
+  "pre-push": [
     "test:cache"
   ],
   "repository": {
@@ -108,7 +108,7 @@
     "mkdirp": "^0.5.1",
     "node-sass": "^3.11.1",
     "postcss-loader": "^1.1.0",
-    "pre-commit": "^1.1.3",
+    "pre-push": "^0.1.1",
     "react-addons-test-utils": "^15.3.2",
     "react-hot-loader": "^3.0.0-beta.4",
     "request": "^2.78.0",
