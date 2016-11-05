@@ -1,10 +1,11 @@
+/* eslint-disable no-console */
+require('colors');
+
 const Promise = require('bluebird');
 const rp = require('request-promise');
 const flatten = require('lodash').flatten;
 const mkdirp = Promise.promisify(require('mkdirp'));
 const writeJson = Promise.promisify(require('jsonfile').writeFile);
-
-require('colors');
 
 
 const MAX_POPULAR_STEP = 15;
