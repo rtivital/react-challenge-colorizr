@@ -1,26 +1,9 @@
-import React, { Children, PropTypes, createElement } from 'react';
-import { Router, Route, IndexRoute } from 'react-router';
+import React, { PropTypes } from 'react';
+import { Route, IndexRoute } from 'react-router';
+import { HotRouter } from 'lib';
 
 import { IndexPage, ExportPage, ExplorePage } from 'pages';
 import { AppContainer } from 'components';
-
-class HotRouter extends Router {
-  componentWillReceiveProps(nextProps) {
-    const components = [];
-    function grabComponents(element) {
-      if (element.props && element.props.component) {
-        components.push(element.props.component);
-      }
-
-      if (element.props && element.props.children) {
-        Children.forEach(element.props.children, grabComponents);
-      }
-    }
-
-    grabComponents(nextProps.routes || nextProps.children);
-    components.forEach(createElement); // force patching
-  }
-}
 
 const AppRouter = ({ history }) => (
   <HotRouter history={history}>

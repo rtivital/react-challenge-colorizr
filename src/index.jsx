@@ -6,7 +6,6 @@ import { hashHistory, browserHistory } from 'react-router';
 import { AppContainer } from 'react-hot-loader';
 
 import 'react-fastclick';
-
 import 'styles';
 
 import configureStore from './store';
