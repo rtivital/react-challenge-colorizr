@@ -1,8 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import color from 'color';
 import cx from 'classnames';
-import { gradient } from 'lib';
+import { gradient, hex, splitted } from 'lib';
 
 import { ColorPicker, LuminosityGroup, MixedGroup } from 'containers';
 import { Container } from 'ui';
@@ -17,10 +16,10 @@ export default class IndexPage extends PureComponent {
 
   render() {
     const { lead, mixer } = this.props;
-    const luminosity = color(this.props.lead).luminosity();
+    const luminosity = splitted.getLuminosity(hex.splitHex(this.props.lead));
     const titlesClassName = cx('header__titles', {
-      'header__titles--dark': luminosity >= 0.5,
-      'header__titles--light': luminosity < 0.5,
+      'header__titles--dark': luminosity >= 50,
+      'header__titles--light': luminosity < 50,
     });
 
     return (
