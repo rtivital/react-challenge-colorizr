@@ -20,7 +20,6 @@
     "gh:build": "npm run clean && npm run presets && cross-env NODE_ENV=production BUILD=pages webpack --progress --colors",
     "gh:deploy": "npm run gh:build && gh-pages -d public",
     "deploy": "npm run gh:deploy",
-    "docs": "jsdoc --configure jsdoc.json --destination public/docs --recurse",
     "presets": "node scripts/generate"
   },
   "pre-commit": [
@@ -104,7 +103,6 @@
     "gh-pages": "^0.11.0",
     "html-webpack-plugin": "^2.24.1",
     "ignore-styles": "^5.0.1",
-    "jsdoc": "^3.4.1",
     "jsonfile": "^2.4.0",
     "lodash-webpack-plugin": "^0.10.3",
     "mkdirp": "^0.5.1",
