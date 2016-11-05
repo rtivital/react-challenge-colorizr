@@ -49,7 +49,7 @@
     "classnames": "^2.2.5",
     "lodash": "^4.16.6",
     "node-uuid": "^1.4.7",
-    "normalize-scss": "^6.0.0",
+    "normalize.css": "^5.0.0",
     "rbem": "^1.0.1",
     "react": "^15.3.2",
     "react-color-picker": "^4.0.2",

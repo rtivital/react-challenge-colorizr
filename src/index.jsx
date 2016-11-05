@@ -7,9 +7,10 @@ import { AppContainer } from 'react-hot-loader';
 
 import 'react-fastclick';
 
+import 'styles';
+
 import configureStore from './store';
 import AppRouter from './routes';
-import './styles/index.scss';
 
 const store = configureStore();
 const history = process.env.BUILD === 'pages' ? hashHistory : browserHistory;

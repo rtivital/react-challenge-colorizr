@@ -3,7 +3,6 @@ import ColorPickerComponent from 'react-color-picker';
 import cx from 'classnames';
 
 import { ColorDisplay } from 'components';
-import 'react-color-picker/index.css';
 import './color-picker.scss';
 
 export default class ColorPicker extends Component {

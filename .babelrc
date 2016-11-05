@@ -3,11 +3,18 @@
   "plugins": [
     "lodash",
     "transform-decorators-legacy",
-    ["module-resolver", { "root": ["./src"] }],
+
+    ["module-resolver", {
+      "root": ["./src"],
+      "alias": {
+        "node_modules": "./node_modules",
+      },
+    }],
+
     ["transform-imports", {
       "react-router": {
-          "transform": "react-router/lib/${member}",
-          "preventFullImport": true
+        "transform": "react-router/lib/${member}",
+        "preventFullImport": true
       }
     }]
   ],
