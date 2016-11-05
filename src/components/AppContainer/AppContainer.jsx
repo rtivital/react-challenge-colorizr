@@ -20,12 +20,12 @@ export default class AppContainer extends Component {
     if (viewport < 560) { this.close(); }
   }, 200)
 
-  componentWillMount() {
+  componentDidMount() {
     this.hideOnMobile();
     window.removeEventListener('resize', this.debounceMobile);
   }
 
-  componentDidMount() {
+  componentWillUnmount() {
     window.addEventListener('resize', this.debounceMobile);
   }
 
