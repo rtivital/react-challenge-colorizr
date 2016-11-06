@@ -1,11 +1,10 @@
 /* eslint-disable no-console */
-require('colors');
-
 const Promise = require('bluebird');
 const rp = require('request-promise');
 const flatten = require('lodash').flatten;
 const mkdirp = Promise.promisify(require('mkdirp'));
 const writeJson = Promise.promisify(require('jsonfile').writeFile);
+const chalk = require('chalk');
 
 
 const MAX_POPULAR_STEP = 15;
@@ -35,4 +34,4 @@ for (let index = 0; index < MAX_POPULAR_STEP; index++) {
 mkdirp('./public')
   .then(() => Promise.map(requests, parseResponseData))
   .then((data) => writeJson(FILE_NAME, flatten(data)))
-  .then(() => console.log(`Scrapped data from ${POST_URL.green} placed to ${FILE_NAME.yellow}`));
+  .then(() => console.log(`Scrapped data from ${chalk.bold.cyan(POST_URL)} placed to ${chalk.bold.green(FILE_NAME)}`));
