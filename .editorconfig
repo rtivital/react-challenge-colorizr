@@ -1,0 +1,11 @@
+# http://editorconfig.org/
+# Atom – https://github.com/sindresorhus/atom-editorconfig
+# Sublime Text – https://github.com/sindresorhus/editorconfig-sublime
+# Visual Studio Code – https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = false
+indent_style = space
+indent_size = 2
