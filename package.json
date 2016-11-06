@@ -9,7 +9,7 @@
     "test:only": "cross-env NODE_ENV=development tape --require babel-register --require ignore-styles src/**/*.test.{js,jsx} | tap-notify | tap-spec",
     "start": "npm run presets && cross-env NODE_ENV=development node scripts/start",
     "start:storybook": "start-storybook -p 3003 -c storybook",
-    "build:storybook": "build-storybook",
+    "build:storybook": "build-storybook -c storybook",
     "build": "cross-env NODE_ENV=production webpack --progress --colors",
     "clean": "rimraf public",
     "lint": "npm run lint:eslint-fix && npm run lint:stylelint",
