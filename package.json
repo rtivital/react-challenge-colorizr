@@ -7,7 +7,7 @@
     "test": "npm run lint:eslint && npm run lint:stylelint && npm run test:only",
     "test:cache": "npm run lint:eslint-cache && npm run lint:stylelint && npm run test:only",
     "test:only": "cross-env NODE_ENV=development tape --require babel-register --require ignore-styles src/**/*.test.{js,jsx} | tap-notify | tap-spec",
-    "start": "npm run presets && cross-env NODE_ENV=development node scripts/start",
+    "start": "npm run presets && cross-env NODE_ENV=development webpack-dashboard -- node scripts/start",
     "start:storybook": "start-storybook -p 3003 -c storybook",
     "build:storybook": "build-storybook -c storybook -o public/storybook",
     "build": "cross-env NODE_ENV=production webpack --progress --colors && npm run build:storybook",
@@ -126,6 +126,7 @@
     "tape": "^4.6.0",
     "tape-catch": "^1.0.6",
     "webpack": "^1.13.0",
+    "webpack-dashboard": "^0.2.0",
     "webpack-dev-server": "^1.16.1"
   }
 }

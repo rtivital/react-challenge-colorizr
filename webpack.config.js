@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
 const production = process.env.NODE_ENV === 'production';
 const pagesBuild = process.env.BUILD === 'pages';
@@ -80,6 +81,7 @@ const pluginsBase = [
 
 const developmentPlugins = [
   ...pluginsBase,
+  new DashboardPlugin({ port: 3004 }),
   new webpack.HotModuleReplacementPlugin(),
 ];
 
